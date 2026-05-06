@@ -1,0 +1,228 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/* ===================================
+   フッター
+   =================================== */
+.footer {
+  width: 100%;
+  overflow: hidden;
+
+  /* ----- メインフッターエリア ----- */
+  &__main {
+    /* PC: bg y=159, total height=615 */
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* PC: padding-top = 193-159 = 34 */
+    padding-top: vwpc(34);
+
+    @include sp {
+      /* SP: footer bg starts at y=110, logo at y=182 → padding-top = 72 */
+      padding-top: vwsp(72);
+    }
+  }
+
+  /* ロゴ */
+  &__logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__logo-img {
+    /* PC: 245.7×130.5 */
+    width: vwpc(245.7);
+    height: vwpc(130.5);
+
+    @include sp {
+      width: vwsp(245.7);
+      height: vwsp(130.5);
+    }
+  }
+
+  /* SNS icons */
+  &__sns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: vwpc(12);
+    /* PC: icons y=348, logo bottom=193+130.5=323.5 → margin-top=24.5 */
+    margin-top: vwpc(24.5);
+
+    @include sp {
+      gap: vwsp(8);
+      /* SP: icons y=347, logo bottom=182+130.5=312.5 → margin-top=34.5 */
+      margin-top: vwsp(34.5);
+    }
+  }
+
+  &__sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* PC: 26×26 */
+    width: vwpc(26);
+    height: vwpc(26);
+
+    @include sp {
+      width: vwsp(26);
+      height: vwsp(26);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* KAITAFUL FES */
+  &__fes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* PC: fes y=425, icons bottom=348+26=374 → margin-top=51 */
+    margin-top: vwpc(51);
+
+    @include sp {
+      /* SP: fes y=431.7, icons bottom=347+26=373 → margin-top=58.7 */
+      margin-top: vwsp(58.7);
+    }
+  }
+
+  &__fes-title {
+    /* PC: 403.8×62.2 */
+    width: vwpc(403.8);
+    height: vwpc(62.2);
+
+    @include sp {
+      /* SP: 288.1×44.4 */
+      width: vwsp(288.1);
+      height: vwsp(44.4);
+    }
+  }
+
+  &__fes-date {
+    /* PC: 153.8×27 */
+    width: vwpc(153.8);
+    height: vwpc(27);
+    /* PC: date y=497.4, fes title bottom=425+62.2=487.2 → margin-top=10.2 */
+    margin-top: vwpc(10.2);
+
+    @include sp {
+      /* SP: 109.7×19.3 */
+      width: vwsp(109.7);
+      height: vwsp(19.3);
+      margin-top: vwsp(7.6);
+    }
+  }
+
+  /* ナビゲーション */
+  &__nav {
+    /* PC: nav y=566, fes bottom=497.4+27=524.4 → margin-top=41.6 */
+    margin-top: vwpc(41.6);
+    text-align: center;
+
+    @include sp {
+      /* SP: nav y=531, fes bottom=483.4+19.3=502.7 → margin-top=28.3 */
+      margin-top: vwsp(28.3);
+    }
+  }
+
+  &__nav-row {
+    display: flex;
+    justify-content: center;
+    gap: vwpc(16);
+
+    @include sp {
+      gap: vwsp(12);
+    }
+
+    & + & {
+      margin-top: 0;
+    }
+
+    a {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #000;
+      text-decoration: none;
+      line-height: 24px;
+      white-space: nowrap;
+
+      @include sp {
+        font-size: 1.2rem;
+        line-height: 24px;
+      }
+    }
+  }
+
+  /* ページトップへ戻る */
+  &__top {
+    display: block;
+    /* PC: top y=639, nav bottom=566+48=614 → margin-top=25 */
+    margin-top: vwpc(25);
+    /* PC: 37×22 */
+    width: vwpc(37);
+    height: vwpc(22);
+
+    @include sp {
+      /* SP: top y=625, nav bottom=531+48=579 → margin-top=46 */
+      margin-top: vwsp(46);
+      width: vwsp(37);
+      height: vwsp(22);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* コピーライト */
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: vwpc(16);
+    /* PC: copyright y=706, top bottom=639+22=661 → margin-top=45 */
+    margin-top: vwpc(45);
+    /* PC: bottom padding: total footer=159+615=774, copyright bottom=706+22.6=728.6 → padding-bottom=45.4 */
+    padding-bottom: vwpc(45.4);
+
+    @include sp {
+      gap: vwsp(10);
+      /* SP: copyright y=676, top bottom=625+22=647 → margin-top=29 */
+      margin-top: vwsp(29);
+      padding-bottom: vwsp(29);
+    }
+  }
+
+  &__copyright-logo {
+    /* PC: 84.3×22.6 */
+    width: vwpc(84.3);
+    height: vwpc(22.6);
+
+    @include sp {
+      /* SP: 76.8×20.6 */
+      width: vwsp(76.8);
+      height: vwsp(20.6);
+    }
+  }
+
+  &__copyright-text {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #000;
+    white-space: nowrap;
+
+    @include sp {
+      font-size: 1.1rem;
+    }
+  }
+}

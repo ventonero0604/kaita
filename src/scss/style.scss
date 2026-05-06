@@ -7,9 +7,15 @@
 
 /* component */
 @use './component/annotation.scss';
+@use './component/button.scss';
+@use './component/flowing.scss';
 
 /* ui */
 @use './ui/header.scss';
+@use './ui/footer.scss';
+
+/* pages */
+@use './pages/top.scss';
 
 /* tailwind */
 @tailwind base;

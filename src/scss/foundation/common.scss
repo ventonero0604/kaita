@@ -25,10 +25,13 @@ body {
   font-size: 1.5rem;
   background: center / contain repeat-y url('../../img/bg_pc.svg') #f7f7f7;
   background-position-y: 80rem;
+  /* fixedヘッダーの高さ分 */
+  padding-top: vwpc(100);
 
   @include sp {
     background: center / contain repeat-y url('../../img/bg_sp.svg') #f7f7f7;
     background-position-y: 60rem;
+    padding-top: vwsp(67);
   }
 }
 

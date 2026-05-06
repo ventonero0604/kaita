@@ -1,6 +1,77 @@
-<header id="header">
-  <p>hoge</p>
-  <p class="mt-10">hogehoge</p>
-  <img src="./img/test.jpg" alt="">
+<header id="header" class="header">
+  <div class="header__inner">
+    <!-- SNS icons -->
+    <div class="header__sns">
+      <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_instagram.svg" alt="Instagram">
+      </a>
+      <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_x.svg" alt="X">
+      </a>
+      <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_line.svg" alt="LINE">
+      </a>
+    </div>
+
+    <!-- Logo -->
+    <a href="/" class="header__logo">
+      <img src="./img/logo_mark.svg" alt="" class="header__logo-mark">
+      <img src="./img/logo_text.svg" alt="70th Anniversary" class="header__logo-text">
+    </a>
+
+    <!-- Hamburger menu button -->
+    <button type="button" class="header__menu-btn" id="menuBtn" aria-label="メニューを開く">
+      <span class="header__menu-line"></span>
+      <span class="header__menu-line"></span>
+      <span class="header__menu-line"></span>
+    </button>
+  </div>
 </header>
 
+<!-- ハンバーガーメニュー -->
+<nav id="globalNav" class="gnav">
+  <div class="gnav__overlay" id="gnavOverlay"></div>
+  <div class="gnav__panel">
+    <!-- 閉じるボタン -->
+    <button type="button" class="gnav__close" id="gnavClose" aria-label="メニューを閉じる">
+      <span class="gnav__close-line"></span>
+      <span class="gnav__close-line"></span>
+    </button>
+
+    <!-- SNS icons (メニュー内) -->
+    <div class="gnav__sns">
+      <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_instagram.svg" alt="Instagram">
+      </a>
+      <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_x.svg" alt="X">
+      </a>
+      <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+        <img src="./img/icon_line.svg" alt="LINE">
+      </a>
+    </div>
+
+    <!-- ナビゲーション -->
+    <ul class="gnav__list">
+      <li class="gnav__item"><a href="/">トップページ</a></li>
+      <li class="gnav__item"><a href="#">海田町を知る</a></li>
+      <li class="gnav__item"><a href="#">70のストーリー</a></li>
+      <li class="gnav__item"><a href="#">イベント</a></li>
+      <li class="gnav__item"><a href="#">インタビュー</a></li>
+      <li class="gnav__item"><a href="#">海田町の事業者</a></li>
+      <li class="gnav__item"><a href="#">ニュース</a></li>
+    </ul>
+
+    <!-- KAITAFUL FES -->
+    <div class="gnav__fes">
+      <img src="./img/kaitaful_fes.svg" alt="KAITAFUL FES" class="gnav__fes-title">
+      <img src="./img/kaitaful_fes_date.svg" alt="2026.11.1sun" class="gnav__fes-date">
+    </div>
+
+    <!-- フッター -->
+    <div class="gnav__footer">
+      <img src="./img/footer_logo.svg" alt="海田町" class="gnav__footer-logo">
+      <p class="gnav__footer-copy">Copyright Kaita Town All Rights Reserved.</p>
+    </div>
+  </div>
+</nav>

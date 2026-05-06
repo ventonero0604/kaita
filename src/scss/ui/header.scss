@@ -1,0 +1,445 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: vwpc(100);
+
+    @include sp {
+      height: vwsp(67);
+    }
+  }
+
+  /* SNS icons */
+  &__sns {
+    position: absolute;
+    left: vwpc(42);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: vwpc(12);
+
+    @include sp {
+      left: vwsp(20);
+      gap: vwsp(6);
+    }
+  }
+
+  &__sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      /* Instagram: 26×26 */
+      width: vwpc(26);
+      height: vwpc(26);
+
+      @include sp {
+        width: vwsp(16);
+        height: vwsp(16);
+      }
+    }
+
+    &:nth-child(2) {
+      /* X: 25×22 */
+      width: vwpc(25);
+      height: vwpc(22);
+
+      @include sp {
+        width: vwsp(15);
+        height: vwsp(14);
+      }
+    }
+
+    &:nth-child(3) {
+      /* LINE: 27.3×26 */
+      width: vwpc(27);
+      height: vwpc(26);
+
+      @include sp {
+        width: vwsp(16);
+        height: vwsp(16);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* Logo */
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: vwpc(4);
+
+    @include sp {
+      gap: vwsp(3);
+    }
+  }
+
+  &__logo-mark {
+    /* PC: 68.3×73 */
+    width: vwpc(68);
+    height: vwpc(73);
+
+    @include sp {
+      /* SP: 44.7×47.8 */
+      width: vwsp(45);
+      height: vwsp(48);
+    }
+  }
+
+  &__logo-text {
+    /* PC: 64.7×52.4 */
+    width: vwpc(65);
+    height: vwpc(52);
+
+    @include sp {
+      /* SP: 42.4×34.3 */
+      width: vwsp(42);
+      height: vwsp(34);
+    }
+  }
+
+  /* Hamburger menu button */
+  &__menu-btn {
+    position: absolute;
+    right: vwpc(42);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* PC: 42×20 */
+    width: vwpc(42);
+    height: vwpc(20);
+    background: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include sp {
+      right: vwsp(19);
+      /* SP: 29.4×14 */
+      width: vwsp(29);
+      height: vwsp(14);
+    }
+  }
+
+  &__menu-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    border-radius: 1px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+}
+
+/* ===================================
+   グローバルナビゲーション (ハンバーガーメニュー)
+   =================================== */
+.gnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  visibility: hidden;
+
+  &.is-open {
+    pointer-events: auto;
+    visibility: visible;
+
+    .gnav__overlay {
+      opacity: 1;
+    }
+
+    .gnav__panel {
+      transform: translateX(0);
+    }
+  }
+
+  /* オーバーレイ（PC: パターン背景を隙間なくタイリング） */
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../img/pattern.png') repeat;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+
+    @include sp {
+      background: none;
+    }
+  }
+
+  /* パネル本体 */
+  &__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* PC: 640px / 1680px */
+    width: vwpc(640);
+    height: 100%;
+    background: #45b9b8;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include sp {
+      width: 100%;
+    }
+  }
+
+  /* 閉じるボタン（ハンバーガーボタンと位置を揃える） */
+  &__close {
+    position: absolute;
+    /* PC: ハンバーガーと同じ right:42, 中央揃え */
+    top: 50%;
+    right: vwpc(42);
+    width: vwpc(42);
+    height: vwpc(20);
+    transform: translateY(-50%);
+    /* ヘッダーと同じ高さ位置に配置 */
+    top: calc(vwpc(100) / 2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include sp {
+      /* SP: ハンバーガーと同じ right:19 */
+      top: calc(vwsp(67) / 2);
+      right: vwsp(19);
+      width: vwsp(29);
+      height: vwsp(14);
+    }
+  }
+
+  &__close-line {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #333;
+
+    &:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  /* メニュー内 SNS icons */
+  &__sns {
+    position: absolute;
+    /* PC: x=33, y=33 */
+    top: vwpc(33);
+    left: vwpc(33);
+    display: flex;
+    align-items: center;
+    gap: vwpc(12);
+
+    @include sp {
+      /* SP: x=20, y=23 */
+      top: vwsp(23);
+      left: vwsp(20);
+      gap: vwsp(6);
+    }
+  }
+
+  &__sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* PC: 各26×26 */
+    width: vwpc(26);
+    height: vwpc(26);
+
+    @include sp {
+      width: vwsp(16);
+      height: vwsp(16);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* ナビゲーションリスト */
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* PC: 最初のナビ項目y=157, ヘッダー分含め中央揃え */
+    padding-top: vwpc(157);
+    text-align: center;
+
+    @include sp {
+      padding-top: vwsp(107);
+    }
+  }
+
+  &__item {
+    /* PC: 各項目間隔 約67px */
+    margin-bottom: vwpc(49);
+
+    @include sp {
+      /* SP: 各項目間隔 約53px */
+      margin-bottom: vwsp(35);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      /* PC: font-size 30px → 3rem */
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+
+      @include sp {
+        /* SP: font-size 20px → 2rem */
+        font-size: 2rem;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  /* KAITAFUL FES */
+  &__fes {
+    /* PC: x=78, y=734 */
+    margin-top: auto;
+    padding: vwpc(60) vwpc(78) 0;
+    text-align: center;
+
+    @include sp {
+      padding: vwsp(40) vwsp(44) 0;
+    }
+  }
+
+  &__fes-title {
+    /* PC: 477×73.5 */
+    width: vwpc(477);
+    height: vwpc(73.5);
+    display: block;
+    margin: 0 auto;
+
+    @include sp {
+      /* SP: 288×44.4 */
+      width: vwsp(288);
+      height: vwsp(44.4);
+    }
+  }
+
+  &__fes-date {
+    /* PC: 181.6×31.9 */
+    width: vwpc(181.6);
+    height: vwpc(31.9);
+    display: block;
+    margin: vwpc(12) auto 0;
+
+    @include sp {
+      /* SP: 109.7×19.3 */
+      width: vwsp(109.7);
+      height: vwsp(19.3);
+      margin-top: vwsp(8);
+    }
+  }
+
+  /* フッター */
+  &__footer {
+    /* PC: x=158, y=1023 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: vwpc(16);
+    padding: vwpc(50) vwpc(78) vwpc(48);
+
+    @include sp {
+      gap: vwsp(10);
+      padding: vwsp(40) vwsp(40) vwsp(55);
+    }
+  }
+
+  &__footer-logo {
+    /* PC: 84.3×22.6 */
+    width: vwpc(84.3);
+    height: vwpc(22.6);
+
+    @include sp {
+      /* SP: 76.8×20.6 */
+      width: vwsp(76.8);
+      height: vwsp(20.6);
+    }
+  }
+
+  &__footer-copy {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #000;
+    white-space: nowrap;
+
+    @include sp {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* メニュー展開時、ヘッダー・mainコンテンツ・フッターを即座に非表示 */
+body.gnav-open {
+  .header {
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+  }
+
+  main,
+  .footer {
+    @include pc {
+      opacity: 0;
+      pointer-events: none;
+      transition: none;
+    }
+  }
+}

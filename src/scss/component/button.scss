@@ -1,0 +1,198 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/**
+ * ピル型 CTA（Figma: button 5:1729 ほか）
+ * ホバー挙動は HIRODEN ART TRAM の .Button に準拠
+ * https://www.hiroden.co.jp/arttram/
+ *
+ * - .Button--dark … 黒 → ホバーで #726e6f、矢印スライドアニメ
+ * - .Button--light … 白 → ホバーで同じグレーへ、文字・装飾は反転系で追随
+ */
+/* 左からワイプイン（右側 inset だと右から現れる見え方になるため、左 inset で反転） */
+@keyframes btn-arrow-slide {
+  0% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  5% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+  }
+  50% {
+    opacity: 1;
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.Button {
+  --button-bg: #000;
+  --button-bg-hover: #726e6f;
+  --button-fg: #fff;
+  --button-fg-hover: #fff;
+  --button-pad-inline-start: #{vwpc(28)};
+  /* 右は区切り・矢印ぶんを確保（メタは absolute のためテキストと重ならないように） */
+  --button-pad-inline-end: #{vwpc(52)};
+  --button-meta-right: #{vwpc(18)}; /* メタを右端寄せ（パディングとは別） */
+  --button-pad-inline-start-hover: #{vwpc(34)}; /* ART TRAM 相当のわずかな左インデント増 */
+
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: vwpc(54);
+  min-width: vwpc(313);
+  padding-inline: var(--button-pad-inline-start) var(--button-pad-inline-end);
+  border-radius: vwpc(27);
+  text-decoration: none;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    padding-inline-start 0.25s ease;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: vwpc(14.9);
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  @include sp {
+    --button-pad-inline-start: #{vwsp(24)};
+    --button-pad-inline-end: #{vwsp(52)};
+    --button-meta-right: #{vwsp(16)};
+    --button-pad-inline-start-hover: #{vwsp(24)};
+
+    /* inline-flex だとブロック親内で左寄せになるため、ブロック化して margin で中央寄せ */
+    display: flex;
+    align-self: center;
+    min-height: vwsp(51.757);
+    /* PC と同様に幅を明示（fit-content だけだと算出が不安定になりやすい）。親より広がらないよう cap */
+    width: min(100%, #{vwsp(300)});
+    margin-inline: auto;
+    padding-inline: var(--button-pad-inline-start) var(--button-pad-inline-end);
+    border-radius: vwsp(27);
+    font-size: vwsp(14.9);
+  }
+
+  /* common.scss の a:hover { opacity: .7 } より優先 */
+  &:hover {
+    opacity: 1;
+  }
+
+  &__label {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  &__meta {
+    position: absolute;
+    top: 50%;
+    right: var(--button-meta-right);
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: vwpc(14);
+
+    @include sp {
+      gap: vwsp(12);
+    }
+  }
+
+  &__divider img {
+    display: block;
+    width: 1px;
+    height: vwpc(22.5);
+
+    @include sp {
+      height: vwsp(21.565);
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    width: vwpc(16);
+    height: vwpc(16);
+
+    @include sp {
+      width: vwsp(16);
+      height: vwsp(16);
+    }
+  }
+
+  &__icon img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: rotate(180deg);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (hover: hover) {
+  .Button:hover {
+    background-color: var(--button-bg-hover);
+    color: var(--button-fg-hover);
+    padding-inline-start: var(--button-pad-inline-start-hover);
+  }
+
+  .Button:hover .Button__icon img {
+    animation: btn-arrow-slide 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  /* SP はレイアウト維持のためパディングはホバーでも変えない */
+  @include sp {
+    .Button:hover {
+      padding-inline: var(--button-pad-inline-start) var(--button-pad-inline-end);
+    }
+  }
+}
+
+.Button--light {
+  --button-bg: #fff;
+  --button-bg-hover: #726e6f;
+  --button-fg: #000;
+  --button-fg-hover: #fff;
+
+  .Button__meta img {
+    filter: none;
+  }
+
+  @media (hover: hover) {
+    &:hover .Button__meta img {
+      filter: invert(1);
+    }
+  }
+}
+
+.Button--dark {
+  --button-bg: #000;
+  --button-bg-hover: #726e6f;
+  --button-fg: #fff;
+  --button-fg-hover: #fff;
+
+  .Button__meta img {
+    filter: invert(1);
+  }
+
+  @media (hover: hover) {
+    &:hover .Button__meta img {
+      filter: invert(1);
+    }
+  }
+}

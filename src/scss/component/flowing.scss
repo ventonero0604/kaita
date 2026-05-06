@@ -1,0 +1,110 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/* ===================================
+   横スクロール＋画像切り替え コンポーネント
+   =================================== */
+.flowing {
+  width: 100%;
+  overflow: hidden;
+  /* PC: 130.5px, SP: 105.4px */
+  height: vwpc(130.5);
+
+  @include sp {
+    height: vwsp(105.4);
+  }
+}
+
+.flowing__track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: vwpc(20);
+  animation: flowingScroll 25s linear infinite;
+
+  @include sp {
+    gap: vwsp(12);
+  }
+}
+
+/* 各アイテム共通 */
+.flowing__item {
+  flex-shrink: 0;
+
+  &--logo {
+    /* PC: 122.1×130.5 */
+    width: vwpc(122.1);
+    height: vwpc(130.5);
+
+    @include sp {
+      /* SP: 98.6×105.4 */
+      width: vwsp(98.6);
+      height: vwsp(105.4);
+    }
+  }
+
+  &--slider {
+    /* PC: 123×123 (円形マスク) */
+    width: vwpc(123);
+    height: vwpc(123);
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include sp {
+      /* SP: 99.4×99.4 */
+      width: vwsp(99.4);
+      height: vwsp(99.4);
+    }
+  }
+
+  &--deco {
+    /* PC: 115.7×93.7 */
+    width: vwpc(115.7);
+    height: vwpc(93.7);
+
+    @include sp {
+      /* SP: 93.5×75.7 */
+      width: vwsp(93.5);
+      height: vwsp(75.7);
+    }
+  }
+}
+
+.flowing__logo-img,
+.flowing__deco-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* スライダー（画像切り替え） */
+.flowing__slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* スクロールアニメーション */
+@keyframes flowingScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
