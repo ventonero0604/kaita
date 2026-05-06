@@ -4,15 +4,21 @@
 /* ===================================
    横スクロール＋画像切り替え コンポーネント
    =================================== */
+
+.flowing_wrapper {
+  background: white;
+  padding: 5rem 0;
+
+  @include sp {
+    padding: 2rem 0;
+  }
+}
+
 .flowing {
   width: 100%;
   overflow: hidden;
   /* PC: 130.5px, SP: 105.4px */
-  height: vwpc(130.5);
-
-  @include sp {
-    height: vwsp(105.4);
-  }
+  background: white;
 }
 
 .flowing__track {

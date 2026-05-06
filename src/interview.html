@@ -17,339 +17,36 @@
 <body>
   {{> header}}
 
-  <main class="Top">
-    <section class="movie" aria-label="プロモーション動画">
-      <div class="movie__inner">
-        <video class="movie__video" src="./img/dummy_movie.mp4" autoplay muted playsinline loop></video>
-        <span class="movie__scrollDown" aria-hidden="true">
-          <img src="./img/scrolldown_ring.svg" alt="" class="movie__scrollDownImg" width="74" height="78"
-            decoding="async">
-          <img src="./img/scrolldown_center.svg" alt="" class="movie__scrollDownCenter" width="48" height="48"
-            decoding="async">
-        </span>
-      </div>
-    </section>
+  <main class="Interview">
+    <article class="interviewPage">
+      <div class="interviewPage__inner">
+        {{> pageTitle label="Kaitaful Days." heading="INTERVIEW" titleId="interview-page-heading"}}
 
-    <section class="flowing_wrapper">
-      {{> flowing}}
-    </section>
-
-
-    <section class="concept" aria-labelledby="concept-heading">
-      <div class="concept__inner">
-        <div class="concept__column concept__column--text">
-          <div class="concept__copy">
-            <p>あなたらしいまま、この町で。</p>
-            <p>心地いい場所にいると、自然と笑顔が増えてくる。</p>
-            <p>笑顔が増えると、この町をもっと好きになる。</p>
-            <p>気づけば海田は、あたたかい物語であふれている。</p>
-            <p>いこう。 次の70年へ。あなたらしいまま。</p>
-          </div>
-          <h2 id="concept-heading" class="concept__title-en">Kaitaful Days.</h2>
-          <p class="concept__tagline">あなたらしい、ちょうどいい暮らしを海田で。</p>
-          <a href="#" class="Button Button--light">
-            <span class="Button__label">海田町を知る</span>
-            <span class="Button__meta" aria-hidden="true">
-              <span class="Button__divider">
-                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-              </span>
-              <span class="Button__icon">
-                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-              </span>
-            </span>
-          </a>
-        </div>
-        <div class="concept__column concept__column--visual">
-          <figure class="concept__figure">
-            <img src="./img/concept_collage.jpg" alt="" width="719" height="808" loading="lazy" decoding="async">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="storyPromo" aria-label="海田町70のストーリー公開中">
-      <p class="storyPromo__text">海田町 70のStory公開中</p>
-    </section>
-
-    <section class="storySection" aria-labelledby="storySection-heading">
-      <div class="storySection__intro">
-        <p class="storySection__label">Kaitaful Days.</p>
-        <h2 id="storySection-heading" class="storySection__title">
-          <span class="storySection__titleLine">KAITA TOWN</span>
-          <span class="storySection__titleLine">70 STORIES</span>
-        </h2>
-        <p class="storySection__lead">
-          海田町の魅力を再発見する70の物語を公開。先人たちが築き上げた歴史と文化、そして未来へと向かう新しい息吹。海田町を彩る70の魅力（Kaitaful）を紐解きます。
-        </p>
-      </div>
-
-      <div class="storyCarousel js-story-carousel">
-        <div class="storyCarousel__viewport js-story-viewport" tabindex="0" aria-roledescription="carousel">
-          <div class="storyCarousel__track js-story-track">
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="1"
-              data-story-title="Story 01" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_1.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="2"
-              data-story-title="Story 02" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_2.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="3"
-              data-story-title="Story 03" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_3.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="4"
-              data-story-title="Story 04" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_4.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="5"
-              data-story-title="Story 05" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/concept_collage.jpg" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="6"
-              data-story-title="Story 06" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/footer_photo.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="7"
-              data-story-title="Story 07" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/pattern.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
-              data-story-title="Story 08（ダミー）" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_4.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="9"
-              data-story-title="Story 09（ダミー）" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_1.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="10"
-              data-story-title="Story 10（ダミー）" aria-label="ストーリー詳細を開く">
-              <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_2.png" alt="" width="525" height="657"
-                  loading="lazy" decoding="async"></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="storyCarousel__footer">
-          <div class="storyCarousel__navRow">
-            <button type="button" class="storyCarousel__navBtn storyCarousel__navBtn--prev js-story-prev"
-              aria-label="前のストーリーへ">
-              <img src="./img/story_arrow.svg" alt="" width="24" height="24">
-            </button>
-            <button type="button" class="storyCarousel__navBtn storyCarousel__navBtn--next js-story-next"
-              aria-label="次のストーリーへ">
-              <img src="./img/story_arrow.svg" alt="" width="24" height="24">
-            </button>
-          </div>
-          <a href="#" class="Button Button--dark storyCarousel__cta">
-            <span class="Button__label">海田町70のストーリー</span>
-            <span class="Button__meta" aria-hidden="true">
-              <span class="Button__divider">
-                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-              </span>
-              <span class="Button__icon">
-                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div id="storyModal" class="storyModal js-story-modal" role="dialog" aria-modal="true"
-        aria-labelledby="storyModal-title" aria-hidden="true">
-        <div class="storyModal__overlay js-story-modal-close" tabindex="-1"></div>
-        <div class="storyModal__panel">
-          <button type="button" class="storyModal__close js-story-modal-close" aria-label="閉じる">&times;</button>
-          <h3 id="storyModal-title" class="storyModal__title">ストーリー</h3>
-          <p class="storyModal__note">一覧ページは準備中です。このモーダルから詳細へ遷移できるようになります。</p>
-          <p class="storyModal__caption js-story-modal-caption"></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="eventSection" aria-labelledby="eventSection-heading">
-      <div class="eventSection__inner">
-        <div class="eventSection__intro">
-          <p class="eventSection__label">Kaitaful Days.</p>
-          <h2 id="eventSection-heading" class="eventSection__title">70th EVENT</h2>
-          <div class="eventSection__introGrid">
-            <div class="eventSection__catch">
-              <p>海田町がもっと好きになる</p>
-              <p>70周年の特別を、みんなで楽しむ。</p>
-            </div>
-            <p class="eventSection__lead">
-              70年分の「ありがとう」と、これからの「よろしく」を込めて。年間を通して、子どもから大人まで笑顔になれる多彩なイベントを開催します。この町で、新しい思い出を一緒につくりませんか？
-            </p>
-          </div>
-        </div>
-
-        <ul class="eventSection__cards eventSection__cards--pc">
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">8.19</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">広島東洋カープ 海田町記念試合</h3>
-                <p class="eventCard__place">MAZDA Zoom-Zoomスタジアム広島</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">8.19</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">広島東洋カープ 海田町記念試合</h3>
-                <p class="eventCard__place">MAZDA Zoom-Zoomスタジアム広島</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">8.19</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">広島東洋カープ 海田町記念試合</h3>
-                <p class="eventCard__place">MAZDA Zoom-Zoomスタジアム広島</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">8.19</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">広島東洋カープ 海田町記念試合</h3>
-                <p class="eventCard__place">MAZDA Zoom-Zoomスタジアム広島</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-
-        <ul class="eventSection__cards eventSection__cards--sp">
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-
-        <div class="wrapper">
-          <a href="#" class="Button Button--dark eventSection__cta">
-            <span class="Button__label">イベント一覧</span>
-            <span class="Button__meta" aria-hidden="true">
-              <span class="Button__divider">
-                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-              </span>
-              <span class="Button__icon">
-                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="interviewSection" aria-labelledby="interviewSection-heading">
-      <div class="interviewSection__inner">
-        <div class="interviewSection__intro">
-          <p class="interviewSection__label">Kaitaful Days.</p>
-          <h2 id="interviewSection-heading" class="interviewSection__title">INTERVIEW</h2>
-          <div class="interviewSection__introGrid">
-            <div class="interviewSection__catch">
+        <section class="interviewPage__intro">
+          <div class="interviewPage__introGrid">
+            <div class="interviewPage__catch">
               <p>海田町で自分らしく生きる。</p>
               <p>ちょうどいい彩り、Kaitaful Days。</p>
             </div>
-            <p class="interviewSection__lead">
+            <p class="interviewPage__lead">
               通勤の便利さ、豊かな自然、あたたかい地域の繋がり。海田町に魅力を感じて暮らす人々にインタビュー。十人十色のライフスタイルから、この町の飾らない日常が見えてきます。
             </p>
           </div>
-        </div>
+        </section>
 
-        <ul class="interviewSection__cards interviewSection__cards--pc">
+        <section class="interviewPage__keywordBlock" aria-labelledby="interview-keyword-heading">
+          <h2 id="interview-keyword-heading" class="interviewPage__keywordTitle">KEYWORD</h2>
+          <ul class="interviewPage__filters">
+            <li><button type="button" class="interviewPage__filterBtn is-active">ALL</button></li>
+            <li><button type="button" class="interviewPage__filterBtn">#移住</button></li>
+            <li><button type="button" class="interviewPage__filterBtn">#子育て</button></li>
+            <li><button type="button" class="interviewPage__filterBtn">#暮らし</button></li>
+            <li><button type="button" class="interviewPage__filterBtn">#仕事</button></li>
+            <li><button type="button" class="interviewPage__filterBtn">#地域</button></li>
+          </ul>
+        </section>
+
+        <ul class="interviewPage__cards interviewPage__cards--pc" aria-label="インタビュー一覧">
           <li class="interviewCard">
             <a href="#" class="interviewCard__link">
               <figure class="interviewCard__figure">
@@ -389,13 +86,23 @@
               <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
             </a>
           </li>
-        </ul>
-
-        <ul class="interviewSection__cards interviewSection__cards--sp">
           <li class="interviewCard">
             <a href="#" class="interviewCard__link">
               <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+                <img src="./img/interview_pc_02.png" alt="" width="476" height="476" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">海田町の魅力</p>
+              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
+              <p class="interviewCard__desc">
+                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
+              </p>
+              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
+            </a>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_pc_03.png" alt="" width="476" height="476" loading="lazy" decoding="async">
               </figure>
               <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
               <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
@@ -408,20 +115,7 @@
           <li class="interviewCard">
             <a href="#" class="interviewCard__link">
               <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+                <img src="./img/interview_pc_01.png" alt="" width="476" height="476" loading="lazy" decoding="async">
               </figure>
               <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
               <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
@@ -433,238 +127,122 @@
           </li>
         </ul>
 
-        <div class="wrapper">
-          <a href="#" class="Button Button--dark interviewSection__cta">
-            <span class="Button__label">インタビュー一覧</span>
-            <span class="Button__meta" aria-hidden="true">
-              <span class="Button__divider">
-                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-              </span>
-              <span class="Button__icon">
-                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="specialMovie" aria-labelledby="specialMovie-heading">
-      <div class="specialMovie__inner">
-        <p class="specialMovie__label">Kaitaful Days.</p>
-        <h2 id="specialMovie-heading" class="specialMovie__title">SPECIAL MOVIE</h2>
-
-        <div class="specialMovie__stage js-special-movie">
-          <video class="specialMovie__video js-special-movie-video" src="./img/dummy_movie.mp4" playsinline
-            preload="metadata"></video>
-          <div class="specialMovie__overlay js-special-movie-overlay">
-            <picture class="specialMovie__posterPic">
-              <source media="(min-width: 769px)" srcset="./img/special_movie_poster_pc.png">
-              <img src="./img/special_movie_poster_sp.png" alt="" width="375" height="211" loading="lazy"
-                decoding="async">
-            </picture>
-            <button type="button" class="specialMovie__play js-special-movie-play" aria-label="特別動画を再生">
-              <span class="specialMovie__playAsset specialMovie__playAsset--pc" aria-hidden="true">
-                <img src="./img/special_movie_play_pc.svg" alt="" width="90" height="90" decoding="async">
-              </span>
-              <span class="specialMovie__playAsset specialMovie__playAsset--sp" aria-hidden="true">
-                <img src="./img/special_movie_play_sp.svg" alt="" width="41" height="41" decoding="async">
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <div class="specialMovie__copy">
-          <p>1956年、新しい海田町として歩み始めてから70年。</p>
-          <p>70年という節目に私たちが届けたいのは、過去の振り返りではなく、 いまこの町で新しく紡がれている、 </p>
-          <p>あなたらしい「ちょうどいい暮らし」の景色。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="informationSection" aria-labelledby="information-heading">
-      <div class="informationSection__inner">
-        <div class="informationSection__sidebar">
-          <header class="informationSection__intro">
-            <p class="informationSection__label">Kaitaful Days.</p>
-            <h2 id="information-heading" class="informationSection__title">INFORMATION</h2>
-          </header>
-
-          <div class="informationSection__cta informationSection__cta--desktop">
-            <a href="#" class="Button Button--dark">
-              <span class="Button__label">お知らせ一覧</span>
-              <span class="Button__meta" aria-hidden="true">
-                <span class="Button__divider">
-                  <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-                </span>
-                <span class="Button__icon">
-                  <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-                </span>
-              </span>
+        <ul class="interviewPage__cards interviewPage__cards--sp" aria-label="インタビュー一覧">
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
+              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
+              <p class="interviewCard__desc">
+                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
+              </p>
+              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
             </a>
-          </div>
-        </div>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">海田町の魅力</p>
+              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
+              <p class="interviewCard__desc">
+                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
+              </p>
+              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
+            </a>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
+              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
+              <p class="interviewCard__desc">
+                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
+              </p>
+              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
+            </a>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">海田町の魅力</p>
+              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
+              <p class="interviewCard__desc">
+                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
+              </p>
+              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
+            </a>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
+              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
+              <p class="interviewCard__desc">
+                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
+              </p>
+              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
+            </a>
+          </li>
+          <li class="interviewCard">
+            <a href="#" class="interviewCard__link">
+              <figure class="interviewCard__figure">
+                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
+              </figure>
+              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
+              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
+              <p class="interviewCard__desc">
+                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
+              </p>
+              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
+            </a>
+          </li>
+        </ul>
 
-        <div class="informationSection__listShell">
-          <ul class="informationSection__list informationSection__list--pc">
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                <span class="informationItem__category">お知らせ</span>
-                <span class="informationItem__title">ホームページを公開しました</span>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_pc.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                <span class="informationItem__category">プレスリリース</span>
-                <span class="informationItem__title">ホームページを公開しました</span>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_pc.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                <span class="informationItem__category">更新情報</span>
-                <span class="informationItem__title">ホームページを公開しました</span>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_pc.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                <span class="informationItem__category">メディア</span>
-                <span class="informationItem__title">ホームページを公開しました</span>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_pc.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                <span class="informationItem__category">更新情報</span>
-                <span class="informationItem__title">ホームページを公開しました</span>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_pc.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
+        <nav class="interviewPage__pagination interviewPage__pagination--pc" aria-label="ページネーション">
+          <a href="#" class="interviewPage__pageArrow" aria-label="前のページ">‹</a>
+          <ul class="interviewPage__pageList">
+            <li><a href="#" class="interviewPage__pageLink is-current" aria-current="page">1</a></li>
+            <li><a href="#" class="interviewPage__pageLink">2</a></li>
+            <li><a href="#" class="interviewPage__pageLink">3</a></li>
+            <li><a href="#" class="interviewPage__pageLink">4</a></li>
+            <li><a href="#" class="interviewPage__pageLink">5</a></li>
+            <li><span class="interviewPage__pageEllipsis" aria-hidden="true">···</span></li>
+            <li><a href="#" class="interviewPage__pageLink">10</a></li>
           </ul>
+          <a href="#" class="interviewPage__pageArrow" aria-label="次のページ">›</a>
+        </nav>
 
-          <ul class="informationSection__list informationSection__list--sp">
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <div class="informationItem__body">
-                  <div class="informationItem__meta">
-                    <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                    <span class="informationItem__category">お知らせ</span>
-                  </div>
-                  <p class="informationItem__title">ホームページを公開しました</p>
-                </div>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_sp.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <div class="informationItem__body">
-                  <div class="informationItem__meta">
-                    <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                    <span class="informationItem__category">お知らせ</span>
-                  </div>
-                  <p class="informationItem__title">ホームページを公開しました</p>
-                </div>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_sp.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-            <li class="informationItem">
-              <a href="#" class="informationItem__link">
-                <div class="informationItem__body">
-                  <div class="informationItem__meta">
-                    <time class="informationItem__date" datetime="2026-05-15">2026.05.15</time>
-                    <span class="informationItem__category">お知らせ</span>
-                  </div>
-                  <p class="informationItem__title">ホームページを公開しました</p>
-                </div>
-                <span class="informationItem__arrow" aria-hidden="true">
-                  <img src="./img/information_chevron_sp.svg" alt="" width="18" height="10" decoding="async">
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <nav class="interviewPage__pagination interviewPage__pagination--sp" aria-label="ページネーション">
+          <a href="#" class="interviewPage__pageArrow" aria-disabled="true" aria-label="前のページ">‹</a>
+          <p class="interviewPage__pageStatus">Page 1 of 10</p>
+          <a href="#" class="interviewPage__pageArrow" aria-label="次のページ">›</a>
+        </nav>
 
-        <div class="informationSection__cta informationSection__cta--mobile wrapper">
-          <a href="#" class="Button Button--dark">
-            <span class="Button__label">お知らせ一覧</span>
-            <span class="Button__meta" aria-hidden="true">
-              <span class="Button__divider">
-                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
-              </span>
-              <span class="Button__icon">
-                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
-              </span>
-            </span>
-          </a>
+        <div class="interviewPage__breadcrumbBar">
+          <hr class="interviewPage__breadcrumbRule">
+          <nav class="interviewPage__breadcrumb" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="interviewPage__breadcrumbSep">/</span>
+            <span class="interviewPage__breadcrumbCurrent">INTERVIEW</span>
+          </nav>
+          <hr class="interviewPage__breadcrumbRule">
         </div>
       </div>
-    </section>
-
-    <section class="kaitafulFesBand" aria-label="KAITAFUL FES">
-      <div class="kaitafulFesBand__inner">
-        <img src="./img/kaitaful_fes_section_pc.svg" alt="おかえり。ひまわりの熱狂！ KAITAFUL FES 2026.11.1sun"
-          class="kaitafulFesBand__img kaitafulFesBand__img--pc" loading="lazy" decoding="async">
-        <img src="./img/kaitaful_fes_section_sp.svg" alt="おかえり。ひまわりの熱狂！ KAITAFUL FES 2026.11.1sun"
-          class="kaitafulFesBand__img kaitafulFesBand__img--sp" loading="lazy" decoding="async">
-      </div>
-    </section>
-
-    <section class="countdownSection js-launch-countdown" aria-label="公開カウントダウン">
-      <div class="countdownSection__bg js-launch-countdown-bg" aria-hidden="true"></div>
-
-      <div class="countdownSection__overlay">
-        <div class="countdownSection__stack">
-          <img src="./img/countdown/logo.svg" alt="Kaitaful Days 70th Anniversary" class="countdownSection__logo"
-            loading="lazy" decoding="async">
-
-          <div class="countdownSection__timer" data-deadline="2026-11-01T00:00:00+09:00">
-            <div class="countdownSection__block">
-              <div id="launchCountdownDays" class="countdownSection__num">0</div>
-              <div class="countdownSection__label">DAYS</div>
-            </div>
-            <div class="countdownSection__block">
-              <div id="launchCountdownHours" class="countdownSection__num">00</div>
-              <div class="countdownSection__label">HOURS</div>
-            </div>
-            <div class="countdownSection__block">
-              <div id="launchCountdownMinutes" class="countdownSection__num">00</div>
-              <div class="countdownSection__label">MINUTES</div>
-            </div>
-            <div class="countdownSection__block">
-              <div id="launchCountdownSeconds" class="countdownSection__num">00</div>
-              <div class="countdownSection__label">SECONDS</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </article>
 
     <section class="flowing_wrapper">
-      <!-- 横スクロール＋画像切り替えコンポーネント -->
       {{> flowing}}
     </section>
-
   </main>
 
   {{> footer}}

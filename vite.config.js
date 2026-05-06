@@ -11,6 +11,10 @@ const pageData = {
     isHome: true,
     title: 'Main Page'
   },
+  'interview.html': {
+    isHome: false,
+    title: 'インタビュー一覧 | Kaitaful Fes'
+  },
   'hoge.html': {
     isHome: false,
     title: 'Hoge'
@@ -47,7 +51,8 @@ export default defineConfig({
         manualChunks: undefined
       },
       input: {
-        index: resolve(__dirname, root, 'index.html')
+        index: resolve(__dirname, root, 'index.html'),
+        interview: resolve(__dirname, root, 'interview.html')
       }
     }
   },

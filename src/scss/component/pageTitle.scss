@@ -1,0 +1,57 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+.pageTitle {
+  /* SP — Figma sp_h2 (20:15033): 222×70 の見出しブロックを中央配置 */
+  @include sp {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: vwsp(222);
+    min-height: vwsp(70);
+    margin-inline: auto;
+  }
+
+  &__label {
+    margin: 0 0 vwpc(8);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(13);
+    line-height: vwpc(16.1);
+    color: #45b9b8;
+    text-align: center;
+
+    @include sp {
+      flex-shrink: 0;
+      margin: 0;
+      width: 100%;
+      font-size: vwsp(13);
+      line-height: vwsp(16.1);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(100);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
+    @include sp {
+      flex-shrink: 0;
+      width: 100%;
+      /* ラベル下端〜タイトル開始を Figma の inset（タイトル上端 ≈12px）に寄せる */
+      margin-top: vwsp(-4);
+      font-size: vwsp(40);
+      line-height: vwsp(57.5);
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+  }
+}

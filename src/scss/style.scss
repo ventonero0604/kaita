@@ -9,6 +9,7 @@
 @use './component/annotation.scss';
 @use './component/button.scss';
 @use './component/flowing.scss';
+@use './component/pageTitle.scss';
 
 /* ui */
 @use './ui/header.scss';
@@ -16,6 +17,7 @@
 
 /* pages */
 @use './pages/top.scss';
+@use './pages/interview.scss';
 
 /* tailwind */
 @tailwind base;
