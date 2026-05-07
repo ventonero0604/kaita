@@ -46,7 +46,7 @@ const pageData = {
   'about.html': {
     isHome: false,
     title: '海田町を知る | Kaitaful Fes'
-  },
+  }
 };
 
 const root = 'src';

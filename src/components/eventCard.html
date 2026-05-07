@@ -1,0 +1,17 @@
+<li class="eventCard">
+  <a href="{{#if href}}{{href}}{{else}}./event_detail.html{{/if}}" class="eventCard__link">
+    <div class="eventCard__thumb">
+      <img src="{{#if thumb}}{{thumb}}{{else}}./img/event_thumb.jpg{{/if}}" alt="" width="{{#if thumbW}}{{thumbW}}{{else}}476{{/if}}" height="{{#if thumbH}}{{thumbH}}{{else}}477{{/if}}" loading="lazy" decoding="async">
+    </div>
+    <div class="eventCard__body">
+      <div class="eventCard__dateRow" aria-label="開催日時">
+        <span class="eventCard__year">{{year}}</span>
+        <span class="eventCard__day">{{day}}</span>
+        <span class="eventCard__weekday">{{weekday}}</span>
+        <span class="eventCard__time">{{time}}</span>
+      </div>
+      <h3 class="eventCard__name">{{name}}</h3>
+      <p class="eventCard__place">{{place}}</p>
+    </div>
+  </a>
+</li>

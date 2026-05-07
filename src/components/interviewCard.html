@@ -1,0 +1,11 @@
+<li class="interviewCard">
+  <a href="{{#if href}}{{href}}{{else}}./interview_detail.html{{/if}}" class="interviewCard__link">
+    <figure class="interviewCard__figure">
+      <img src="{{thumb}}" alt="" width="{{#if thumbW}}{{thumbW}}{{else}}476{{/if}}" height="{{#if thumbH}}{{thumbH}}{{else}}476{{/if}}" loading="lazy" decoding="async">
+    </figure>
+    <p class="interviewCard__eyebrow">{{eyebrow}}</p>
+    <h3 class="interviewCard__title">{{title}}</h3>
+    <p class="interviewCard__desc">{{desc}}</p>
+    <p class="interviewCard__tags">{{tags}}</p>
+  </a>
+</li>

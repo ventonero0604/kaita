@@ -2,16 +2,7 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{title}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./scss/style.scss">
+  {{> head}}
 </head>
 
 <body>
@@ -44,18 +35,18 @@
             海田町の魅力を再発見する70の物語を公開。先人たちが築き上げた歴史と文化、そして未来へと向かう新しい息吹。<br>海田町を彩る70の魅力（Kaitaful）を紐解きます。
           </p>
 
-          <section class="storyPage__keywordBlock" aria-labelledby="story-keyword-heading">
-            <h2 id="story-keyword-heading" class="storyPage__keywordTitle">KEYWORD</h2>
-            <ul class="storyPage__filters">
-              <li><button type="button" class="storyPage__filterBtn is-active">ALL</button></li>
-              <li><button type="button" class="storyPage__filterBtn">＃こどもの健やかな育ちを支える</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#災害に強く安全なまち</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#地域特性を生かした基盤整備</button></li>
-              <li><button type="button" class="storyPage__filterBtn">＃環境にやさしい</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#にぎわいと交流</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#誰もが輝く</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#健康で安心して暮らせる</button></li>
-              <li><button type="button" class="storyPage__filterBtn">#海田町</button></li>
+          <section class="filterBar" aria-labelledby="story-keyword-heading">
+            <h2 id="story-keyword-heading" class="filterBar__heading">KEYWORD</h2>
+            <ul class="filterBar__list">
+              {{> filterBtn label="ALL" active=true}}
+              {{> filterBtn label="＃こどもの健やかな育ちを支える"}}
+              {{> filterBtn label="#災害に強く安全なまち"}}
+              {{> filterBtn label="#地域特性を生かした基盤整備"}}
+              {{> filterBtn label="＃環境にやさしい"}}
+              {{> filterBtn label="#にぎわいと交流"}}
+              {{> filterBtn label="#誰もが輝く"}}
+              {{> filterBtn label="#健康で安心して暮らせる"}}
+              {{> filterBtn label="#海田町"}}
             </ul>
           </section>
 
@@ -100,22 +91,12 @@
 
           {{> pagination}}
 
-          <div class="storyPage__breadcrumbBar">
-            <hr class="storyPage__breadcrumbRule">
-            <nav class="storyPage__breadcrumb" aria-label="パンくずリスト">
-              <a href="./index.html">TOP</a>
-              <span class="storyPage__breadcrumbSep">/</span>
-              <span class="storyPage__breadcrumbCurrent">70 STORIES</span>
-            </nav>
-            <hr class="storyPage__breadcrumbRule">
-          </div>
+          {{> breadcrumb current="70 STORIES"}}
         </div>
       </div>
     </article>
 
-    <section class="flowing_wrapper">
-      {{> flowing}}
-    </section>
+    {{> flowing}}
   </main>
 
   <div id="storyPageModal" class="storyPageModal js-story-page-modal" role="dialog" aria-modal="true"

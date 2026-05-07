@@ -2,16 +2,7 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{title}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./scss/style.scss">
+  {{> head}}
 </head>
 
 <body>
@@ -22,209 +13,49 @@
       <div class="interviewPage__inner">
         {{> pageTitle label="Kaitaful Days." heading="INTERVIEW" titleId="interview-page-heading"}}
 
-        <section class="interviewPage__intro">
-          <div class="interviewPage__introGrid">
-            <div class="interviewPage__catch">
-              <p>海田町で自分らしく生きる。</p>
-              <p>ちょうどいい彩り、Kaitaful Days。</p>
-            </div>
-            <p class="interviewPage__lead">
-              通勤の便利さ、豊かな自然、あたたかい地域の繋がり。海田町に魅力を感じて暮らす人々にインタビュー。十人十色のライフスタイルから、この町の飾らない日常が見えてきます。
-            </p>
-          </div>
-        </section>
+        {{> pageIntro
+          catch1="海田町で自分らしく生きる。"
+          catch2="ちょうどいい彩り、Kaitaful Days。"
+          lead="通勤の便利さ、豊かな自然、あたたかい地域の繋がり。海田町に魅力を感じて暮らす人々にインタビュー。十人十色のライフスタイルから、この町の飾らない日常が見えてきます。"
+        }}
 
-        <section class="interviewPage__keywordBlock" aria-labelledby="interview-keyword-heading">
-          <h2 id="interview-keyword-heading" class="interviewPage__keywordTitle">KEYWORD</h2>
-          <ul class="interviewPage__filters">
-            <li><button type="button" class="interviewPage__filterBtn is-active">ALL</button></li>
-            <li><button type="button" class="interviewPage__filterBtn">#移住</button></li>
-            <li><button type="button" class="interviewPage__filterBtn">#子育て</button></li>
-            <li><button type="button" class="interviewPage__filterBtn">#暮らし</button></li>
-            <li><button type="button" class="interviewPage__filterBtn">#仕事</button></li>
-            <li><button type="button" class="interviewPage__filterBtn">#地域</button></li>
+        <section class="filterBar" aria-labelledby="interview-keyword-heading">
+          <h2 id="interview-keyword-heading" class="filterBar__heading">KEYWORD</h2>
+          <ul class="filterBar__list">
+            {{> filterBtn label="ALL" active=true}}
+            {{> filterBtn label="#移住"}}
+            {{> filterBtn label="#子育て"}}
+            {{> filterBtn label="#暮らし"}}
+            {{> filterBtn label="#仕事"}}
+            {{> filterBtn label="#地域"}}
           </ul>
         </section>
 
         <ul class="interviewPage__cards interviewPage__cards--pc" aria-label="インタビュー一覧">
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_01.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_02.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">海田町の魅力</p>
-              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
-              <p class="interviewCard__desc">
-                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
-              </p>
-              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_03.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_02.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">海田町の魅力</p>
-              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
-              <p class="interviewCard__desc">
-                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
-              </p>
-              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_03.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_pc_01.png" alt="" width="476" height="476" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
+          {{> interviewCard thumb="./img/interview_pc_01.png" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_pc_02.png" eyebrow="海田町の魅力" title="東広島市から引っ越してきました" desc="瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。" tags="＃移住　＃引っ越し"}}
+          {{> interviewCard thumb="./img/interview_pc_03.png" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_pc_02.png" eyebrow="海田町の魅力" title="東広島市から引っ越してきました" desc="瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。" tags="＃移住　＃引っ越し"}}
+          {{> interviewCard thumb="./img/interview_pc_03.png" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_pc_01.png" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
         </ul>
 
         <ul class="interviewPage__cards interviewPage__cards--sp" aria-label="インタビュー一覧">
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">海田町の魅力</p>
-              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
-              <p class="interviewCard__desc">
-                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
-              </p>
-              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">海田町の魅力</p>
-              <h3 class="interviewCard__title">東広島市から引っ越してきました</h3>
-              <p class="interviewCard__desc">
-                瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。
-              </p>
-              <p class="interviewCard__tags">＃移住　＃引っ越し</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
-          <li class="interviewCard">
-            <a href="#" class="interviewCard__link">
-              <figure class="interviewCard__figure">
-                <img src="./img/interview_sp.png" alt="" width="300" height="300" loading="lazy" decoding="async">
-              </figure>
-              <p class="interviewCard__eyebrow">あなたらしい、ちょうどいい暮らし</p>
-              <h3 class="interviewCard__title">私が海田町を選んだ理由</h3>
-              <p class="interviewCard__desc">
-                保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
-              </p>
-              <p class="interviewCard__tags">＃子育て　＃ネウボラ</p>
-            </a>
-          </li>
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="海田町の魅力" title="東広島市から引っ越してきました" desc="瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。" tags="＃移住　＃引っ越し"}}
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="海田町の魅力" title="東広島市から引っ越してきました" desc="瀬野川や山々など、自然を感じられる環境がすぐそばに。四季の変化を感じながら暮らせます。" tags="＃移住　＃引っ越し"}}
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
+          {{> interviewCard thumb="./img/interview_sp.png" thumbW="300" thumbH="300" eyebrow="あなたらしい、ちょうどいい暮らし" title="私が海田町を選んだ理由" desc="保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。" tags="＃子育て　＃ネウボラ"}}
         </ul>
 
         {{> pagination}}
 
-        <div class="interviewPage__breadcrumbBar">
-          <hr class="interviewPage__breadcrumbRule">
-          <nav class="interviewPage__breadcrumb" aria-label="パンくずリスト">
-            <a href="./index.html">TOP</a>
-            <span class="interviewPage__breadcrumbSep">/</span>
-            <span class="interviewPage__breadcrumbCurrent">INTERVIEW</span>
-          </nav>
-          <hr class="interviewPage__breadcrumbRule">
-        </div>
+        {{> breadcrumb current="INTERVIEW"}}
       </div>
     </article>
 
-    <section class="flowing_wrapper">
-      {{> flowing}}
-    </section>
+    {{> flowing}}
   </main>
 
   {{> footer}}

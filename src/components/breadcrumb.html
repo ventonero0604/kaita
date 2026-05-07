@@ -1,0 +1,14 @@
+<div class="breadcrumb__bar{{#if barModifier}} breadcrumb__bar--{{barModifier}}{{/if}}">
+  <hr class="breadcrumb__rule">
+  <nav class="breadcrumb__nav" aria-label="パンくずリスト">
+    <a href="./index.html">TOP</a>
+    <span class="breadcrumb__sep">/</span>
+    {{#if parentHref}}
+    <a href="{{parentHref}}">{{parentLabel}}</a>
+    <span class="breadcrumb__sep">/</span>
+    {{/if}}
+    <span
+      class="breadcrumb__current{{#if currentModifier}} breadcrumb__current--{{currentModifier}}{{/if}}">{{current}}</span>
+  </nav>
+  <hr class="breadcrumb__rule">
+</div>

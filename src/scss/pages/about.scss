@@ -440,38 +440,9 @@
       padding-top: vwsp(12);
       padding-bottom: vwsp(40);
     }
-  }
 
-  &__breadcrumbRule {
-    margin: 0;
-    border: none;
-    border-top: 1px solid #e0e0e0;
-  }
-
-  &__breadcrumb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: vwpc(8);
-    padding-block: vwpc(16);
-    font-family: 'Inter', sans-serif;
-    font-size: vwpc(12);
-    text-transform: uppercase;
-
-    @include sp {
-      gap: vwsp(8);
-      padding-block: vwsp(12);
-      font-size: vwsp(12);
+    .breadcrumb__bar {
+      margin-bottom: 0;
     }
-
-    a {
-      text-decoration: none;
-      color: #45b9b8;
-    }
-  }
-
-  &__breadcrumbSep,
-  &__breadcrumbCurrent {
-    color: #6b6b6b;
   }
 }

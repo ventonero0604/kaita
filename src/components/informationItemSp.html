@@ -1,0 +1,14 @@
+<li class="informationItem">
+  <a href="{{#if href}}{{href}}{{else}}./information_detail.html{{/if}}" class="informationItem__link">
+    <div class="informationItem__body">
+      <div class="informationItem__meta">
+        <time class="informationItem__date" datetime="{{dateTime}}">{{date}}</time>
+        <span class="informationItem__category">{{category}}</span>
+      </div>
+      <p class="informationItem__title">{{title}}</p>
+    </div>
+    <span class="informationItem__arrow" aria-hidden="true">
+      <img src="./img/information_chevron_sp.svg" alt="" width="18" height="10" decoding="async">
+    </span>
+  </a>
+</li>

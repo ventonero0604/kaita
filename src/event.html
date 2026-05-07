@@ -2,16 +2,7 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{title}}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./scss/style.scss">
+  {{> head}}
 </head>
 
 <body>
@@ -22,204 +13,44 @@
       <div class="eventPage__inner">
         {{> pageTitle label="Kaitaful Days." heading="70th EVENT" titleId="event-page-heading"}}
 
-        <section class="eventPage__intro">
-          <div class="eventPage__introGrid">
-            <div class="eventPage__catch">
-              <p>海田町がもっと好きになる</p>
-              <p>70周年の特別を、みんなで楽しむ。</p>
-            </div>
-            <p class="eventPage__lead">
-              70年分の「ありがとう」と、これからの「よろしく」を込めて。年間を通して、子どもから大人まで笑顔になれる多彩なイベントを開催します。この町で、新しい思い出を一緒につくりませんか？
-            </p>
-          </div>
-        </section>
+        {{> pageIntro
+          catch1="海田町がもっと好きになる"
+          catch2="70周年の特別を、みんなで楽しむ。"
+          lead="70年分の「ありがとう」と、これからの「よろしく」を込めて。年間を通して、子どもから大人まで笑顔になれる多彩なイベントを開催します。この町で、新しい思い出を一緒につくりませんか？"
+        }}
 
-        <section class="eventPage__keywordBlock" aria-labelledby="event-keyword-heading">
-          <h2 id="event-keyword-heading" class="eventPage__keywordTitle">KEYWORD</h2>
-          <ul class="eventPage__filters">
-            <li><button type="button" class="eventPage__filterBtn is-active">ALL</button></li>
-            <li><button type="button" class="eventPage__filterBtn">#子育て</button></li>
-            <li><button type="button" class="eventPage__filterBtn">#ネウボラ</button></li>
-            <li><button type="button" class="eventPage__filterBtn">#海田町</button></li>
+        <section class="filterBar" aria-labelledby="event-keyword-heading">
+          <h2 id="event-keyword-heading" class="filterBar__heading">KEYWORD</h2>
+          <ul class="filterBar__list">
+            {{> filterBtn label="ALL" active=true}}
+            {{> filterBtn label="#子育て"}}
+            {{> filterBtn label="#ネウボラ"}}
+            {{> filterBtn label="#海田町"}}
           </ul>
         </section>
 
         <ul class="eventPage__cards eventPage__cards--pc" aria-label="イベント一覧">
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
         </ul>
 
         <ul class="eventPage__cards eventPage__cards--sp" aria-label="イベント一覧">
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
-          <li class="eventCard">
-            <a href="#" class="eventCard__link">
-              <div class="eventCard__thumb">
-                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
-              </div>
-              <div class="eventCard__body">
-                <div class="eventCard__dateRow" aria-label="開催日時">
-                  <span class="eventCard__year">2026.</span>
-                  <span class="eventCard__day">5.31</span>
-                  <span class="eventCard__weekday">水曜日</span>
-                  <span class="eventCard__time">11:00-19:00</span>
-                </div>
-                <h3 class="eventCard__name">海田町防災フェア</h3>
-                <p class="eventCard__place">海田町役場</p>
-              </div>
-            </a>
-          </li>
+          {{> eventCard thumbW="300" thumbH="301" year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard thumbW="300" thumbH="301" year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
+          {{> eventCard thumbW="300" thumbH="301" year="2026." day="5.31" weekday="水曜日" time="11:00-19:00" name="海田町防災フェア" place="海田町役場"}}
         </ul>
 
         {{> pagination}}
 
-        <div class="eventPage__breadcrumbBar">
-          <hr class="eventPage__breadcrumbRule">
-          <nav class="eventPage__breadcrumb" aria-label="パンくずリスト">
-            <a href="./index.html">TOP</a>
-            <span class="eventPage__breadcrumbSep">/</span>
-            <span class="eventPage__breadcrumbCurrent">EVENT</span>
-          </nav>
-          <hr class="eventPage__breadcrumbRule">
-        </div>
+        {{> breadcrumb current="EVENT"}}
       </div>
     </article>
 
-    <section class="flowing_wrapper">
-      {{> flowing}}
-    </section>
+    {{> flowing}}
   </main>
 
   {{> footer}}

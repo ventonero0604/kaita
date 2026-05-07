@@ -1,0 +1,123 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+.pageIntro {
+  margin: 0 0 vwpc(56);
+
+  @include sp {
+    margin-bottom: vwsp(40);
+  }
+
+  &__inner {
+    @include pc {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: vwpc(48) vwpc(64);
+      align-items: start;
+    }
+
+    @include sp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: vwsp(16);
+    }
+  }
+
+  &__catch {
+    margin: 0;
+
+    p {
+      margin: 0;
+      font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+      font-weight: 500;
+      font-size: vwpc(30);
+      line-height: vwpc(48);
+
+      @include sp {
+        font-size: vwsp(18);
+        line-height: 1.5;
+        text-align: center;
+      }
+    }
+
+    @include pc {
+      max-width: vwpc(605);
+    }
+
+    @include sp {
+      max-width: vwsp(299);
+    }
+  }
+
+  &__lead {
+    margin: 0;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(16);
+    line-height: vwpc(28.8);
+
+    @include pc {
+      max-width: vwpc(680);
+      justify-self: end;
+      text-align: left;
+    }
+
+    @include sp {
+      max-width: vwsp(300);
+      margin-inline: auto;
+      font-size: vwsp(12);
+      line-height: 1.5;
+      text-align: left;
+    }
+  }
+
+  /* center variant: information ページのような中央寄せ */
+  &--center {
+    margin: 0 auto vwpc(52);
+    max-width: vwpc(560);
+
+    @include sp {
+      margin-bottom: vwsp(36);
+      max-width: vwsp(299);
+    }
+
+    .pageIntro__inner {
+      display: block;
+    }
+
+    .pageIntro__catch {
+      margin: 0 0 vwpc(24);
+      max-width: none;
+      text-align: center;
+
+      p {
+        font-size: vwpc(30);
+        line-height: 1.5;
+
+        @include sp {
+          font-size: vwsp(18);
+          text-align: left;
+        }
+      }
+
+      @include sp {
+        margin-bottom: vwsp(18);
+        max-width: none;
+      }
+    }
+
+    .pageIntro__lead {
+      max-width: none;
+      text-align: center;
+      justify-self: unset;
+
+      @include sp {
+        max-width: none;
+        font-size: vwsp(12);
+        line-height: 1.5;
+        text-align: left;
+      }
+    }
+  }
+}
