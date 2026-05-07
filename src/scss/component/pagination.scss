@@ -1,0 +1,131 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+.pagination {
+  margin-block: vwpc(48);
+
+  @include sp {
+    margin-block: vwsp(32);
+  }
+}
+
+.pagination__nav--pc {
+  display: none;
+
+  @include pc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vwpc(24);
+  }
+}
+
+.pagination__nav--sp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: vwsp(24);
+  width: min(100%, #{vwsp(300)});
+  margin-inline: auto;
+
+  @include pc {
+    display: none;
+  }
+}
+
+.pagination__arrow {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: vwpc(44);
+  height: vwpc(44);
+  border: 1px solid #000;
+  border-radius: 50%;
+  font-family: 'Inter', sans-serif;
+  font-size: vwpc(18);
+  line-height: 1;
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.65;
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  @include sp {
+    width: vwsp(44);
+    height: vwsp(44);
+    font-size: vwsp(18);
+  }
+}
+
+.pagination__arrow--square {
+  @include sp {
+    border: 1px solid #d5d7da;
+    border-radius: vwsp(8);
+    background: #fff;
+    font-size: vwsp(16);
+    box-shadow:
+      0 1px 2px rgb(10 13 18 / 5%),
+      inset 0 -2px 0 rgb(10 13 18 / 5%),
+      inset 0 0 0 1px rgb(10 13 18 / 18%);
+  }
+}
+
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: vwpc(8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: vwpc(36);
+  min-height: vwpc(36);
+  padding: vwpc(4) vwpc(8);
+  border-radius: vwpc(4);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: vwpc(14);
+  line-height: 1;
+  color: #6b6b6b;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.is-current {
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+.pagination__ellipsis {
+  font-family: 'Inter', sans-serif;
+  font-size: vwpc(14);
+  letter-spacing: 0.08em;
+  color: #6b6b6b;
+}
+
+.pagination__status {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  font-size: vwsp(14);
+  line-height: vwsp(20);
+  color: #414651;
+  white-space: nowrap;
+}

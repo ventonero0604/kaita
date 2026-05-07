@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./scss/style.scss">
+</head>
+
+<body>
+  {{> header}}
+
+  <main class="Event">
+    <div class="eventDetail">
+      <div class="eventDetail__inner">
+        {{> detailTitle label="Kaitaful Days." heading="EVENT" titleId="event-detail-heading"}}
+
+        <section class="eventDetail__hero">
+          <figure class="eventDetail__thumb">
+            <img src="./img/event_thumb.jpg" alt="" width="568" height="570" loading="eager" decoding="async">
+          </figure>
+          <div class="eventDetail__meta">
+            <div class="eventDetail__dateRow" aria-label="開催日時">
+              <p>
+                <span class="eventDetail__year">2026.</span>
+              </p>
+              <p>
+                <span class="eventDetail__day">8.19</span>
+                <span class="eventDetail__weekday">日曜日</span>
+              </p>
+              <p>
+                <span class="eventDetail__time">19:00-22:00</span>
+              </p>
+            </div>
+            <p class="eventDetail__postTitle">広島東洋カープ 海田町記念試合</p>
+            <p class="eventDetail__venue">MAZDA Zoom-Zoomスタジアム広島</p>
+          </div>
+        </section>
+
+        <hr class="eventDetail__divider" aria-hidden="true">
+
+        <div class="eventDetail__article">
+          <article class="wpArticle">
+            <div class="wpArticle__body">
+              <p>
+                令和７年度、市民モデルに選ばれた雨宮さんご家族。５年前に世田谷区から引っ越してきて、いまは二児の子育て中。「流山市のイメージは、「田舎」という感じであったが、激変した。」と語る雨宮真理子さん。都内で感じていた
+                “窮屈さ”が、流山でどう変わったのか。日々の子育ての様子と一緒に、教えてくれました。
+              </p>
+              <h2>緑と自然が“子どもの日常”になっている</h2>
+              <p>
+                世田谷区から流山おおたかの森駅の近くに引っ越してきて、５年くらいになります。流山おおたかの森駅にある流山おおたかの森Ｓ・Ｃなどショッピングする場所がたくさんあり、すごく便利で素敵なんですけど、私は近くに緑豊かな流山市総合運動公園があったり、スーパーや病院等も近くにあり、またスタバもあって（流山にそういうお店があること自体、最初はびっくりしました）、駅の方に行かなくても生活に必要なものが近場でちゃんと揃う感じが好きになりました。
+              </p>
+              <p>
+                都内にいた頃は、どこか狭くて窮屈さを感じていたんですけど、今は「まちの中に緑がこんなにあるんだ」って。街中のみどりの多さ、自然の多さ、市内のさまざまな場所で四季を感じられるのが、流山の一番の魅力だと思っています。
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <section class="eventDetail__media" aria-label="記事イメージ">
+          <figure class="eventDetail__figure">
+            <img class="eventDetail__figureImg" src="./img/event_thumb.jpg" alt="" width="820" height="508"
+              loading="lazy" decoding="async">
+            <figcaption class="eventDetail__caption">
+              流山に住んでよかったことは、緑や自然が本当にいっぱいあるところです。４歳の長女はお外で遊ぶことが大好きなので、家の近くにある流山市総合運動公園によく行きます。緑に囲まれた場所で、娘がのびのび遊んでいる姿を見ると、「流山に住んでよかったな」って改めて感じるんです。
+            </figcaption>
+          </figure>
+        </section>
+
+        <hr class="eventDetail__divider" aria-hidden="true">
+
+        {{> sns label="SHARE" labelId="event-share-label"}}
+      </div>
+
+      {{> eventSection}}
+
+      <div class="eventDetail__inner eventDetail__inner--footer">
+        <div class="eventDetail__breadcrumbBar">
+          <hr class="eventDetail__breadcrumbRule">
+          <nav class="eventDetail__breadcrumb" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="eventDetail__breadcrumbSep">/</span>
+            <a href="./event.html">EVENT</a>
+            <span class="eventDetail__breadcrumbSep">/</span>
+            <span class="eventDetail__breadcrumbCurrent">広島東洋カープ 海田町記念試合</span>
+          </nav>
+          <hr class="eventDetail__breadcrumbRule">
+        </div>
+      </div>
+    </div>
+
+    <section class="flowing_wrapper">
+      {{> flowing}}
+    </section>
+  </main>
+
+  {{> footer}}
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

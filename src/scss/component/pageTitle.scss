@@ -9,7 +9,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: vwsp(222);
     min-height: vwsp(70);
     margin-inline: auto;
   }
@@ -46,7 +45,6 @@
     @include sp {
       flex-shrink: 0;
       width: 100%;
-      /* ラベル下端〜タイトル開始を Figma の inset（タイトル上端 ≈12px）に寄せる */
       margin-top: vwsp(-4);
       font-size: vwsp(40);
       line-height: vwsp(57.5);

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./scss/style.scss">
+</head>
+
+<body>
+  {{> header}}
+
+  <main class="Information">
+    <div class="informationDetail">
+      <div class="informationDetail__inner">
+        {{> detailTitle label="Kaitaful Days." heading="INFORMATION" titleId="information-detail-heading"}}
+
+        <section class="informationDetail__head">
+          <div class="informationDetail__metaRow">
+            <time class="informationDetail__date" datetime="2026-05-15">2026.05.15</time>
+            <span class="informationDetail__category">お知らせ</span>
+          </div>
+          <h2 class="informationDetail__postTitle">緑に囲まれて、娘たちがのびのび育っていく 緑に囲まれて、</h2>
+        </section>
+
+        <div class="informationDetail__article">
+          <article class="wpArticle">
+            <div class="wpArticle__body">
+              <p>
+                世田谷区から流山おおたかの森駅の近くに引っ越してきて、５年くらいになります。流山おおたかの森駅にある流山おおたかの森Ｓ・Ｃなどショッピングする場所がたくさんあり、すごく便利で素敵なんですけど、私は近くに緑豊かな流山市総合運動公園があったり、スーパーや病院等も近くにあり、またスタバもあって（流山にそういうお店があること自体、最初はびっくりしました）、駅の方に行かなくても生活に必要なものが近場でちゃんと揃う感じが好きになりました。
+              </p>
+              <p>
+                都内にいた頃は、どこか狭くて窮屈さを感じていたんですけど、今は「まちの中に緑がこんなにあるんだ」って。街中のみどりの多さ、自然の多さ、市内のさまざまな場所で四季を感じられるのが、流山の一番の魅力だと思っています。
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <section class="informationDetail__media" aria-label="記事イメージ">
+          <figure class="informationDetail__figure">
+            <img class="informationDetail__figureImg" src="./img/event_thumb.jpg" alt="" width="820" height="508"
+              loading="lazy" decoding="async">
+          </figure>
+        </section>
+
+        <hr class="informationDetail__divider" aria-hidden="true">
+
+        {{> sns label="SHARE" labelId="information-share-label"}}
+
+        <div class="informationDetail__cta">
+          <a href="./information.html" class="Button Button--dark">
+            <span class="Button__label">お知らせ一覧</span>
+            <span class="Button__meta" aria-hidden="true">
+              <span class="Button__divider">
+                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
+              </span>
+              <span class="Button__icon">
+                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <div class="informationDetail__breadcrumbBar">
+          <hr class="informationDetail__breadcrumbRule">
+          <nav class="informationDetail__breadcrumb" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="informationDetail__breadcrumbSep">/</span>
+            <a href="./information.html">INFORMATION</a>
+            <span class="informationDetail__breadcrumbSep">/</span>
+            <span class="informationDetail__breadcrumbCurrent">緑に囲まれて、娘たちがのびのび育っていく</span>
+          </nav>
+          <hr class="informationDetail__breadcrumbRule">
+        </div>
+      </div>
+    </div>
+
+    <section class="flowing_wrapper">
+      {{> flowing}}
+    </section>
+  </main>
+
+  {{> footer}}
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+.Interview .interviewDetail {
+  background: #fff;
+  color: #000;
+  padding-block: vwpc(48) 0;
+
+  @include sp {
+    padding-block: vwsp(24) 0;
+  }
+
+  .detailTitle {
+    margin-bottom: vwpc(40);
+
+    @include sp {
+      margin-bottom: vwsp(24);
+    }
+  }
+
+  &__inner {
+    box-sizing: border-box;
+    max-width: calc(1680 * 100vw / 1680);
+    margin-inline: auto;
+    padding-inline: vwpc(91);
+
+    @include sp {
+      padding-inline: vwsp(38);
+    }
+  }
+
+  &__inner--footer {
+    padding-bottom: vwpc(40);
+
+    @include sp {
+      padding-bottom: vwsp(10);
+    }
+  }
+
+  &__hero {
+    margin-bottom: vwpc(40);
+
+    @include sp {
+      margin-bottom: vwsp(24);
+    }
+
+    @include pc {
+      display: flex;
+      gap: vwpc(55);
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include sp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__thumb {
+    margin: 0;
+    overflow: hidden;
+    border-radius: vwpc(18);
+    width: vwpc(568);
+
+    @include sp {
+      width: 100%;
+      border-radius: vwsp(12);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: top;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+
+      @include sp {
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+
+  &__meta {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: vwpc(460);
+    padding-top: vwpc(8);
+
+    @include pc {
+      /* Figma: 画像横テキストカラム幅 460px 相当 */
+      flex-shrink: 0;
+    }
+
+    @include sp {
+      max-width: vwsp(320);
+      margin-inline: auto;
+      padding-top: vwsp(16);
+    }
+  }
+
+  /* Figma 7:18010 — キャッチ（ターコイズ・Noto Sans JP Semibold） */
+  &__eyebrow {
+    margin: 0 0 vwpc(16);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(18.667);
+    line-height: vwpc(28);
+    color: #45b9b8;
+
+    @include sp {
+      margin-bottom: vwsp(8);
+      font-size: vwsp(12);
+      font-weight: 600;
+      line-height: vwsp(28);
+    }
+  }
+
+  &__date {
+    display: block;
+    margin: 0 0 vwpc(16);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(14);
+    line-height: vwpc(26);
+    color: #6b6b6b;
+    text-align: left;
+
+    @include sp {
+      margin-bottom: vwsp(8);
+      font-size: vwsp(12);
+      line-height: vwsp(26);
+    }
+  }
+
+  &__postTitle {
+    margin: 0 0 vwpc(16);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: vwpc(28);
+    line-height: vwpc(42);
+    letter-spacing: -0.02em;
+
+    @include sp {
+      margin-bottom: vwsp(16);
+      font-size: vwsp(20);
+      line-height: 1.7;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__lead {
+    margin: 0 0 vwpc(24);
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(16);
+    line-height: vwpc(28.8);
+
+    @include sp {
+      margin-bottom: vwsp(24);
+      font-size: vwsp(12);
+      line-height: 1.5;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vwpc(12);
+    margin: 5rem 0 0 0;;
+    padding: 0;
+    list-style: none;
+
+    @include sp {
+      gap: vwsp(10);
+    }
+  }
+
+  &__tag {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: vwpc(25);
+    padding: vwpc(4) vwpc(14);
+    border: 1px solid #45b9b8;
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(12);
+    line-height: 1.4;
+    color: #45b9b8;
+
+    @include sp {
+      min-height: vwsp(22);
+      padding: vwsp(4) vwsp(10);
+      font-size: vwsp(12);
+      line-height: vwsp(18);
+    }
+  }
+
+  &__divider {
+    margin: vwpc(48) auto;
+    width: 100%;
+    max-width: vwpc(1200);
+    border: none;
+    border-top: 1px solid #e0e0e0;
+
+    @include sp {
+      margin: vwsp(32) auto;
+      max-width: 100%;
+    }
+  }
+
+  &__article {
+    margin-bottom: vwpc(48);
+
+    @include sp {
+      margin-bottom: vwsp(32);
+    }
+  }
+
+  &__media {
+    margin-bottom: vwpc(48);
+
+    @include sp {
+      margin-bottom: vwsp(32);
+    }
+  }
+
+  &__figure {
+    margin: 0 auto;
+    max-width: vwpc(820);
+
+    @include sp {
+      max-width: vwsp(320);
+    }
+  }
+
+  &__figureImg {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: vwpc(12);
+    vertical-align: top;
+
+    @include sp {
+      border-radius: vwsp(12);
+    }
+  }
+
+  &__caption {
+    margin: vwpc(16) 0 0;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(14);
+    line-height: vwpc(22);
+
+    @include sp {
+      margin-top: vwsp(12);
+      font-size: vwsp(12);
+      line-height: 1.65;
+    }
+  }
+
+  .sns {
+    margin-bottom: vwpc(80);
+
+    @include sp {
+      margin-bottom: vwsp(48);
+    }
+  }
+
+  &__breadcrumbBar {
+    margin-bottom: vwpc(48);
+
+    @include sp {
+      margin-bottom: vwsp(40);
+    }
+  }
+
+  &__breadcrumbRule {
+    margin: 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: vwpc(8);
+    padding-block: vwpc(16);
+    font-family: 'Inter', sans-serif;
+    font-size: vwpc(12);
+    line-height: vwpc(12);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    @include sp {
+      justify-content: center;
+      gap: vwsp(8);
+      padding-block: vwsp(16);
+      font-size: vwsp(12);
+      line-height: vwsp(12);
+    }
+  }
+
+  &__breadcrumb a {
+    font-weight: 400;
+    color: #45b9b8;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__breadcrumbSep {
+    font-weight: 400;
+    color: #6b6b6b;
+  }
+
+  &__breadcrumbCurrent {
+    font-weight: 500;
+    color: #6b6b6b;
+    max-width: vwpc(400);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include sp {
+      max-width: vwsp(200);
+      white-space: normal;
+      text-align: center;
+    }
+  }
+
+  &__promo {
+    margin: 0 0 vwsp(40);
+    text-align: center;
+
+    img {
+      display: inline-block;
+      width: min(100%, #{vwsp(300)});
+      height: auto;
+      vertical-align: top;
+    }
+  }
+}

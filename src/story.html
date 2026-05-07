@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./scss/style.scss">
+</head>
+
+<body>
+  {{> header}}
+
+  <main class="Story">
+    <article class="storyPage">
+      <header class="storyPage__hero" aria-label="ストーリー紹介動画">
+        <div class="storyPage__heroMedia">
+          <video class="storyPage__heroVideo" src="./img/dummy_movie.mp4" autoplay muted playsinline loop></video>
+          <div class="storyPage__heroOverlay">
+            <p class="storyPage__heroMovieTag">MOVIE</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="storyPage__inner">
+        <div class="storyPage__sheet">
+          <header class="storyPage__pageHead">
+            <h1 id="story-page-heading" class="storyPage__mainTitle">
+              <span class="storyPage__mainTitleLine">KAITA TOWN 70 STORIES</span>
+            </h1>
+            <p class="storyPage__releaseLine">
+              <span class="storyPage__releaseDate font-bold">2026. MAY.</span>
+              <span class="storyPage__releaseTag">10STORIES RELEASE</span>
+            </p>
+          </header>
+
+          <p class="storyPage__lead">
+            海田町の魅力を再発見する70の物語を公開。先人たちが築き上げた歴史と文化、そして未来へと向かう新しい息吹。<br>海田町を彩る70の魅力（Kaitaful）を紐解きます。
+          </p>
+
+          <section class="storyPage__keywordBlock" aria-labelledby="story-keyword-heading">
+            <h2 id="story-keyword-heading" class="storyPage__keywordTitle">KEYWORD</h2>
+            <ul class="storyPage__filters">
+              <li><button type="button" class="storyPage__filterBtn is-active">ALL</button></li>
+              <li><button type="button" class="storyPage__filterBtn">＃こどもの健やかな育ちを支える</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#災害に強く安全なまち</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#地域特性を生かした基盤整備</button></li>
+              <li><button type="button" class="storyPage__filterBtn">＃環境にやさしい</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#にぎわいと交流</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#誰もが輝く</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#健康で安心して暮らせる</button></li>
+              <li><button type="button" class="storyPage__filterBtn">#海田町</button></li>
+            </ul>
+          </section>
+
+          <div class="storyPage__sortBar" role="group" aria-label="並び替え">
+            <p class="storyPage__sortLead">
+              <span class="storyPage__sortLeadIcon" aria-hidden="true">
+                <img src="./img/story/sort/switch-horizontal.svg" alt="" width="24" height="24" decoding="async">
+              </span>
+              並び替え
+            </p>
+            <div class="storyPage__sortChoices" role="tablist" aria-label="ストーリーの並び替え方式">
+              <button type="button" class="storyPage__sortChoice is-active" role="tab" aria-selected="true">
+                <span class="storyPage__sortChoiceIcon" aria-hidden="true">
+                  <img src="./img/story/sort/refresh.svg" alt="" width="24" height="24" decoding="async">
+                </span>
+                <span class="storyPage__sortChoiceLabel">ランダムに並び替え</span>
+              </button>
+              <button type="button" class="storyPage__sortChoice" role="tab" aria-selected="false">
+                <span class="storyPage__sortChoiceIcon" aria-hidden="true">
+                  <img src="./img/story/sort/arrow-down.svg" alt="" width="24" height="24" decoding="async">
+                </span>
+                <span class="storyPage__sortChoiceLabel">新着順</span>
+              </button>
+              <button type="button" class="storyPage__sortChoice" role="tab" aria-selected="false">
+                <span class="storyPage__sortChoiceIcon" aria-hidden="true">
+                  <img src="./img/story/sort/arrow-up.svg" alt="" width="24" height="24" decoding="async">
+                </span>
+                <span class="storyPage__sortChoiceLabel">古い順</span>
+              </button>
+              <button type="button" class="storyPage__sortChoice" role="tab" aria-selected="false">
+                <span class="storyPage__sortChoiceIcon" aria-hidden="true">
+                  <img src="./img/story/sort/star.svg" alt="" width="24" height="24" decoding="async">
+                </span>
+                <span class="storyPage__sortChoiceLabel">人気順</span>
+              </button>
+            </div>
+          </div>
+
+          <section class="storyPage__listSection" aria-label="ストーリー一覧">
+            {{> storyGrid}}
+          </section>
+
+          {{> pagination}}
+
+          <div class="storyPage__breadcrumbBar">
+            <hr class="storyPage__breadcrumbRule">
+            <nav class="storyPage__breadcrumb" aria-label="パンくずリスト">
+              <a href="./index.html">TOP</a>
+              <span class="storyPage__breadcrumbSep">/</span>
+              <span class="storyPage__breadcrumbCurrent">70 STORIES</span>
+            </nav>
+            <hr class="storyPage__breadcrumbRule">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="flowing_wrapper">
+      {{> flowing}}
+    </section>
+  </main>
+
+  <div id="storyPageModal" class="storyPageModal js-story-page-modal" role="dialog" aria-modal="true"
+    aria-labelledby="story-page-modal-heading" aria-hidden="true">
+    <div class="storyPageModal__overlay js-story-page-modal-close" tabindex="-1"></div>
+    <div class="storyPageModal__panel">
+      <header class="storyPageModal__head">
+        <div class="storyPageModal__brand">
+          <img class="storyPageModal__logo" src="./img/logo_mark.svg" alt="" width="40" height="40" decoding="async">
+        </div>
+        <h2 id="story-page-modal-heading" class="storyPageModal__headTitle">KAITA TOWN 70 STORIES</h2>
+        <button type="button" class="storyPageModal__close js-story-page-modal-close" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </header>
+      <hr class="storyPageModal__headRule" aria-hidden="true">
+      <div class="storyPageModal__body">
+        <div class="storyPageModal__gallery">
+          <div class="storyPageModal__main">
+            <img class="storyPageModal__mainImg js-story-page-modal-main" src="" alt="">
+          </div>
+          <div class="storyPageModal__thumbs js-story-page-modal-thumbs"></div>
+        </div>
+        <div class="storyPageModal__aside">
+          <p class="storyPageModal__no js-story-page-modal-no" aria-hidden="false"></p>
+          <h3 class="storyPageModal__storyTitle js-story-page-modal-title"></h3>
+          <p class="storyPageModal__storySub js-story-page-modal-sub"></p>
+          <div class="storyPageModal__article wpArticle">
+            <div class="wpArticle__body">
+              <p class="js-story-page-modal-body"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="storyPageModal__footer">
+        <button type="button" class="Button Button--dark storyPageModal__back js-story-page-modal-close">
+          <span class="Button__label">一覧に戻る</span>
+          <span class="Button__meta" aria-hidden="true">
+            <span class="Button__divider">
+              <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
+            </span>
+            <span class="Button__icon">
+              <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
+            </span>
+          </span>
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  {{> footer}}
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

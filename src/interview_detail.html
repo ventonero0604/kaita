@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./scss/style.scss">
+</head>
+
+<body>
+  {{> header}}
+
+  <main class="Interview">
+    <div class="interviewDetail">
+      <div class="interviewDetail__inner">
+        {{> detailTitle label="Kaitaful Days." heading="INTERVIEW" titleId="interview-detail-heading"}}
+
+        <section class="interviewDetail__hero">
+          <figure class="interviewDetail__thumb">
+            <img src="./img/interview_pc_01.png" alt="" width="568" height="568" loading="eager" decoding="async">
+          </figure>
+          <div class="interviewDetail__meta">
+            <p class="interviewDetail__eyebrow">あなたらしい、ちょうどいい暮らし</p>
+            <p class="interviewDetail__postTitle">緑に囲まれて、娘たちがのびのび育っていく 緑に囲まれて、</p>
+            <p class="interviewDetail__lead">
+              保育・教育環境の充実や、地域で子育てを支える取り組みが整っています。安心して子どもを育てられる環境があります。
+            </p>
+            <ul class="interviewDetail__tags">
+              <li><span class="interviewDetail__tag">＃子育て</span></li>
+              <li><span class="interviewDetail__tag">＃ネウボラ</span></li>
+              <li><span class="interviewDetail__tag">＃海田町</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <hr class="interviewDetail__divider" aria-hidden="true">
+
+        <div class="interviewDetail__article">
+          <article class="wpArticle">
+            <div class="wpArticle__body">
+              <p>
+                令和７年度、市民モデルに選ばれた雨宮さんご家族。５年前に世田谷区から引っ越してきて、いまは二児の子育て中。「流山市のイメージは、「田舎」という感じであったが、激変した。」と語る雨宮真理子さん。都内で感じていた
+                “窮屈さ”が、流山でどう変わったのか。日々の子育ての様子と一緒に、教えてくれました。
+              </p>
+              <h2>緑と自然が“子どもの日常”になっている</h2>
+              <p>
+                世田谷区から流山おおたかの森駅の近くに引っ越してきて、５年くらいになります。流山おおたかの森駅にある流山おおたかの森Ｓ・Ｃなどショッピングする場所がたくさんあり、すごく便利で素敵なんですけど、私は近くに緑豊かな流山市総合運動公園があったり、スーパーや病院等も近くにあり、またスタバもあって（流山にそういうお店があること自体、最初はびっくりしました）、駅の方に行かなくても生活に必要なものが近場でちゃんと揃う感じが好きになりました。
+              </p>
+              <p>
+                都内にいた頃は、どこか狭くて窮屈さを感じていたんですけど、今は「まちの中に緑がこんなにあるんだ」って。街中のみどりの多さ、自然の多さ、市内のさまざまな場所で四季を感じられるのが、流山の一番の魅力だと思っています。
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <section class="interviewDetail__media" aria-label="記事イメージ">
+          <figure class="interviewDetail__figure">
+            <img class="interviewDetail__figureImg" src="./img/event_thumb.jpg" alt="" width="820" height="468"
+              loading="lazy" decoding="async">
+            <figcaption class="interviewDetail__caption">
+              流山に住んでよかったことは、緑や自然が本当にいっぱいあるところです。４歳の長女はお外で遊ぶことが大好きなので、家の近くにある流山市総合運動公園によく行きます。緑に囲まれた場所で、娘がのびのび遊んでいる姿を見ると、「流山に住んでよかったな」って改めて感じるんです。
+            </figcaption>
+          </figure>
+        </section>
+
+        <hr class="interviewDetail__divider" aria-hidden="true">
+
+        {{> sns label="SHARE" labelId="interview-share-label"}}
+      </div>
+
+      {{> interviewSection}}
+
+      <div class="interviewDetail__inner interviewDetail__inner--footer">
+        <div class="interviewDetail__breadcrumbBar">
+          <hr class="interviewDetail__breadcrumbRule">
+          <nav class="interviewDetail__breadcrumb" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="interviewDetail__breadcrumbSep">/</span>
+            <a href="./interview.html">INTERVIEW</a>
+            <span class="interviewDetail__breadcrumbSep">/</span>
+            <span class="interviewDetail__breadcrumbCurrent">緑に囲まれて、娘たちがのびのび育っていく</span>
+          </nav>
+          <hr class="interviewDetail__breadcrumbRule">
+        </div>
+      </div>
+    </div>
+
+    <section class="flowing_wrapper">
+      {{> flowing}}
+    </section>
+  </main>
+
+  {{> footer}}
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

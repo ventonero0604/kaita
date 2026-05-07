@@ -64,6 +64,17 @@ $('#backToTop').on('click', function (e) {
 });
 
 // ========================================
+// 共通: SNS リンクをコピー
+// ========================================
+$(document).on('click', '.js-sns-copy', function (e) {
+  e.preventDefault();
+  const url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url);
+  }
+});
+
+// ========================================
 // Top: KAITA TOWN 70 STORIES カルーセル（ドラッグ・自動スクロール・モーダルスタブ）
 // ========================================
 (function initStoryCarousel() {
@@ -366,4 +377,112 @@ $('#backToTop').on('click', function (e) {
 
   showNextBackground();
   setInterval(showNextBackground, 4500);
+})();
+
+// ========================================
+// story.html: 一覧カード → 詳細モーダル（ギャラリー差し替え）
+// ========================================
+(function initStoryPageModal() {
+  const $modal = $('.js-story-page-modal');
+  if (!$modal.length) return;
+
+  const $mainImg = $modal.find('.js-story-page-modal-main');
+  const $thumbs = $modal.find('.js-story-page-modal-thumbs');
+  const $no = $modal.find('.js-story-page-modal-no');
+  const $title = $modal.find('.js-story-page-modal-title');
+  const $sub = $modal.find('.js-story-page-modal-sub');
+  const $body = $modal.find('.js-story-page-modal-body');
+
+  function openStoryPageModal(payload) {
+    const urls = payload.gallery.filter(Boolean);
+    const primary = urls[0] || '';
+    $mainImg.attr('src', primary).attr('alt', '');
+    $no.text(payload.no);
+    $title.text(payload.title);
+
+    const sub = payload.sub.trim();
+    if (sub) {
+      $sub.text(sub).removeClass('is-empty').removeAttr('hidden');
+    } else {
+      $sub.text('').addClass('is-empty').attr('hidden', 'hidden');
+    }
+
+    $body.text(payload.detail);
+
+    $thumbs.empty();
+    urls.forEach((src, i) => {
+      const $btn = $('<button type="button" class="storyPageModal__thumbBtn"></button>');
+      $btn.attr('aria-label', `写真 ${i + 1}`);
+      $btn.append(
+        $('<img>', {
+          src,
+          alt: '',
+          width: 56,
+          height: 56,
+          decoding: 'async'
+        })
+      );
+      if (i === 0) $btn.addClass('is-active');
+      $btn.on('click', function () {
+        $mainImg.attr('src', src);
+        $thumbs.find('.storyPageModal__thumbBtn').removeClass('is-active');
+        $btn.addClass('is-active');
+      });
+      $thumbs.append($btn);
+    });
+
+    const scrollTop = $(window).scrollTop();
+    $('body')
+      .css('--scroll-top', `-${scrollTop}px`)
+      .addClass('no-scroll');
+
+    $modal.addClass('is-open').attr('aria-hidden', 'false');
+  }
+
+  function closeStoryPageModal() {
+    if (!$modal.hasClass('is-open')) return;
+    $modal.removeClass('is-open').attr('aria-hidden', 'true');
+    const scrollTop = Math.abs(
+      parseInt($('body').css('--scroll-top') || '0', 10)
+    );
+    $('body').removeClass('no-scroll').css('--scroll-top', '');
+    $(window).scrollTop(scrollTop);
+  }
+
+  $('.js-story-page-card').on('click', function () {
+    const $el = $(this);
+    const galleryRaw = $el.attr('data-story-gallery') || '';
+    openStoryPageModal({
+      no: $el.attr('data-story-no') || '',
+      title: $el.attr('data-story-title') || '',
+      sub: ($el.attr('data-story-sub') || '').trim(),
+      detail: $el.attr('data-story-detail') || '',
+      gallery: galleryRaw.split('|').filter(Boolean)
+    });
+  });
+
+  $modal.on('click', '.js-story-page-modal-close', function (e) {
+    e.preventDefault();
+    closeStoryPageModal();
+  });
+
+  $(document).on('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (!$modal.hasClass('is-open')) return;
+    closeStoryPageModal();
+  });
+})();
+
+// ========================================
+// story.html: 並び替えタブの見た目トグル（スタブ）
+// ========================================
+(function initStorySortChoices() {
+  const $choices = $('.storyPage__sortChoices');
+  if (!$choices.length) return;
+
+  $choices.on('click', '.storyPage__sortChoice', function () {
+    const $btn = $(this);
+    $choices.find('.storyPage__sortChoice').removeClass('is-active').attr('aria-selected', 'false');
+    $btn.addClass('is-active').attr('aria-selected', 'true');
+  });
 })();

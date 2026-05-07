@@ -1,0 +1,138 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/**
+ * WordPress 投稿本文想定（.wpArticle__body 内の要素のみ）
+ * インタビュー詳細の「令和７年度…」以降 — Figma Group 150 (20:11849) / SP 17:10164 付近
+ */
+.wpArticle {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: vwpc(820);
+  margin-inline: auto;
+
+  @include sp {
+    max-width: 100%;
+  }
+}
+
+.wpArticle__body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  color: #000;
+
+  @include pc {
+    font-size: vwpc(18);
+    line-height: vwpc(36);
+    letter-spacing: 0.01em;
+  }
+
+  @include sp {
+    font-size: vwsp(14);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 0 0 vwpc(24);
+
+    @include sp {
+      margin-bottom: vwsp(20);
+    }
+  }
+
+  h2 {
+    margin: vwpc(40) 0 vwpc(24);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: vwpc(24);
+    line-height: vwpc(36);
+    letter-spacing: 0;
+
+    @include sp {
+      margin: vwsp(32) 0 vwsp(20);
+      font-size: vwsp(18);
+      line-height: 1.4;
+    }
+  }
+
+  h3 {
+    margin: vwpc(32) 0 vwpc(16);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: vwpc(20);
+    line-height: 1.5;
+
+    @include sp {
+      margin: vwsp(28) 0 vwsp(16);
+      font-size: vwsp(16);
+    }
+  }
+
+  a {
+    color: #45b9b8;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 0 0 vwpc(24);
+    padding-left: 1.5em;
+
+    @include sp {
+      margin-bottom: vwsp(20);
+    }
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  figure {
+    margin: vwpc(32) 0;
+
+    @include sp {
+      margin: vwsp(24) 0;
+    }
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: vwpc(12);
+
+    @include sp {
+      border-radius: vwsp(12);
+    }
+  }
+
+  figcaption {
+    margin-top: vwpc(12);
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-size: vwpc(14);
+    line-height: 1.65;
+
+    @include sp {
+      margin-top: vwsp(10);
+      font-size: vwsp(12);
+    }
+  }
+}

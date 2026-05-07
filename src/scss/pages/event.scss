@@ -1,7 +1,8 @@
 @use '../foundation/breakPoint.scss' as *;
 @use '../foundation/pxvw.scss' as *;
 
-.Interview .interviewPage {
+/* イベント一覧 — Figma PC 14:10821 / SP 14:10364 */
+.Event .eventPage {
   background: #fff;
   color: #000;
   padding-block: vwpc(80) vwpc(10);
@@ -16,6 +17,10 @@
     @include sp {
       margin-bottom: vwsp(32);
     }
+  }
+
+  .pageTitle__title {
+    text-transform: none;
   }
 
   &__inner {
@@ -87,7 +92,7 @@
     line-height: vwpc(28.8);
 
     @include pc {
-      max-width: vwpc(480);
+      max-width: vwpc(680);
       justify-self: end;
       text-align: left;
     }
@@ -121,8 +126,8 @@
 
     @include sp {
       margin-bottom: vwsp(16);
-      font-size: vwsp(14);
-      line-height: vwsp(18);
+      font-size: vwsp(20);
+      line-height: vwsp(24);
       letter-spacing: 0.1em;
     }
   }
@@ -178,6 +183,10 @@
       min-height: vwsp(36);
       padding: vwsp(8) vwsp(16);
       font-size: vwsp(12);
+
+      &.is-active {
+        font-size: vwsp(16);
+      }
     }
   }
 
@@ -212,7 +221,7 @@
     }
   }
 
-  .interviewCard__link {
+  .eventCard__link {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -223,15 +232,16 @@
     }
   }
 
-  .interviewCard__figure {
-    margin: 0 0 vwpc(14);
+  .eventCard__thumb {
+    position: relative;
     overflow: hidden;
+    width: 100%;
+    height: vwpc(477);
+    margin-bottom: vwpc(12);
     border-radius: vwpc(18);
-    aspect-ratio: 1 / 1;
 
     @include sp {
-      width: min(100%, #{vwsp(300)});
-      margin-inline: auto;
+      height: vwsp(300.909);
       margin-bottom: vwsp(12);
       border-radius: vwsp(18);
     }
@@ -244,60 +254,86 @@
     }
   }
 
-  .interviewCard__eyebrow {
-    margin: 0 0 vwpc(8);
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-    font-size: vwpc(11.1);
-    line-height: vwpc(17.28);
-    color: #45b9b8;
+  .eventCard__body {
+    display: flex;
+    flex-direction: column;
+    gap: vwpc(8);
 
     @include sp {
-      margin-bottom: vwsp(6);
-      font-size: vwsp(11.1);
-      line-height: vwsp(17.28);
+      gap: vwsp(6);
     }
   }
 
-  .interviewCard__title {
-    margin: 0 0 vwpc(12);
+  .eventCard__dateRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: vwpc(6) vwpc(10);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    color: #000;
+
+    @include sp {
+      gap: vwsp(4) vwsp(8);
+    }
+  }
+
+  .eventCard__year {
+    font-size: vwpc(11.1);
+    line-height: vwpc(20);
+
+    @include sp {
+      font-size: vwsp(14);
+      line-height: vwsp(20);
+    }
+  }
+
+  .eventCard__day {
+    font-size: vwpc(24);
+    line-height: vwpc(20);
+    font-weight: 400;
+
+    @include sp {
+      font-size: vwsp(24);
+      line-height: vwsp(20);
+    }
+  }
+
+  .eventCard__weekday,
+  .eventCard__time {
+    font-size: vwpc(11.1);
+    line-height: vwpc(20);
+
+    @include sp {
+      font-size: vwsp(14);
+      line-height: vwsp(28.848);
+    }
+  }
+
+  .eventCard__name {
+    margin: 0;
     font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
     font-weight: 500;
     font-size: vwpc(20);
     line-height: vwpc(22);
 
     @include sp {
-      margin-bottom: vwsp(12);
       font-size: vwsp(20);
       line-height: vwsp(22);
     }
   }
 
-  .interviewCard__desc {
-    margin: 0 0 vwpc(12);
+  .eventCard__place {
+    margin: 0;
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    font-size: vwpc(12);
+    font-size: vwpc(11.1);
     line-height: vwpc(20);
+    color: #898989;
 
     @include sp {
-      margin-bottom: vwsp(12);
-      font-size: vwsp(12);
+      font-size: vwsp(14);
       line-height: vwsp(20);
-    }
-  }
-
-  .interviewCard__tags {
-    margin: 0;
-    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    font-size: vwpc(12);
-    line-height: vwpc(18);
-    color: #45b9b8;
-
-    @include sp {
-      font-size: vwsp(12);
-      line-height: vwsp(18);
     }
   }
 
@@ -354,17 +390,5 @@
   &__breadcrumbCurrent {
     font-weight: 500;
     color: #6b6b6b;
-  }
-
-  &__promo {
-    margin: 0 0 vwsp(40);
-    text-align: center;
-
-    img {
-      display: inline-block;
-      width: min(100%, #{vwsp(300)});
-      height: auto;
-      vertical-align: top;
-    }
   }
 }

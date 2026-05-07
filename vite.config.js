@@ -9,16 +9,44 @@ import handlebars from 'vite-plugin-handlebars';
 const pageData = {
   'index.html': {
     isHome: true,
-    title: 'Main Page'
+    title: 'Main Page',
+    ctaHref: './interview.html',
+    eventCtaHref: './event.html'
   },
   'interview.html': {
     isHome: false,
     title: 'インタビュー一覧 | Kaitaful Fes'
   },
-  'hoge.html': {
+  'interview_detail.html': {
     isHome: false,
-    title: 'Hoge'
-  }
+    title: 'インタビュー詳細 | Kaitaful Fes',
+    ctaHref: './interview.html'
+  },
+  'event.html': {
+    isHome: false,
+    title: 'イベント一覧 | Kaitaful Fes'
+  },
+  'event_detail.html': {
+    isHome: false,
+    title: 'イベント詳細 | Kaitaful Fes',
+    eventCtaHref: './event.html'
+  },
+  'story.html': {
+    isHome: false,
+    title: '70 STORIES | Kaitaful Fes'
+  },
+  'information.html': {
+    isHome: false,
+    title: 'インフォメーション一覧 | Kaitaful Fes'
+  },
+  'information_detail.html': {
+    isHome: false,
+    title: 'インフォメーション詳細 | Kaitaful Fes'
+  },
+  'about.html': {
+    isHome: false,
+    title: '海田町を知る | Kaitaful Fes'
+  },
 };
 
 const root = 'src';
@@ -52,7 +80,14 @@ export default defineConfig({
       },
       input: {
         index: resolve(__dirname, root, 'index.html'),
-        interview: resolve(__dirname, root, 'interview.html')
+        interview: resolve(__dirname, root, 'interview.html'),
+        interview_detail: resolve(__dirname, root, 'interview_detail.html'),
+        event: resolve(__dirname, root, 'event.html'),
+        event_detail: resolve(__dirname, root, 'event_detail.html'),
+        story: resolve(__dirname, root, 'story.html'),
+        information: resolve(__dirname, root, 'information.html'),
+        information_detail: resolve(__dirname, root, 'information_detail.html'),
+        about: resolve(__dirname, root, 'about.html')
       }
     }
   },

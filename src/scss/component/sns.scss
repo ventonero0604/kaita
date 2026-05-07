@@ -1,0 +1,138 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/**
+ * SNSシェア — Figma Group 123 (17:10204)
+ * X / Facebook アイコンのみ 85×40、コピーは 142×40・テキスト付き。間隔 4px。
+ */
+.sns {
+  @include sp {
+    max-width: vwsp(320);
+    margin-inline: auto;
+  }
+
+  &__label {
+    margin: 0 0 vwpc(16);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vwpc(16);
+    line-height: vwpc(16);
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: #000;
+
+    @include sp {
+      margin-bottom: vwsp(16);
+      font-size: vwsp(16);
+      line-height: vwsp(16);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: vwpc(4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include sp {
+      flex-wrap: nowrap;
+      gap: vwsp(4);
+    }
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border: 1px solid #45b9b8;
+    border-radius: 999px;
+    background: #fff;
+    font: inherit;
+    color: #45b9b8;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__btn--iconOnly {
+    width: vwpc(85);
+    min-height: vwpc(40);
+    padding: vwpc(10);
+
+    @include sp {
+      width: vwsp(85);
+      min-height: vwsp(40);
+      padding: vwsp(10);
+    }
+
+    img {
+      display: block;
+      width: vwpc(20);
+      height: vwpc(20);
+
+      @include sp {
+        width: vwsp(20);
+        height: vwsp(20);
+      }
+    }
+  }
+
+  &__btn--copy {
+    gap: vwpc(4);
+    min-width: vwpc(142);
+    min-height: vwpc(40);
+    padding: vwpc(10) vwpc(14);
+
+    @include sp {
+      gap: vwsp(4);
+      min-width: vwsp(142);
+      min-height: vwsp(40);
+      padding: vwsp(10) vwsp(14);
+    }
+  }
+
+  &__btnIcon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      display: block;
+      width: vwpc(20);
+      height: vwpc(20);
+
+      @include sp {
+        width: vwsp(20);
+        height: vwsp(20);
+      }
+    }
+  }
+
+  &__btnLabel {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(14);
+    line-height: vwpc(20);
+    white-space: nowrap;
+
+    @include sp {
+      font-size: vwsp(14);
+      line-height: vwsp(20);
+    }
+  }
+}

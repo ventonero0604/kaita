@@ -10,6 +10,12 @@
 @use './component/button.scss';
 @use './component/flowing.scss';
 @use './component/pageTitle.scss';
+@use './component/detailTitle.scss';
+@use './component/sns.scss';
+@use './component/pagination.scss';
+@use './component/interviewSection.scss';
+@use './component/eventSection.scss';
+@use './component/article.scss';
 
 /* ui */
 @use './ui/header.scss';
@@ -18,6 +24,13 @@
 /* pages */
 @use './pages/top.scss';
 @use './pages/interview.scss';
+@use './pages/interview_detail.scss';
+@use './pages/event.scss';
+@use './pages/event_detail.scss';
+@use './pages/story.scss';
+@use './pages/information.scss';
+@use './pages/information_detail.scss';
+@use './pages/about.scss';
 
 /* tailwind */
 @tailwind base;

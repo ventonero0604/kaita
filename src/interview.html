@@ -208,25 +208,7 @@
           </li>
         </ul>
 
-        <nav class="interviewPage__pagination interviewPage__pagination--pc" aria-label="ページネーション">
-          <a href="#" class="interviewPage__pageArrow" aria-label="前のページ">‹</a>
-          <ul class="interviewPage__pageList">
-            <li><a href="#" class="interviewPage__pageLink is-current" aria-current="page">1</a></li>
-            <li><a href="#" class="interviewPage__pageLink">2</a></li>
-            <li><a href="#" class="interviewPage__pageLink">3</a></li>
-            <li><a href="#" class="interviewPage__pageLink">4</a></li>
-            <li><a href="#" class="interviewPage__pageLink">5</a></li>
-            <li><span class="interviewPage__pageEllipsis" aria-hidden="true">···</span></li>
-            <li><a href="#" class="interviewPage__pageLink">10</a></li>
-          </ul>
-          <a href="#" class="interviewPage__pageArrow" aria-label="次のページ">›</a>
-        </nav>
-
-        <nav class="interviewPage__pagination interviewPage__pagination--sp" aria-label="ページネーション">
-          <a href="#" class="interviewPage__pageArrow" aria-disabled="true" aria-label="前のページ">‹</a>
-          <p class="interviewPage__pageStatus">Page 1 of 10</p>
-          <a href="#" class="interviewPage__pageArrow" aria-label="次のページ">›</a>
-        </nav>
+        {{> pagination}}
 
         <div class="interviewPage__breadcrumbBar">
           <hr class="interviewPage__breadcrumbRule">

@@ -1,0 +1,77 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/**
+ * 詳細ページ見出し — PC: Figma h2_詳細 (20:15093) / SP: Frame12 (20:15147)
+ * ラベル＋見出しを横並び、下に区切り線。
+ */
+.detailTitle {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vwpc(12);
+  width: 100%;
+  max-width: vwpc(1200);
+  margin-inline: auto;
+
+  @include sp {
+    gap: vwsp(8);
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: vwpc(8);
+    width: 100%;
+
+    @include sp {
+      gap: vwsp(8);
+    }
+  }
+
+  &__label {
+    flex-shrink: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(13);
+    color: #45b9b8;
+    text-align: right;
+    white-space: nowrap;
+
+    @include sp {
+      box-sizing: border-box;
+      font-size: vwsp(13);
+    }
+  }
+
+  &__heading {
+    flex-shrink: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(36);
+    line-height: vwpc(57.5);
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+    color: #000;
+
+    @include sp {
+      font-size: vwsp(23);
+      line-height: vwsp(37);
+      white-space: nowrap;
+    }
+  }
+
+  &__rule {
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+  }
+}

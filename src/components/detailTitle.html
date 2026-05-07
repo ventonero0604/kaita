@@ -1,0 +1,7 @@
+<header class="detailTitle" {{#if titleId}}aria-labelledby="{{titleId}}"{{/if}}>
+  <div class="detailTitle__row">
+    <p class="detailTitle__label">{{label}}</p>
+    <h1 {{#if titleId}}id="{{titleId}}"{{/if}} class="detailTitle__heading">{{heading}}</h1>
+  </div>
+  <hr class="detailTitle__rule" aria-hidden="true">
+</header>

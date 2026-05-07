@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./scss/style.scss">
+</head>
+
+<body>
+  {{> header}}
+
+  <main class="About Top">
+    <article class="aboutPage">
+      <section class="aboutPage__hero" aria-label="海田町を知るメインビジュアル">
+        <video class="aboutPage__heroVideo" src="./img/dummy_movie.mp4" autoplay muted playsinline loop></video>
+        <div class="aboutPage__heroOverlay">
+          <p class="aboutPage__heroLabel">Kaitaful Days.</p>
+          <h1 class="aboutPage__heroTitle">ABOUT KAITA</h1>
+        </div>
+      </section>
+
+      <div class="aboutPage__inner">
+        <div class="aboutPage__content">
+          <section class="aboutPage__lead">
+            <div class="aboutPage__brand">
+              <img src="./img/about/logo_kaitaful_days.svg" alt="Kaitaful Days. 70th Anniversary" width="647"
+                height="174" loading="lazy" decoding="async">
+            </div>
+            <div class="aboutPage__leadGrid">
+              <div class="aboutPage__leadBody">
+                <h2 class="aboutPage__sectionTitle aboutPage__leadTitle">都心に近く、自然も豊かな「ちょうどいい」まち</h2>
+                <div class="aboutPage__leadText">
+                  <p>海田町は、広島県の南西部、広島市中心部から約10km圏内。</p>
+                  <p>電車では、JR海田市駅から広島駅へ約9分。国道2号と31号が交わる交通の要衝であり、広島高速や山陽自動車道へのアクセスもスムーズな、アクセス良好な立地です。</p>
+                  <p>都市の利便性と自然が調和するこのまちには、四季の移ろいを感じる日浦山や、水辺の憩いの場である瀬野川など、豊かな自然にも恵まれています。</p>
+                  <p>生活に必要な施設がコンパクトにまとまっていることから、子育て世代をはじめ多くの笑顔があふれ、「あなたらしい、ちょうどいい暮らし」が次々とうまれています。</p>
+                </div>
+              </div>
+              <figure class="aboutPage__map">
+                <img src="./img/about/about_map.png" alt="海田町周辺マップ" width="476" height="638" loading="lazy"
+                  decoding="async">
+              </figure>
+            </div>
+          </section>
+
+          <section class="aboutPage__feature">
+            <h2 class="aboutPage__sectionTitle aboutPage__featureTitle">海田町の魅力</h2>
+            <ul class="aboutPage__featureList">
+              <li class="aboutPage__featureItem">
+                <img src="./img/about/about_feature_01.png" alt="" width="352" height="220" loading="lazy"
+                  decoding="async">
+                <h3>抜群のアクセスと生活利便性</h3>
+                <p>JR山陽本線・呉線が乗り入れる海田市駅から広島駅までは最短約9分。町内にはスーパーや病院などの生活インフラがコンパクトにまとまっており、毎日の暮らしを支える高い利便性を誇ります。</p>
+              </li>
+              <li class="aboutPage__featureItem">
+                <img src="./img/about/about_feature_02.png" alt="" width="352" height="220" loading="lazy"
+                  decoding="async">
+                <h3>豊かな自然と歴史ある街並み</h3>
+                <p>日浦山や瀬野川など、身近に自然を感じる環境。宿場町として栄えた歴史情緒あふれる景観も魅力です。</p>
+              </li>
+              <li class="aboutPage__featureItem">
+                <img src="./img/about/about_feature_03.png" alt="" width="352" height="220" loading="lazy"
+                  decoding="async">
+                <h3>充実した子育て・教育環境</h3>
+                <p>妊娠期から子育て期まで切れ目のない支援体制を整え、安心して子どもを産み育てられる環境づくりを進めています。地域全体で子どもたちの成長を見守る、温かいコミュニティが根付いています。</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="aboutPage__banner" aria-label="海田町イメージ">
+            <img src="./img/about/about_kaitaful_map.png" alt="" width="1151" height="796" loading="lazy"
+              decoding="async">
+          </section>
+
+          <section class="aboutPage__stats">
+            <h2 class="aboutPage__sectionTitle aboutPage__featureTitle">数字で見る海田町の魅力</h2>
+            <ul class="aboutPage__statsList">
+              <li><span>住み心地が良いと感じる</span><em><img src="./img/about/about_icon_house.svg" alt="" width="88"
+                    height="88"></em><strong>88.0%</strong></li>
+              <li><span>この街に住み続けたい</span><em><img src="./img/about/about_icon_family.svg" alt="" width="88"
+                    height="88"></em><strong>90.5%</strong></li>
+              <li><span>市民の声が市政に反映されている</span><em><img src="./img/about/about_icon_voice.svg" alt="" width="88"
+                    height="88"></em><strong>82.0%</strong></li>
+              <li><span>街の自然に満足している</span><em><img src="./img/about/about_icon_nature.svg" alt="" width="88"
+                    height="88"></em><strong>82.7%</strong></li>
+              <li><span>市民の声が市政に反映されている</span><em><img src="./img/about/about_icon_voice.svg" alt="" width="88"
+                    height="88"></em><strong>82.0%</strong></li>
+            </ul>
+          </section>
+
+          <section class="aboutPage__love">
+            <h3 class="aboutPage__loveTitle">みんなに愛される海田町</h3>
+            <ul class="aboutPage__loveCharts">
+              <li><img src="./img/about/about_chart_01.png" alt="定住意向 85.4% 海田町に住み続けたいと思っている割合" width="327" height="437" loading="lazy" decoding="async"></li>
+              <li><img src="./img/about/about_chart_02.png" alt="愛着度 85.1%" width="327" height="437" loading="lazy" decoding="async"></li>
+              <li><img src="./img/about/about_chart_03.png" alt="住みよさ 86.4%" width="327" height="440" loading="lazy" decoding="async"></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      {{> storySection}}
+
+      <div class="aboutPage__inner aboutPage__inner--footer">
+        <div class="aboutPage__breadcrumbBar">
+          <hr class="aboutPage__breadcrumbRule">
+          <nav class="aboutPage__breadcrumb" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="aboutPage__breadcrumbSep">/</span>
+            <span class="aboutPage__breadcrumbCurrent">海田町を知る</span>
+          </nav>
+          <hr class="aboutPage__breadcrumbRule">
+        </div>
+      </div>
+    </article>
+
+    <section class="flowing_wrapper">
+      {{> flowing}}
+    </section>
+  </main>
+
+  {{> footer}}
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
