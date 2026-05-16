@@ -386,6 +386,10 @@ $(document).on('click', '.js-sns-copy', function (e) {
   const $modal = $('.js-story-page-modal');
   if (!$modal.length) return;
 
+  const $html = $('html');
+  const $panel = $modal.find('.storyPageModal__panel');
+  const $modalBody = $modal.find('.storyPageModal__body');
+
   const $mainImg = $modal.find('.js-story-page-modal-main');
   const $thumbs = $modal.find('.js-story-page-modal-thumbs');
   const $no = $modal.find('.js-story-page-modal-no');
@@ -407,7 +411,7 @@ $(document).on('click', '.js-sns-copy', function (e) {
       $sub.text('').addClass('is-empty').attr('hidden', 'hidden');
     }
 
-    $body.text(payload.detail);
+    $body.html(payload.detail);
 
     $thumbs.empty();
     urls.forEach((src, i) => {
@@ -431,22 +435,17 @@ $(document).on('click', '.js-sns-copy', function (e) {
       $thumbs.append($btn);
     });
 
-    const scrollTop = $(window).scrollTop();
-    $('body')
-      .css('--scroll-top', `-${scrollTop}px`)
-      .addClass('no-scroll');
+    if ($panel.length) $panel[0].scrollTop = 0;
+    if ($modalBody.length) $modalBody[0].scrollTop = 0;
 
+    $html.addClass('is-story-page-modal-open');
     $modal.addClass('is-open').attr('aria-hidden', 'false');
   }
 
   function closeStoryPageModal() {
     if (!$modal.hasClass('is-open')) return;
     $modal.removeClass('is-open').attr('aria-hidden', 'true');
-    const scrollTop = Math.abs(
-      parseInt($('body').css('--scroll-top') || '0', 10)
-    );
-    $('body').removeClass('no-scroll').css('--scroll-top', '');
-    $(window).scrollTop(scrollTop);
+    $html.removeClass('is-story-page-modal-open');
   }
 
   $('.js-story-page-card').on('click', function () {

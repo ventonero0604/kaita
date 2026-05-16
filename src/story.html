@@ -8,7 +8,7 @@
 <body>
   {{> header}}
 
-  <main class="Story">
+<main class="Story">
     <article class="storyPage">
       <header class="storyPage__hero" aria-label="ストーリー紹介動画">
         <div class="storyPage__heroMedia">
@@ -38,15 +38,15 @@
           <section class="filterBar" aria-labelledby="story-keyword-heading">
             <h2 id="story-keyword-heading" class="filterBar__heading">KEYWORD</h2>
             <ul class="filterBar__list">
-              {{> filterBtn label="ALL" active=true}}
-              {{> filterBtn label="＃こどもの健やかな育ちを支える"}}
-              {{> filterBtn label="#災害に強く安全なまち"}}
-              {{> filterBtn label="#地域特性を生かした基盤整備"}}
-              {{> filterBtn label="＃環境にやさしい"}}
-              {{> filterBtn label="#にぎわいと交流"}}
-              {{> filterBtn label="#誰もが輝く"}}
-              {{> filterBtn label="#健康で安心して暮らせる"}}
-              {{> filterBtn label="#海田町"}}
+              <li><button type="button" class="filterBar__btn is-active">ALL</button></li>
+              <li><button type="button" class="filterBar__btn">＃こどもの健やかな育ちを支える</button></li>
+              <li><button type="button" class="filterBar__btn">#災害に強く安全なまち</button></li>
+              <li><button type="button" class="filterBar__btn">#地域特性を生かした基盤整備</button></li>
+              <li><button type="button" class="filterBar__btn">＃環境にやさしい</button></li>
+              <li><button type="button" class="filterBar__btn">#にぎわいと交流</button></li>
+              <li><button type="button" class="filterBar__btn">#誰もが輝く</button></li>
+              <li><button type="button" class="filterBar__btn">#健康で安心して暮らせる</button></li>
+              <li><button type="button" class="filterBar__btn">#海田町</button></li>
             </ul>
           </section>
 
@@ -86,17 +86,321 @@
           </div>
 
           <section class="storyPage__listSection" aria-label="ストーリー一覧">
-            {{> storyGrid}}
+            <div class="storyPage__grid">
+		
+<!--1つめ 抜群のアクセス-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="01" data-story-title="抜群のアクセス 都心から9分。ここは、仕事と私を切り替える「ちょうどいい」街。" data-story-sub="暮らし" data-story-excerpt="都心から9分。ここは、仕事と私を切り替える「ちょうどいい」街。" data-story-detail="「都会の便利さは手放したくないけれど、休日は静かで落ち着いた環境で暮らしたい」。そんな理想のバランスを叶えてくれるのが、海田町の最大の魅力である「抜群のアクセス」です。<br><br>町の中心にあるJR海田市駅から広島駅までは、電車に揺られてわずか約9分。朝の通勤・通学ラッシュのストレスも少なく、仕事帰りにふらっと市内のデパートへ立ち寄ることも日常の延長です。さらに主要幹線道路が交差する海田町なら、車での東西南北への移動も驚くほどスムーズ。<br><br>しかし、ひとたび海田町に降り立てば、そこには穏やかな瀬野川のせせらぎや、四季折々の表情を見せる日浦山の緑が待っています。都会の喧騒から少しだけ離れた、この「距離感」が絶妙なのです。<br><br>平日も休日も、アクティブに動きたい。でも、帰る場所はホッと息をつける街がいい。都市のスピード感と、自然のゆったりとした時間が交差する海田町で、あなたらしい「Kaitaful」な暮らしを始めてみませんか。" data-story-gallery="./img/story/thumb_01.png|./img/story/thumb_01_2.png|./img/story/thumb_01_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">01</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_01.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">抜群のアクセス 都心から9分。ここは、仕事と私を切り替える「ちょうどいい」街。</strong>
+    <span class="storyPageCard__sub">暮らし</span>
+    <p class="storyPageCard__excerpt">都会の便利さは手放したくないけれど、休日は静かで落ち着いた環境で暮らしたい</p>
+  </span>
+</button>
+
+				
+<!--2つめ 織田幹雄-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="02" data-story-title="織田幹雄 世界の頂点に立った男。そのルーツと不屈の精神は、この街にある。" data-story-sub="歴史" data-story-excerpt="世界の頂点に立った男。そのルーツと不屈の精神は、この街にある。" data-story-detail="1928年のアムステルダムオリンピック、三段跳び。日本人として初めて金メダルを獲得し、「日本陸上の父」と呼ばれた織田幹雄さんは、ここ海田町の出身です。<br><br>彼の偉業は単なる過去の栄光ではありません。「スポーツのまち海田」として、子どもから大人まで体を動かすことを楽しむ文化が根付いているのは、織田さんのDNAが確かに受け継がれているからです。<br><br>町内にある「織田幹雄記念館」では、彼の栄光の軌跡とともに、「決して諦めない」という強い信念に触れることができます。<br><br>何か新しいことに挑戦したい時。壁にぶつかった時。海田の街を歩けば、世界の頂点に立った男の背中が、そっとあなたを励ましてくれるかもしれません。" data-story-gallery="./img/story/thumb_02.png|./img/story/thumb_02_2.png|./img/story/thumb_02_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">02</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_02.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">織田幹雄 世界の頂点に立った男。そのルーツと不屈の精神は、この街にある。</strong>
+    <span class="storyPageCard__sub">歴史</span>
+    <p class="storyPageCard__excerpt">1928年のアムステルダムオリンピック、三段跳び。日本人として初めて金メダルを獲得し</p>
+  </span>
+</button>
+
+<!--3つめ 千葉家-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="03" data-story-title="千葉家（旧千葉家住宅） 江戸時代の息遣いが聴こえる。時を越えて受け継がれる、美しき庭園。" data-story-sub="歴史" data-story-excerpt="江戸時代の息遣いが聴こえる。時を越えて受け継がれる、美しき庭園。" data-story-detail="町の中心部にひっそりと、しかし確かな存在感で佇む「旧千葉家住宅」。江戸時代に西国街道の宿場町として栄えた海田市において、要人たちの宿泊施設である「本陣」としての役割を果たした歴史ある邸宅です。<br><br>一歩足を踏み入れると、そこには街の喧騒から切り離された静寂の世界が広がります。広島県重要文化財にも指定されている書院や、四季折々の表情を見せる美しい名勝庭園は、何百年もの間、海田の歴史を見つめ続けてきました。<br><br>休日の午後、縁側に腰を下ろして庭を眺めていると、タイムスリップしたかのような穏やかな時間が流れます。新しい文化を取り入れながらも、古き良きものを大切に守り継ぐ。そんな海田町の「深み」を感じられる特別な場所です。" data-story-gallery="./img/story/thumb_03.png|./img/story/thumb_03_2.png|./img/story/thumb_03_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">03</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_03.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">千葉家（旧千葉家住宅） 江戸時代の息遣いが聴こえる。時を越えて受け継がれる、美しき庭園。</strong>
+    <span class="storyPageCard__sub">歴史</span>
+    <p class="storyPageCard__excerpt">町の中心部にひっそりと、しかし確かな存在感で佇む「旧千葉家住宅」。江戸時代に西国街道</p>
+  </span>
+</button>
+
+<!--4つめ ネウボラ-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="04" data-story-title="ネウボラ（かいた版ネウボラ） 妊娠から子育てまで。あなたを絶対に「一人にしない」約束。" data-story-sub="子育て" data-story-excerpt="妊娠から子育てまで。あなたを絶対に「一人にしない」約束。" data-story-detail="初めての妊娠・出産・子育ては、喜びと同じくらい不安がいっぱい。「かいた版ネウボラ」は、そんなお母さんやお父さんを決して一人にしない、海田町独自の切れ目ない支援体制です。<br><br>「ネウボラ」とは、フィンランド語で「アドバイスの場所」という意味。海田町では、妊娠がわかった時から専任の保健師が伴走し、子育ての悩みに寄り添い続けます。<br><br>さらに、健診の予約や成長記録の管理、ちょっとした相談もスマホアプリで完結。現代のライフスタイルに合わせたスマートなサポートが魅力です。<br><br>「なにかあっても、町が助けてくれる」。その安心感があるからこそ、親も子も笑顔で毎日を過ごせる。海田町が子育て世代から選ばれ続ける、最大の理由がここにあります。" data-story-gallery="./img/story/thumb_04.png|./img/story/thumb_04_2.png|./img/story/thumb_04_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">04</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_04.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">ネウボラ（かいた版ネウボラ） 妊娠から子育てまで。あなたを絶対に「一人にしない」約束。</strong>
+    <span class="storyPageCard__sub">子育て</span>
+    <p class="storyPageCard__excerpt">初めての妊娠・出産・子育ては、喜びと同じくらい不安がいっぱい。「かいた版ネウボラ」は</p>
+  </span>
+</button>
+
+<!--5つめ 日浦山-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="05" data-story-title="日浦山（ひうらやま） ふらっと登れて、絶景にご褒美。私たちの背中を押してくれる町のシンボル。" data-story-sub="自然" data-story-excerpt="ふらっと登れて、絶景にご褒美。私たちの背中を押してくれる町のシンボル。" data-story-detail="海田町のどこからでも見上げることができる、緑豊かな「日浦山（ひうらやま）」。標高345mという、高すぎず低すぎない「ちょうどいい」スケール感は、まるで町を優しく見守る家族のような存在です。<br><br>日浦山の魅力は、なんといってもその手軽さ。本格的な登山の準備がなくても、歩きやすい靴と水筒さえあれば、思い立ったその日にふらっと登ることができます。登山道はきれいに整備されており、小さなお子様連れの家族から、毎朝のルーティンとして登るご年配の方まで、すれ違う人々の笑顔と「こんにちは」の挨拶が絶えません。<br><br>心地よい汗をかきながら山頂にたどり着くと、そこには息を呑むような絶景が広がっています。眼下に広がる海田の街並み、そしてその先にはキラキラと輝く瀬戸内海のパノラマ。自分の住む街を上から見下ろす瞬間、不思議と活力が湧いてきます。" data-story-gallery="./img/story/thumb_05.png|./img/story/thumb_05_2.png|./img/story/thumb_05_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">05</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_05.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">日浦山（ひうらやま） ふらっと登れて、絶景にご褒美。私たちの背中を押してくれる町のシンボル。</strong>
+    <span class="storyPageCard__sub">自然</span>
+    <p class="storyPageCard__excerpt">海田町のどこからでも見上げることができる、緑豊かな「日浦山（ひうらやま）」。標高34</p>
+  </span>
+</button>
+
+<!--6つめ 新規店舗出店等促進補助金-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="06" data-story-title="新規店舗出店等促進補助金 あなたの「やってみたい」が、街の新しい魅力になる。" data-story-sub="街づくり" data-story-excerpt="あなたの「やってみたい」が、街の新しい魅力になる。" data-story-detail="最近、海田町を歩いているとお洒落なカフェやこだわりのパン屋さん、個性的な雑貨店が増えたと思いませんか？その裏側には、新しくお店を始めたい人を全力で応援する「新規店舗出店等促進補助金」という町の制度があります。<br><br>空き家をリノベーションして夢のカフェを開く若者。長年の経験を活かして独立する職人。そんなチャレンジ精神あふれる人々が集まり、町全体が活気に満ちた「Kaitaful」な空間へと進化しています。<br><br>新しいお店ができると、そこは地域の人々が集う新しいコミュニティの場になります。挑戦を歓迎し、応援する風土がある海田町。次はあなたが、この街に新しいストーリーを描く番かもしれません。" data-story-gallery="./img/story/thumb_06.png|./img/story/thumb_06_2.png|./img/story/thumb_06_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">06</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_06.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">新規店舗出店等促進補助金 あなたの「やってみたい」が、街の新しい魅力になる。</strong>
+    <span class="storyPageCard__sub">街づくり</span>
+    <p class="storyPageCard__excerpt">最近、海田町を歩いているとお洒落なカフェやこだわりのパン屋さん、個性的な雑貨店が増え</p>
+  </span>
+</button>
+
+<!--7つめ 海田町庁舎-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="07" data-story-title="海田町庁舎 ただの手続きの場所じゃない。みんなの暮らしをデザインする拠点。" data-story-sub="暮らし" data-story-excerpt="ただの手続きの場所じゃない。みんなの暮らしをデザインする拠点。" data-story-detail="町民の暮らしを支える「海田町庁舎」。単に住民票を取ったり手続きをしたりするだけの場所ではなく、これからの海田町を象徴する開かれた拠点です。<br><br>機能性と温かみを兼ね備えたデザインの庁舎は、訪れる人がホッとできる空間。キッズスペースや授乳室も完備され、子育て世代も安心して利用できます。<br><br>さらに、災害時には町の安全を守る強靭な防災拠点としての顔も持ち合わせています。最新の設備と情報ネットワークで、いざという時も町民の命と暮らしをしっかりと守り抜きます。<br><br>何気ない日常のサポートから、非常時の安心まで。海田町庁舎は、いつもこの街の中心で、私たちの「ちょうどいい暮らし」をデザインし続けています。" data-story-gallery="./img/story/thumb_07.png|./img/story/thumb_07_2.png|./img/story/thumb_07_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">07</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_07.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">海田町庁舎 ただの手続きの場所じゃない。みんなの暮らしをデザインする拠点。</strong>
+    <span class="storyPageCard__sub">暮らし</span>
+    <p class="storyPageCard__excerpt">町民の暮らしを支える「海田町庁舎」。単に住民票を取ったり手続きをしたりするだけの場所</p>
+  </span>
+</button>
+
+<!--8つめ 瀬野川の風景-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="08" data-story-title="瀬野川の風景 春は桜、夕暮れはオレンジ。海田の毎日は、この川とともに。" data-story-sub="自然" data-story-excerpt="春は桜、夕暮れはオレンジ。海田の毎日は、この川とともに。" data-story-detail="町の中心をゆったりと流れる「瀬野川」。その河川敷は、海田町民にとってかけがえのない憩いの空間です。<br><br>春には両岸をピンク色に染め上げる桜並木の下でピクニック。初夏には水遊びを楽しむ子どもたちの歓声が響き、秋には黄金色の夕陽が川面をキラキラと照らします。<br><br>きれいに整備された遊歩道は、早朝のジョギングや愛犬との散歩コースとして大人気。すれ違う人と交わす何気ない挨拶が、一日の始まりを気持ちよくしてくれます。<br><br>都会のスピードに少し疲れた時、瀬野川の土手に座って流れる水をただ眺めているだけで、心がスッと軽くなる。海田町に暮らす人々の「Kaitaful」な日常は、いつもこの川とともにあります。" data-story-gallery="./img/story/thumb_08.png|./img/story/thumb_08_2.png|./img/story/thumb_08_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">08</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_08.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">瀬野川の風景 春は桜、夕暮れはオレンジ。海田の毎日は、この川とともに。</strong>
+    <span class="storyPageCard__sub">自然</span>
+    <p class="storyPageCard__excerpt">町の中心をゆったりと流れる「瀬野川」。その河川敷は、海田町民にとってかけがえのない憩</p>
+  </span>
+</button>
+
+<!--9つめ 海田総合公園-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="09" data-story-title="海田総合公園 週末の予定はこれで決まり！自然と笑顔が溢れる、家族の遊び場。" data-story-sub="レジャー" data-story-excerpt="週末の予定はこれで決まり！自然と笑顔が溢れる、家族の遊び場。" data-story-detail="「今度の休み、どこ行く？」そんな家族会議の定番の答えが、「海田総合公園」です。<br><br>広大な敷地には、子どもたちが目を輝かせる大型の複合遊具や、風を切って滑る芝そり広場が充実。パパやママも一緒になって、一日中思い切り体を動かして遊ぶことができます。<br><br>遊び疲れたら、木陰にテントを張ってお弁当タイム。さらに、本格的なキャンプ場やテニスコートなども備えており、休日のアウトドアレジャーを町内で完結できるのが魅力です。<br><br>緑に囲まれた安全な環境で、子どもたちの笑い声が響き渡る。家族の思い出がどんどんアップデートされていく場所、それが海田総合公園です。" data-story-gallery="./img/story/thumb_09.png|./img/story/thumb_09_2.png|./img/story/thumb_09_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">09</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_09.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">海田総合公園 週末の予定はこれで決まり！自然と笑顔が溢れる、家族の遊び場。</strong>
+    <span class="storyPageCard__sub">レジャー</span>
+    <p class="storyPageCard__excerpt">「今度の休み、どこ行く？」そんな家族会議の定番の答えが、「海田総合公園」です。広大な</p>
+  </span>
+</button>
+
+<!--10つめ 西国街道の街並み-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="10" data-story-title="西国街道の街並み レトロな小径を歩けば、新しい自分に出会えそう。" data-story-sub="歴史" data-story-excerpt="レトロな小径を歩けば、新しい自分に出会えそう。" data-story-detail="旧千葉家住宅の周辺に今も残る、「西国街道」の古い街並み。かつては参勤交代の諸大名や幕府の役人が行き交った重要な街道であり、海田市（かいたいち）は宿場町として大いに賑わいました。<br><br>今でも格子戸の古い家屋や白壁の蔵が点在し、一歩路地に入れば、当時の面影を色濃く感じることができます。カメラ片手にレトロな小径を歩けば、まるで映画のセットに迷い込んだかのようなノスタルジックな気分に。<br><br>最近では、歴史的な建物をリノベーションした新しいお店も少しずつ増え、古き良き歴史と新しい文化が絶妙にミックスされています。休日は西国街道をのんびり歩いて、自分だけのお気に入りスポットを探してみませんか。" data-story-gallery="./img/story/thumb_10.png|./img/story/thumb_10_2.png|./img/story/thumb_10_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">10</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_10.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">西国街道の街並み レトロな小径を歩けば、新しい自分に出会えそう。</strong>
+    <span class="storyPageCard__sub">歴史</span>
+    <p class="storyPageCard__excerpt">旧千葉家住宅の周辺に今も残る、「西国街道」の古い街並み。かつては参勤交代の諸大名や幕</p>
+  </span>
+</button>
+
+<!--11つめ 町の花「ひまわり」-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="11" data-story-title="町の花「ひまわり」 太陽に向かって咲く花のように。海田の街は、いつも上を向いている。" data-story-sub="自然" data-story-excerpt="太陽に向かって咲く花のように。海田の街は、いつも上を向いている。" data-story-detail="海田町の「町の花」をご存知ですか？それは、明るく元気な「ひまわり」です。<br><br>町を歩けば、マンホールの蓋や看板、そして町内をぐるぐると走るコミュニティバス「ひまわりバス」など、至る所でこの可愛らしいシンボルに出会うことができます。<br><br>太陽に向かって真っ直ぐに咲くひまわりの姿は、明るく前向きな海田の気風そのもの。夏になれば、町民が大切に育てたひまわりが町内のあちこちで花を開き、訪れる人に元気を与えてくれます。<br><br>小さなお子さんからお年寄りまで、誰からも愛される花。海田町はこれからも、ひまわりのように明るい笑顔が咲き誇る「Kaitaful」な街であり続けます。" data-story-gallery="./img/story/thumb_11.png|./img/story/thumb_11_2.png|./img/story/thumb_11_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">11</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_11.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">町の花「ひまわり」 太陽に向かって咲く花のように。海田の街は、いつも上を向いている。</strong>
+    <span class="storyPageCard__sub">自然</span>
+    <p class="storyPageCard__excerpt">海田町の「町の花」をご存知ですか？それは、明るく元気な「ひまわり」です。町を歩けば</p>
+  </span>
+</button>
+
+<!--12つめ かいた七夕さん-->
+<button type="button" class="storyPageCard js-story-page-card" aria-haspopup="dialog" data-story-no="12" data-story-title="かいた七夕さん 笹の葉に願いを込めて。人と人がつながる、海田の夏の風物詩。" data-story-sub="イベント" data-story-excerpt="笹の葉に願いを込めて。人と人がつながる、海田の夏の風物詩。" data-story-detail="毎年7月になると、海田の街は少しソワソワし始めます。瀬野川周辺などで地域ごとに開催される伝統行事「かいた七夕さん」の季節です。<br><br>色鮮やかな短冊が風に揺れる笹飾り。子どもたちの楽しそうな浴衣姿。地域の人々が手作りで盛り上げる夜店。そこには、何世代にもわたって受け継がれてきた、古き良き日本の夏祭りの風景があります。<br><br>「かいた七夕さん」は、単なるイベントではありません。久しぶりに会う同級生、近所のおじさんおばさん。人と人が顔を合わせ、絆を深める大切なコミュニティの場です。<br><br>「来年もまたここで会おうね」。そんな温かい約束が交わされる海田の夏を、あなたも体験してみませんか。" data-story-gallery="./img/story/thumb_12.png|./img/story/thumb_12_2.png|./img/story/thumb_12_3.png">
+  <span class="storyPageCard__no" aria-hidden="true">12</span>
+  <span class="storyPageCard__thumb"><img src="./img/story/thumb_12.png" alt="" width="255" height="320" loading="lazy" decoding="async"></span>
+  <span class="storyPageCard__body">
+    <strong class="storyPageCard__title">かいた七夕さん 笹の葉に願いを込めて。人と人がつながる、海田の夏の風物詩。</strong>
+    <span class="storyPageCard__sub">イベント</span>
+    <p class="storyPageCard__excerpt">毎年7月になると、海田の街は少しソワソワし始めます。瀬野川周辺などで地域ごとに開催さ</p>
+  </span>
+</button>
+
+				
+				
+             
+            </div>
           </section>
 
-          {{> pagination}}
+          <div class="pagination">
+            <nav class="pagination__nav pagination__nav--pc" aria-label="ページネーション">
+              <a href="#" class="pagination__arrow" aria-label="前のページ">‹</a>
+              <ul class="pagination__list">
+                <li><a href="#" class="pagination__link is-current" aria-current="page">1</a></li>
+                <li><a href="#" class="pagination__link">2</a></li>
+                <li><a href="#" class="pagination__link">3</a></li>
+                <li><a href="#" class="pagination__link">4</a></li>
+                <li><a href="#" class="pagination__link">5</a></li>
+                <li><span class="pagination__ellipsis" aria-hidden="true">···</span></li>
+                <li><a href="#" class="pagination__link">10</a></li>
+              </ul>
+              <a href="#" class="pagination__arrow" aria-label="次のページ">›</a>
+            </nav>
+          
+            <nav class="pagination__nav pagination__nav--sp" aria-label="ページネーション">
+              <a href="#" class="pagination__arrow pagination__arrow--square" aria-disabled="true" aria-label="前のページ">
+                <span aria-hidden="true">←</span>
+              </a>
+              <p class="pagination__status">Page 1 of 10</p>
+              <a href="#" class="pagination__arrow pagination__arrow--square" aria-label="次のページ">
+                <span aria-hidden="true">→</span>
+              </a>
+            </nav>
+          </div>
 
-          {{> breadcrumb current="70 STORIES"}}
+          <div class="breadcrumb__bar">
+            <hr class="breadcrumb__rule">
+            <nav class="breadcrumb__nav" aria-label="パンくずリスト">
+              <a href="./index.html">TOP</a>
+              <span class="breadcrumb__sep">/</span>
+              <span
+                class="breadcrumb__current">70 STORIES</span>
+            </nav>
+            <hr class="breadcrumb__rule">
+          </div>
         </div>
       </div>
     </article>
 
-    {{> flowing}}
+    <section class="flowing_wrapper">
+    <!-- 横スクロール + 画像切り替えアニメーション コンポーネント -->
+    <div class="flowing">
+      <div class="flowing__track">
+        <!-- セット1 -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <!-- セット2（ループ用の複製） -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+      </div>
+    </div>
+    </section>
   </main>
 
   <div id="storyPageModal" class="storyPageModal js-story-page-modal" role="dialog" aria-modal="true"

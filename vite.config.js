@@ -9,47 +9,120 @@ import handlebars from 'vite-plugin-handlebars';
 const pageData = {
   'index.html': {
     isHome: true,
-    title: 'Main Page',
-    ctaHref: './interview.html',
-    eventCtaHref: './event.html'
+    title: 'Main Page'
   },
-  'interview.html': {
-    isHome: false,
-    title: 'インタビュー一覧 | Kaitaful Fes'
+  'about.html': {
+    title: '海田町を知る | Kaitaful Fes'
   },
-  'interview_detail.html': {
-    isHome: false,
-    title: 'インタビュー詳細 | Kaitaful Fes',
-    ctaHref: './interview.html'
+  'story.html': {
+    title: '70 STORIES | Kaitaful Fes'
   },
   'event.html': {
-    isHome: false,
     title: 'イベント一覧 | Kaitaful Fes'
   },
   'event_detail.html': {
-    isHome: false,
-    title: 'イベント詳細 | Kaitaful Fes',
-    eventCtaHref: './event.html'
+    title:
+      '海田町町制施行70周年記念事業第2弾 海田町防災フェア2026 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
   },
-  'story.html': {
-    isHome: false,
-    title: '70 STORIES | Kaitaful Fes'
+  'event_detail_01.html': {
+    title:
+      '海田町町制施行70周年記念事業第2弾 海田町防災フェア2026 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_02.html': {
+    title:
+      'ボランティア人間塾 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_03.html': {
+    title:
+      '第32回 かいた七夕さん | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_04.html': {
+    title:
+      '親子防災講座/支援者向け体験講座 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_05.html': {
+    title:
+      '海田町 2DAYS イングリッシュレッスン | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_06.html': {
+    title:
+      '盆踊りを楽しむつどい | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_07.html': {
+    title:
+      '南堀川まつり | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_08.html': {
+    title:
+      '第29回 海田小学校区グラウンドゴルフ大会 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'event_detail_09.html': {
+    title:
+      '窪町自治会 日帰り旅行 | 70周年記念イベント | Kaitaful Days. 海田町町制施行70周年 特設サイト | 海田町'
+  },
+  'interview.html': {
+    title: 'インタビュー一覧 | Kaitaful Fes'
+  },
+  'interview_detail.html': {
+    title: 'インタビュー詳細 | Kaitaful Fes'
+  },
+  'interview_detail_01.html': {
+    title: 'インタビュー詳細 | Kaitaful Fes'
   },
   'information.html': {
-    isHome: false,
     title: 'インフォメーション一覧 | Kaitaful Fes'
   },
   'information_detail.html': {
-    isHome: false,
     title: 'インフォメーション詳細 | Kaitaful Fes'
   },
-  'about.html': {
-    isHome: false,
-    title: '海田町を知る | Kaitaful Fes'
+  'entry.html': {
+    title: '募集一覧 | Kaitaful Fes'
+  },
+  'entry_food.html': {
+    title: '飲食マルシェ・キッチンカー 出店募集 | Kaitaful Fes'
+  },
+  'entry_job.html': {
+    title: '海田こどもおしごと体験 出展企業募集 | Kaitaful Fes'
+  },
+  'entry_sponsor.html': {
+    title: '協賛企業募集 | Kaitaful Fes'
   }
 };
 
+const htmlEntries = [
+  'index.html',
+  'about.html',
+  'story.html',
+  'event.html',
+  'event_detail.html',
+  'event_detail_01.html',
+  'event_detail_02.html',
+  'event_detail_03.html',
+  'event_detail_04.html',
+  'event_detail_05.html',
+  'event_detail_06.html',
+  'event_detail_07.html',
+  'event_detail_08.html',
+  'event_detail_09.html',
+  'interview.html',
+  'interview_detail.html',
+  'interview_detail_01.html',
+  'information.html',
+  'information_detail.html',
+  'entry.html',
+  'entry_food.html',
+  'entry_job.html',
+  'entry_sponsor.html'
+];
+
 const root = 'src';
+
+const rollupInput = Object.fromEntries(
+  htmlEntries.map((file) => [
+    file.replace(/\.html$/, '').replace(/_/g, '-'),
+    resolve(__dirname, root, file)
+  ])
+);
 
 export default defineConfig({
   base: './',
@@ -78,17 +151,7 @@ export default defineConfig({
         // 単一のバンドルを生成
         manualChunks: undefined
       },
-      input: {
-        index: resolve(__dirname, root, 'index.html'),
-        interview: resolve(__dirname, root, 'interview.html'),
-        interview_detail: resolve(__dirname, root, 'interview_detail.html'),
-        event: resolve(__dirname, root, 'event.html'),
-        event_detail: resolve(__dirname, root, 'event_detail.html'),
-        story: resolve(__dirname, root, 'story.html'),
-        information: resolve(__dirname, root, 'information.html'),
-        information_detail: resolve(__dirname, root, 'information_detail.html'),
-        about: resolve(__dirname, root, 'about.html')
-      }
+      input: rollupInput
     }
   },
   /*
@@ -101,7 +164,7 @@ export default defineConfig({
       //各ページ情報の読み込み
       context(pagePath) {
         const pageName = pagePath.split('/').pop();
-        return pageData[pageName];
+        return pageData[pageName] || { title: 'Kaitaful Fes' };
       }
     })
   ]

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>募集一覧 | Kaitaful Fes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  
+  <script type="module" crossorigin src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header id="header" class="header">
+    <div class="header__inner">
+      <!-- SNS icons -->
+      <div class="header__sns">
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- Logo -->
+      <a href="/" class="header__logo">
+        <img src="./img/logo_mark.svg" alt="" class="header__logo-mark">
+        <img src="./img/logo_text.svg" alt="70th Anniversary" class="header__logo-text">
+      </a>
+  
+      <!-- Hamburger menu button -->
+      <button type="button" class="header__menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span class="header__menu-line"></span>
+        <span class="header__menu-line"></span>
+        <span class="header__menu-line"></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- ハンバーガーメニュー -->
+  <nav id="globalNav" class="gnav">
+    <div class="gnav__overlay" id="gnavOverlay"></div>
+    <div class="gnav__panel">
+      <!-- 閉じるボタン -->
+      <button type="button" class="gnav__close" id="gnavClose" aria-label="メニューを閉じる">
+        <span class="gnav__close-line"></span>
+        <span class="gnav__close-line"></span>
+      </button>
+  
+      <!-- SNS icons (メニュー内) -->
+      <div class="gnav__sns">
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- ナビゲーション -->
+      <ul class="gnav__list">
+        <li class="gnav__item"><a href="/">トップページ</a></li>
+        <li class="gnav__item"><a href="./about.html">海田町を知る</a></li>
+        <li class="gnav__item"><a href="./story.html">70のストーリー</a></li>
+        <li class="gnav__item"><a href="./event.html">イベント</a></li>
+        <li class="gnav__item"><a href="./interview.html">インタビュー</a></li>
+        <li class="gnav__item"><a href="#">海田町の事業者</a></li>
+        <li class="gnav__item"><a href="./information.html">ニュース</a></li>
+      </ul>
+  
+      <!-- KAITAFUL FES -->
+      <div class="gnav__fes">
+        <img src="./img/kaitaful_fes.svg" alt="KAITAFUL FES" class="gnav__fes-title">
+        <img src="./img/kaitaful_fes_date.svg" alt="2026.11.1sun" class="gnav__fes-date">
+      </div>
+  
+      <!-- フッター -->
+      <div class="gnav__footer">
+        <img src="./img/footer_logo.svg" alt="海田町" class="gnav__footer-logo">
+        <p class="gnav__footer-copy">Copyright Kaita Town All Rights Reserved.</p>
+      </div>
+    </div>
+  </nav>
+
+  <main class="Event">
+    <article class="eventPage">
+      <div class="eventPage__inner">
+        <header class="pageTitle" aria-labelledby="entry-page-heading">
+          <p class="pageTitle__label">Kaitaful Days.</p>
+          <h1 id="entry-page-heading" class="pageTitle__title">ENTRY</h1>
+        </header>
+
+        <section class="pageIntro pageIntro--grid">
+          <div class="pageIntro__inner">
+            <div class="pageIntro__catch">
+              <p>一緒に創り上げる</p>
+              <p>KAITAFUL FES 2026</p>
+            </div>
+            <p class="pageIntro__lead">海田町制施行70周年記念イベント『KAITAFUL FES 2026』を一緒に盛り上げていただける出展者様・協賛企業様を募集しています。皆様のご参加をお待ちしております。</p>
+          </div>
+        </section>
+
+        <!-- PC用一覧 -->
+        <ul class="eventPage__cards eventPage__cards--pc" aria-label="募集一覧">
+          <li class="eventCard">
+            <a href="./entry_sponsor.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">協賛企業募集（KAITAFUL FES 2026）</h3>
+                <p class="eventCard__place">各種協賛プラン</p>
+              </div>
+            </a>
+          </li>
+          <li class="eventCard">
+            <a href="./entry_food.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">飲食マルシェ・キッチンカー 出店募集</h3>
+                <p class="eventCard__place">最大50店舗</p>
+              </div>
+            </a>
+          </li>
+          <li class="eventCard">
+            <a href="./entry_job.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="476" height="477" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">海田こどもおしごと体験 出展企業募集</h3>
+                <p class="eventCard__place">最大10社程度</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <!-- スマホ用一覧 -->
+        <ul class="eventPage__cards eventPage__cards--sp" aria-label="募集一覧">
+          <li class="eventCard">
+            <a href="./entry_sponsor.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">協賛企業募集（KAITAFUL FES 2026）</h3>
+                <p class="eventCard__place">各種協賛プラン</p>
+              </div>
+            </a>
+          </li>
+          <li class="eventCard">
+            <a href="./entry_food.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">飲食マルシェ・キッチンカー 出店募集</h3>
+                <p class="eventCard__place">最大50店舗</p>
+              </div>
+            </a>
+          </li>
+          <li class="eventCard">
+            <a href="./entry_job.html" class="eventCard__link">
+              <div class="eventCard__thumb">
+                <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+              </div>
+              <div class="eventCard__body">
+                <div class="eventCard__dateRow" aria-label="募集期間">
+                  <span class="eventCard__year">募集締切：</span>
+                  <span class="eventCard__day">8.15</span>
+                  <span class="eventCard__weekday">土曜日</span>
+                </div>
+                <h3 class="eventCard__name">海田こどもおしごと体験 出展企業募集</h3>
+                <p class="eventCard__place">最大10社程度</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="breadcrumb__bar">
+          <hr class="breadcrumb__rule">
+          <nav class="breadcrumb__nav" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="breadcrumb__sep">/</span>
+            <span
+              class="breadcrumb__current">ENTRY</span>
+          </nav>
+          <hr class="breadcrumb__rule">
+        </div>
+      </div>
+    </article>
+
+    <section class="flowing_wrapper">
+    <!-- 横スクロール + 画像切り替えアニメーション コンポーネント -->
+    <div class="flowing">
+      <div class="flowing__track">
+        <!-- セット1 -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <!-- セット2（ループ用の複製） -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <!-- メインフッターエリア -->
+    <div class="footer__main">
+      <!-- ロゴ -->
+      <div class="footer__logo">
+        <img src="./img/footer_logo_full.svg" alt="70th Anniversary" class="footer__logo-img">
+      </div>
+  
+      <!-- SNS icons -->
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- KAITAFUL FES（フッター用アウトライン版） -->
+      <div class="footer__fes">
+        <img src="./img/footer_kaitaful_fes.svg" alt="KAITAFUL FES" class="footer__fes-title">
+        <img src="./img/footer_kaitaful_fes_date.svg" alt="2026.11.1sun" class="footer__fes-date">
+      </div>
+  
+      <!-- ナビゲーション -->
+      <nav class="footer__nav">
+        <div class="footer__nav-row">
+          <a href="/">トップ</a>
+          <a href="./about.html">海田町を知る</a>
+          <a href="./story.html">70のストーリー</a>
+          <a href="./event.html">イベント</a>
+        </div>
+        <div class="footer__nav-row">
+          <a href="./interview.html">インタビュー</a>
+          <a href="#">海田町の事業者</a>
+          <a href="./information.html">ニュース</a>
+        </div>
+      </nav>
+  
+      <!-- ページトップへ戻る -->
+      <a href="#" class="footer__top" id="backToTop">
+        <img src="./img/icon_top.svg" alt="ページトップへ">
+      </a>
+  
+      <!-- コピーライト -->
+      <div class="footer__copyright">
+        <img src="./img/footer_logo.svg" alt="海田町" class="footer__copyright-logo">
+        <p class="footer__copyright-text">Copyright Kaita Town All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>  
+</body>
+
+</html>

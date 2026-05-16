@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>海田こどもおしごと体験 出展企業募集 | Kaitaful Fes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+    rel="stylesheet">
+  
+  <script type="module" crossorigin src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header id="header" class="header">
+    <div class="header__inner">
+      <!-- SNS icons -->
+      <div class="header__sns">
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="header__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- Logo -->
+      <a href="/" class="header__logo">
+        <img src="./img/logo_mark.svg" alt="" class="header__logo-mark">
+        <img src="./img/logo_text.svg" alt="70th Anniversary" class="header__logo-text">
+      </a>
+  
+      <!-- Hamburger menu button -->
+      <button type="button" class="header__menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span class="header__menu-line"></span>
+        <span class="header__menu-line"></span>
+        <span class="header__menu-line"></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- ハンバーガーメニュー -->
+  <nav id="globalNav" class="gnav">
+    <div class="gnav__overlay" id="gnavOverlay"></div>
+    <div class="gnav__panel">
+      <!-- 閉じるボタン -->
+      <button type="button" class="gnav__close" id="gnavClose" aria-label="メニューを閉じる">
+        <span class="gnav__close-line"></span>
+        <span class="gnav__close-line"></span>
+      </button>
+  
+      <!-- SNS icons (メニュー内) -->
+      <div class="gnav__sns">
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="gnav__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- ナビゲーション -->
+      <ul class="gnav__list">
+        <li class="gnav__item"><a href="/">トップページ</a></li>
+        <li class="gnav__item"><a href="./about.html">海田町を知る</a></li>
+        <li class="gnav__item"><a href="./story.html">70のストーリー</a></li>
+        <li class="gnav__item"><a href="./event.html">イベント</a></li>
+        <li class="gnav__item"><a href="./interview.html">インタビュー</a></li>
+        <li class="gnav__item"><a href="#">海田町の事業者</a></li>
+        <li class="gnav__item"><a href="./information.html">ニュース</a></li>
+      </ul>
+  
+      <!-- KAITAFUL FES -->
+      <div class="gnav__fes">
+        <img src="./img/kaitaful_fes.svg" alt="KAITAFUL FES" class="gnav__fes-title">
+        <img src="./img/kaitaful_fes_date.svg" alt="2026.11.1sun" class="gnav__fes-date">
+      </div>
+  
+      <!-- フッター -->
+      <div class="gnav__footer">
+        <img src="./img/footer_logo.svg" alt="海田町" class="gnav__footer-logo">
+        <p class="gnav__footer-copy">Copyright Kaita Town All Rights Reserved.</p>
+      </div>
+    </div>
+  </nav>
+
+  <main class="Information">
+    <div class="informationDetail">
+      <div class="informationDetail__inner">
+        <header class="detailTitle" aria-labelledby="entry-detail-heading">
+          <div class="detailTitle__row">
+            <p class="detailTitle__label">Kaitaful Days.</p>
+            <h1 id="entry-detail-heading" class="detailTitle__heading">ENTRY</h1>
+          </div>
+          <hr class="detailTitle__rule" aria-hidden="true">
+        </header>
+
+        <section class="informationDetail__head">
+          <div class="informationDetail__metaRow">
+            <span class="informationDetail__category">出展募集</span>
+            <span class="informationDetail__category" style="background:#555;margin-left:10px;">締切：8月15日</span>
+          </div>
+          <h2 class="informationDetail__postTitle">海田こどもおしごと体験 出展企業募集要項</h2>
+        </section>
+
+        <div class="informationDetail__article">
+          <article class="wpArticle">
+            <div class="wpArticle__body">
+              <p>町内事業者の皆様へ</p>
+
+              <p>令和8年（2026年）11月1日（日）に開催される、海田町町制施行70周年記念イベント『KAITAFUL FES 2026』において、本イベント最大の目玉企画となる<strong>「海田こどもおしごと体験」</strong>エリアを展開いたします。</p>
+              
+              <p>本企画は、海田町内の企業やお店が主役となり、次世代を担うこどもたちに「本物のしごと」の面白さや難しさ、そして「働くことのカッコよさ」を直接体験してもらう特別なプログラムです。お子様方にとっての一生の思い出をつくるとともに、親世代に対して貴社の絶大なPR効果を発揮します。</p>
+              
+              <p>「将来、このまち（貴社）で働きたい！」という夢とシビックプライド（町への誇り）を育むこのビッグプロジェクトに、ぜひご参加・ご出展をお願いいたします！</p>
+              
+              <hr>
+              
+              <h3>1. 開催概要</h3>
+              <ul>
+                <li><strong>名称</strong>：海田こどもおしごと体験（KAITAFUL FES 2026 内）</li>
+                <li><strong>日時</strong>：令和8年（2026年）11月1日（日） 9:00～17:00（予定）※雨天決行・荒天中止</li>
+                <li><strong>会場</strong>：海田小学校 グラウンド・体育館（メイン会場内の特別エリア）</li>
+                <li><strong>対象</strong>：おもに幼児〜小学生とその保護者（動員目標5,000人のファミリー層中心）</li>
+                <li><strong>主催・連携</strong>：海田町・70周年記念事業実行委員会 / 海田商工会議所</li>
+              </ul>
+              
+              <h3>2. こどもたちの「体験の仕組み（フロー）」と「お給料システム」</h3>
+              <p>こどもたちを単なるお客さんとして扱うのではなく、「小さな新入社員」として迎え入れます。</p>
+              <ol>
+                <li><strong>受付・出勤</strong>：こどもたちは受付を済ませ、専用の「おしごと手帳」を持って貴社のブースへ出勤します。</li>
+                <li><strong>おしごと体験</strong>：貴社支給のアイテム（エプロンや名札等）を身につけ、1回15〜30分程度の実務体験を実施します（※保護者は専用エリアから見守るのみとし、介入はご遠慮いただきます）。</li>
+                <li><strong>お給料（イベント専用通貨）のお渡し</strong>：体験終了後、貴社からの「給料」として、<strong>会場内の飲食マルシェで実際に使えるイベント専用通貨（金券）</strong>をお渡しいただきます。
+                  <ul>
+                    <li><em>「自分で働いてお金を稼ぎ、マルシェで美味しいご飯を買って食べる」というリアルな経済サイクルを通じ、子どもたちに働く喜びと達成感を強く刻み込みます。</em></li>
+                  </ul>
+                </li>
+              </ol>
+              
+              <h3>3. ご出展における「独自の巨大メリット」</h3>
+              <p>単なるブース出展にとどまらず、ご協力いただく企業様には強力なPRプログラムをご用意しています。</p>
+              <ul>
+                <li><strong>① 【目玉特典】メインステージでの「企業PR・プレゼンタイム」の付与</strong>
+                  <ul>
+                    <li>イベント当日は、数千人が集まる『メインステージ』にて、おしごと体験へご出展いただいた企業様向けの専用PRタイム（14:30〜予定）をご用意します。次世代の子どもたちやその親、来場者に向けて、自社の魅力やサービスを直接マイクで宣伝し、大きな注目を集めることができます。</li>
+                  </ul>
+                </li>
+                <li><strong>② 圧倒的な自社PR効果と「未来の採用（ファン）づくり」</strong>
+                  <ul>
+                    <li>こどもたちが真剣に、そして笑顔で体験する姿を通じ、付き添いの親世代に対して貴社の存在を強く印象付けます。また、子どもたちの記憶に「カッコいい地元企業」として刻まれることで、10年後のUターン就職や地元採用への強力な種まきとなります。</li>
+                  </ul>
+                </li>
+                <li><strong>③ アウタープロモーション（広域層へのアピール）</strong>
+                  <ul>
+                    <li>広島FMや広島電鉄を活用した大規模プロモーションを行うため、広島市等から訪れる広域層（数千人規模）に対しても、貴社の事業や技術力をアピールすることが可能です。</li>
+                  </ul>
+                </li>
+                <li><strong>④ イベント公式WEBサイト・SNSでの企業PR告知</strong>
+                  <ul>
+                    <li>イベント特設WEBサイトや公式SNSにおいても、ご出展いただく各企業様の体験内容や会社情報を事前にしっかりと告知・発信し、集客とPRを後押しいたします。</li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <h3>4. 「どんな体験ができるの？」業種別の考え方（具体例）</h3>
+              <p>「BtoB企業だから、こども向けの体験は難しいのでは？」とご不安な場合もご安心ください。事務局が一緒に「こどもが楽しめる体験コンテンツ化」をフルサポートします！</p>
+              <ul>
+                <li><strong>建設業・製造業</strong>：重機の乗車体験、カンナ削り体験、ミニチュア組み立て、工具を使ったモノづくり・実験</li>
+                <li><strong>サービス業・小売業</strong>：レジ打ち体験、商品の陳列やポップ作り、カフェの店員さん体験</li>
+                <li><strong>美容・医療・福祉</strong>：美容師体験（マネキンのヘアアレンジ）、お薬づくり（ラムネ等）体験、車いす介助・サポート体験</li>
+                <li><strong>IT・クリエイティブ</strong>：名刺づくりデザイン体験、プログラミングで作る車</li>
+              </ul>
+              
+              <h3>5. 募集内容および出展料</h3>
+              <p>海田町内の事業者様を対象とします。（※原則として、体験プログラムをご提供いただける企業様）</p>
+              <ul>
+                <li><strong>募集枠数</strong>：最大10社程度
+                  <ul>
+                    <li>※応募多数の場合は、様々な産業を体験できるよう業種のバランス等を見て選考・調整いたします。</li>
+                    <li><strong>※選考・調整にあたり、本イベントにご協賛（協賛金や景品提供など）をいただける企業様を優先してご案内する場合がございます。予めご了承ください。</strong></li>
+                  </ul>
+                </li>
+                <li><strong>出展料</strong>：<strong>無料</strong></li>
+              </ul>
+              
+              <p><strong>【出展にかかる自己手配・ご準備について（重要）】</strong><br>
+              出展料は無料ですが、以下の点は各企業様にてご負担・ご準備をお願いいたします。</p>
+              <ul>
+                <li><strong>企業様にご負担いただくもの</strong>：当日の事業所対応スタッフ（社員様等の人件費）、体験に使用する材料・道具類、こども用・大人用ユニフォーム（もしあれば）など。</li>
+                <li><strong>電源の持参</strong>：会場からの電源供給（コンセント）はありません。機械等を動かすために電気を使用する場合は、各自で「ポータブル電源」や「発電機」を必ずご持参ください。</li>
+                <li><strong>備品等の手配</strong>：事務局からの貸与物以外の、特別な照明、パソコン環境、キャッシュレス決済用のWi-Fi等は各自でご手配ください。</li>
+                <li><strong>事務局が無償でご用意・サポートするもの</strong>：テント（または体育館内スペース）、机・椅子、共通の基本装飾・看板、そして<strong>事前準備における「体験内容の企画相談サポート（コンサルティング）」</strong>。</li>
+              </ul>
+              
+              <h3>6. 当日の運営ルール・禁止事項（トラブル防止のため必ずご確認ください）</h3>
+              <ul>
+                <li><strong>搬入出と車両のルール（途中退出禁止）</strong>
+                  <ul>
+                    <li>搬入出用の車両は1社につき1台までとします。搬入後は速やかに指定の出展者用駐車場へ車両を移動させてください。周辺道路への路上駐車は厳禁です。</li>
+                    <li>来場者の安全確保のため、<strong>体験用の材料が早くなくなってしまった場合でも、イベント終了時間（17:00予定）までは車両の移動やテントの解体・途中退出は一切できません</strong>。</li>
+                  </ul>
+                </li>
+                <li><strong>キャンセルの禁止</strong>
+                  <ul>
+                    <li>出展確定後の自己都合によるキャンセルは原則禁止です。無断キャンセルや悪質な直前キャンセルの場合、今後の海田町関連イベントへの出展をお断りする場合がございます。</li>
+                  </ul>
+                </li>
+                <li><strong>事業ゴミの持ち帰り（厳守）</strong>
+                  <ul>
+                    <li>体験で使用した端材、段ボールなどのゴミはエコステーションには絶対に捨てず、各企業様で必ずお持ち帰りください。</li>
+                  </ul>
+                </li>
+                <li><strong>安全管理の徹底</strong>
+                  <ul>
+                    <li>刃物や火気、重機を使用するなど、こどもに危険が伴う内容の場合は、事務局と協議の上で安全対策（スタッフの増員、保護メガネの着用等）を徹底してください。</li>
+                  </ul>
+                </li>
+                <li><strong>写真・映像の使用許諾について（広報利用）</strong>
+                  <ul>
+                    <li>当日はオフィシャルカメラマンや各種メディアの撮影が入ります。撮影した写真や動画は、町やイベントの公式WEBサイト、SNS等で広報利用させていただく場合がありますので予めご了承ください。</li>
+                  </ul>
+                </li>
+                <li><strong>スタッフの休憩確保について</strong>
+                  <ul>
+                    <li>長時間のイベントとなりますので、対応いただくスタッフ（社員様）の休憩時間や交代要員については、各企業様にて無理のないようご調整ください。</li>
+                  </ul>
+                </li>
+              </ul>
+              
+              <h3>7. 免責事項</h3>
+              <ul>
+                <li><strong>荒天時等の開催中止</strong>：本イベントは雨天決行ですが、台風等の荒天や不測の事態により中止となる場合があります。その際の材料費等の負担に対する補償・返金は一切行いません。</li>
+                <li><strong>事故等の免責</strong>：体験中におけるお客様（こどもたち）との怪我や物損等のトラブルについて、主催者は一切の責任を負いません。各企業様の責任において安全管理と対応をお願いします（※必要に応じてイベント賠償責任保険等へのご加入をご検討ください）。</li>
+              </ul>
+              
+              <h3>8. スケジュールと応募方法</h3>
+              <ul>
+                <li><strong>応募締切</strong>：令和8年 8月 15日（土） 必着</li>
+                <li><strong>出展可否の通知</strong>：令和8年 8月 31日（月）頃までに事務局よりご連絡いたします。</li>
+                <li><strong>出展者説明会</strong>：令和8年 9月 5日（土）（※選考通過者向けに、当日のルールや搬入出ルート等を説明しますので必ずご参加ください）</li>
+                <li><strong>応募方法</strong>：別紙「出展申込書」に必要事項（予定している体験内容の概要を含む）を記入し、事務局へご提出ください。</li>
+              </ul>
+
+              <div style="margin-top: 60px; padding: 30px; background-color: #f7f7f7; text-align: center; border-radius: 8px;">
+                <p style="margin-bottom: 20px; font-weight: bold;">【お申し込み・お問い合わせ先】<br>海田町70周年記念事業 実行委員会 おしごと体験担当<br>TEL：090-2551-5823 / Email：info@kaitafuldays.com</p>
+                <a href="mailto:info@kaitafuldays.com" class="Button Button--dark" style="display: inline-flex;">
+                  <span class="Button__label">メールで申し込む</span>
+                  <span class="Button__meta" aria-hidden="true">
+                    <span class="Button__divider">
+                      <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
+                    </span>
+                    <span class="Button__icon">
+                      <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
+                    </span>
+                  </span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+        </div>
+
+        <section class="sns" aria-labelledby="information-share-label">
+          <p id="information-share-label" class="sns__label">SHARE</p>
+          <ul class="sns__list">
+            <li class="sns__item">
+              <a class="sns__btn sns__btn--iconOnly" href="#" target="_blank" rel="noopener noreferrer" aria-label="Xでシェア">
+                <img src="./img/sns_icon_x.svg" alt="" width="20" height="20" decoding="async">
+              </a>
+            </li>
+            <li class="sns__item">
+              <a class="sns__btn sns__btn--iconOnly" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア">
+                <img src="./img/sns_icon_facebook.svg" alt="" width="20" height="20" decoding="async">
+              </a>
+            </li>
+            <li class="sns__item">
+              <button type="button" class="sns__btn sns__btn--copy js-sns-copy" aria-label="リンクをコピー">
+                <span class="sns__btnIcon" aria-hidden="true">
+                  <img src="./img/sns_icon_copy.svg" alt="" width="20" height="20" decoding="async">
+                </span>
+                <span class="sns__btnLabel">リンクをコピー</span>
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <div class="informationDetail__cta">
+          <a href="./entry.html" class="Button Button--dark">
+            <span class="Button__label">募集一覧へ戻る</span>
+            <span class="Button__meta" aria-hidden="true">
+              <span class="Button__divider">
+                <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
+              </span>
+              <span class="Button__icon">
+                <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <div class="breadcrumb__bar">
+          <hr class="breadcrumb__rule">
+          <nav class="breadcrumb__nav" aria-label="パンくずリスト">
+            <a href="./index.html">TOP</a>
+            <span class="breadcrumb__sep">/</span>
+            <a href="./entry.html">ENTRY</a>
+            <span class="breadcrumb__sep">/</span>
+            <span
+              class="breadcrumb__current breadcrumb__current--noUppercase">海田こどもおしごと体験 出展企業募集要項</span>
+          </nav>
+          <hr class="breadcrumb__rule">
+        </div>
+      </div>
+    </div>
+
+    <section class="flowing_wrapper">
+    <!-- 横スクロール + 画像切り替えアニメーション コンポーネント -->
+    <div class="flowing">
+      <div class="flowing__track">
+        <!-- セット1 -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <!-- セット2（ループ用の複製） -->
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark1.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco1.svg" alt="" class="flowing__deco-img">
+        </div>
+    
+        <div class="flowing__item flowing__item--logo">
+          <img src="./img/footer_mark2.svg" alt="" class="flowing__logo-img">
+        </div>
+        <div class="flowing__item flowing__item--slider js-flowing-slider">
+          <div class="flowing__slider-slide js-flowing-slide is-active">
+            <img src="./img/flowing_photo_3.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_4.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_1.png" alt="" loading="lazy">
+          </div>
+          <div class="flowing__slider-slide js-flowing-slide">
+            <img src="./img/flowing_photo_2.png" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="flowing__item flowing__item--deco">
+          <img src="./img/footer_deco2.svg" alt="" class="flowing__deco-img">
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <!-- メインフッターエリア -->
+    <div class="footer__main">
+      <!-- ロゴ -->
+      <div class="footer__logo">
+        <img src="./img/footer_logo_full.svg" alt="70th Anniversary" class="footer__logo-img">
+      </div>
+  
+      <!-- SNS icons -->
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_instagram.svg" alt="Instagram">
+        </a>
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_x.svg" alt="X">
+        </a>
+        <a href="#" class="footer__sns-link" target="_blank" rel="noopener noreferrer">
+          <img src="./img/icon_line.svg" alt="LINE">
+        </a>
+      </div>
+  
+      <!-- KAITAFUL FES（フッター用アウトライン版） -->
+      <div class="footer__fes">
+        <img src="./img/footer_kaitaful_fes.svg" alt="KAITAFUL FES" class="footer__fes-title">
+        <img src="./img/footer_kaitaful_fes_date.svg" alt="2026.11.1sun" class="footer__fes-date">
+      </div>
+  
+      <!-- ナビゲーション -->
+      <nav class="footer__nav">
+        <div class="footer__nav-row">
+          <a href="/">トップ</a>
+          <a href="./about.html">海田町を知る</a>
+          <a href="./story.html">70のストーリー</a>
+          <a href="./event.html">イベント</a>
+        </div>
+        <div class="footer__nav-row">
+          <a href="./interview.html">インタビュー</a>
+          <a href="#">海田町の事業者</a>
+          <a href="./information.html">ニュース</a>
+        </div>
+      </nav>
+  
+      <!-- ページトップへ戻る -->
+      <a href="#" class="footer__top" id="backToTop">
+        <img src="./img/icon_top.svg" alt="ページトップへ">
+      </a>
+  
+      <!-- コピーライト -->
+      <div class="footer__copyright">
+        <img src="./img/footer_logo.svg" alt="海田町" class="footer__copyright-logo">
+        <p class="footer__copyright-text">Copyright Kaita Town All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>  
+</body>
+
+</html>
