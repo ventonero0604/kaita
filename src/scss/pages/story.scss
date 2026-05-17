@@ -627,22 +627,27 @@ html.is-story-page-modal-open {
   flex: 1 1 auto;
   flex-direction: row;
   gap: vwpc(36);
-  align-items: flex-start;
+  align-items: stretch;
   min-height: 0;
-  overflow: auto;
+  overflow: hidden;
 
   @include sp {
     flex-direction: column;
     gap: vwsp(20);
+    overflow: auto;
   }
 }
 
 .storyPageModal__gallery {
-  flex: 1 1 48%;
+  flex: 0 0 vwpc(420);
   min-width: 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
 
   @include sp {
     flex: none;
+    position: static;
     width: 100%;
   }
 }
@@ -661,7 +666,27 @@ html.is-story-page-modal-open {
   }
 }
 
-.storyPageModal__mainImg {
+.storyPageModal__sliderViewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.storyPageModal__sliderTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.storyPageModal__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.storyPageModal__slideImg {
   display: block;
   width: 100%;
   height: 100%;
@@ -674,19 +699,21 @@ html.is-story-page-modal-open {
   gap: vwpc(12);
   justify-content: center;
   overflow-x: auto;
-  padding-bottom: vwpc(4);
+  padding-bottom: vwpc(6);
 
   @include sp {
     gap: vwsp(8);
     justify-content: flex-start;
+    padding-bottom: vwsp(4);
   }
 }
 
 .storyPageModal__thumbBtn {
   flex: 0 0 auto;
-  padding: 0;
-  border: 2px solid transparent;
-  border-radius: vwpc(8);
+  padding: 0 0 vwpc(6);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
   background: transparent;
   cursor: pointer;
   overflow: hidden;
@@ -697,15 +724,17 @@ html.is-story-page-modal-open {
     width: vwpc(56);
     height: vwpc(56);
     object-fit: cover;
+    border-radius: vwpc(4);
 
     @include sp {
       width: vwsp(52);
       height: vwsp(52);
+      border-radius: vwsp(4);
     }
   }
 
   &.is-active {
-    border-color: #000;
+    border-bottom-color: #000;
   }
 
   &:focus-visible {
@@ -715,12 +744,17 @@ html.is-story-page-modal-open {
 }
 
 .storyPageModal__aside {
-  flex: 1 1 48%;
+  flex: 1 1 auto;
   min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: vwpc(4);
 
   @include sp {
     flex: none;
     width: 100%;
+    overflow: visible;
+    padding-right: 0;
   }
 }
 
@@ -772,6 +806,46 @@ html.is-story-page-modal-open {
 .storyPageModal__article.wpArticle {
   max-width: none;
   margin: 0;
+}
+
+.storyPageModal__figure {
+  margin: vwpc(28) 0;
+
+  @include sp {
+    margin: vwsp(20) 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: vwpc(12);
+
+    @include sp {
+      border-radius: vwsp(12);
+    }
+  }
+
+  figcaption {
+    margin-top: vwpc(10);
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-size: vwpc(13);
+    line-height: 1.65;
+    color: #333;
+
+    @include sp {
+      margin-top: vwsp(8);
+      font-size: vwsp(12);
+    }
+  }
+}
+
+.storyPageModal__figureLink {
+  display: block;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .storyPageModal__footer {

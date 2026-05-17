@@ -160,19 +160,33 @@
 
   .storyPromo__text {
     margin: 0;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 700;
-    font-size: vwpc(109);
-    letter-spacing: 0.02em;
-    color: #45b9b8;
     text-align: center;
-    line-height: 1;
+  }
+
+  .storyPromo__img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .storyPromo__img--pc {
+    width: vwpc(1266);
+    max-height: vwpc(97);
 
     @include sp {
-      font-size: vwsp(29.97);
-      line-height: 1;
-      letter-spacing: 0;
-      white-space: nowrap;
+      display: none;
+    }
+  }
+
+  .storyPromo__img--sp {
+    display: none;
+    width: vwsp(305);
+    max-width: 100%;
+    height: auto;
+
+    @include sp {
+      display: block;
     }
   }
 }

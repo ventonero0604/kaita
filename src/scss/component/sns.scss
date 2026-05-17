@@ -48,6 +48,82 @@
     margin: 0;
   }
 
+  &__item--copy {
+    position: relative;
+  }
+
+  &__tooltip {
+    --sns-tooltip-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --sns-tooltip-duration: 0.3s;
+
+    position: absolute;
+    bottom: calc(100% + #{vwpc(10)});
+    left: 50%;
+    z-index: 2;
+    box-sizing: border-box;
+    width: max-content;
+    max-width: vwpc(220);
+    padding: vwpc(8) vwpc(12);
+    border-radius: vwpc(6);
+    background: rgb(0 0 0 / 88%);
+    color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: vwpc(12);
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px) scale(0.94);
+    transform-origin: center bottom;
+    transition:
+      opacity var(--sns-tooltip-duration) var(--sns-tooltip-ease),
+      transform var(--sns-tooltip-duration) var(--sns-tooltip-ease),
+      visibility 0s linear var(--sns-tooltip-duration);
+
+    @include sp {
+      bottom: calc(100% + #{vwsp(8)});
+      max-width: vwsp(200);
+      padding: vwsp(8) vwsp(12);
+      border-radius: vwsp(6);
+      font-size: vwsp(12);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: vwpc(6) solid transparent;
+      border-top-color: rgb(0 0 0 / 88%);
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity var(--sns-tooltip-duration) var(--sns-tooltip-ease);
+
+      @include sp {
+        border-width: vwsp(6);
+      }
+    }
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0) scale(1);
+      transition:
+        opacity var(--sns-tooltip-duration) var(--sns-tooltip-ease),
+        transform var(--sns-tooltip-duration) var(--sns-tooltip-ease),
+        visibility 0s linear 0s;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
   &__btn {
     box-sizing: border-box;
     display: inline-flex;

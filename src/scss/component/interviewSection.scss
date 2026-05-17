@@ -63,7 +63,10 @@
   }
 
   .interviewSection__introGrid {
+    margin-bottom: vwpc(32);
+
     @include sp {
+      margin-bottom: vwsp(24);
       display: flex;
       flex-direction: column;
       align-items: center;

@@ -5,7 +5,8 @@
   {{> head}}
 </head>
 
-<body>
+<body class="is-home">
+  {{> loading}}
   {{> header}}
 
   <main class="Top">
@@ -190,7 +191,12 @@
     </section>
 
     <section class="storyPromo" aria-label="海田町70のストーリー公開中">
-      <p class="storyPromo__text">海田町 70のStory公開中</p>
+      <p class="storyPromo__text">
+        <img class="storyPromo__img storyPromo__img--pc" src="./img/story_promo_pc.svg" alt="海田町70のストーリーを公開"
+          width="1267" height="97" decoding="async">
+        <img class="storyPromo__img storyPromo__img--sp" src="./img/story_promo_sp.svg" alt="" width="305" height="118"
+          decoding="async">
+      </p>
     </section>
 
     <section class="storySection" aria-labelledby="storySection-heading">
@@ -208,62 +214,62 @@
       <div class="storyCarousel js-story-carousel">
         <div class="storyCarousel__viewport js-story-viewport" tabindex="0" aria-roledescription="carousel">
           <div class="storyCarousel__track js-story-track">
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="1"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="01"
               data-story-title="Story 01" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_1.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="2"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="02"
               data-story-title="Story 02" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_2.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="3"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="03"
               data-story-title="Story 03" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_3.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="4"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="04"
               data-story-title="Story 04" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_4.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="5"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="05"
               data-story-title="Story 05" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_5.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="6"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="06"
               data-story-title="Story 06" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_6.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="7"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="07"
               data-story-title="Story 07" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_7.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="08"
               data-story-title="Story 08（ダミー）" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_8.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="09"
               data-story-title="Story 09（ダミー）" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_9.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="10"
               data-story-title="Story 10（ダミー）" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_10.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="11"
               data-story-title="Story 11（ダミー）" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_11.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
             </button>
-            <button type="button" class="storyCarousel__slide js-story-slide" data-story-id="8"
+            <button type="button" class="storyCarousel__slide js-story-slide" data-story-no="12"
               data-story-title="Story 12（ダミー）" aria-label="ストーリー詳細を開く">
               <span class="storyCarousel__imgWrap"><img src="./img/flowing_photo_12.png" alt="" width="525" height="657"
                   loading="lazy" decoding="async"></span>
@@ -482,7 +488,7 @@
       </div>
     </section>
 
-    <section class="interviewSection" aria-labelledby="interviewSection-heading">
+    <!-- <section class="interviewSection" aria-labelledby="interviewSection-heading">
       <div class="interviewSection__inner">
         <div class="interviewSection__intro">
           <p class="interviewSection__label">Kaitaful Days.</p>
@@ -596,7 +602,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="specialMovie" aria-labelledby="specialMovie-heading">
       <div class="specialMovie__inner">
@@ -947,6 +953,7 @@
   </main>
 
   {{> footer}}
+  <script type="module" src="./js/loading.js"></script>
   <script type="module" src="./js/main.js"></script>
 </body>
 

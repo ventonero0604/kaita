@@ -1,0 +1,177 @@
+@use '../foundation/breakPoint.scss' as *;
+@use '../foundation/pxvw.scss' as *;
+
+/* オープニング — Figma 6:5571 / 参考: teraokanatsumi.com */
+
+html.is-page-loading {
+  overflow: hidden;
+}
+
+.pageLoading {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  pointer-events: auto;
+
+  &.is-covered,
+  &.is-revealing {
+    pointer-events: none;
+  }
+
+  &.is-revealing {
+    background: transparent;
+  }
+
+  &.is-done {
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.pageLoading__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  .pageLoading.is-covered &,
+  .pageLoading.is-revealing & {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.pageLoading__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vwpc(24);
+  width: min(100%, vwpc(280));
+  padding-inline: vwpc(24);
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  animation: pageLoadingLogoIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+
+  @include sp {
+    gap: vwsp(16);
+    width: min(100%, vwsp(240));
+    padding-inline: vwsp(24);
+  }
+}
+
+@keyframes pageLoadingLogoIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.pageLoading__logoIcon {
+  display: block;
+  width: vwpc(140);
+  height: auto;
+
+  @include sp {
+    width: vwsp(100);
+  }
+}
+
+.pageLoading__logoText {
+  display: block;
+  width: vwpc(232);
+  max-width: 100%;
+  height: auto;
+
+  @include sp {
+    width: vwsp(200);
+  }
+}
+
+.pageLoading__curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: #45b9b8;
+  transform: translate3d(0, 100%, 0);
+  will-change: transform;
+}
+
+.pageLoading.is-covering .pageLoading__curtain {
+  animation: pageLoadingCover 0.75s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.pageLoading.is-revealing .pageLoading__curtain {
+  animation: pageLoadingReveal 0.85s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes pageLoadingCover {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageLoadingReveal {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.pageLoading__devToggle {
+  position: fixed;
+  right: vwpc(12);
+  bottom: vwpc(12);
+  z-index: 100001;
+  padding: vwpc(8) vwpc(12);
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: vwpc(6);
+  background: rgb(255 255 255 / 92%);
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: vwpc(11);
+  line-height: 1.3;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+
+  @include sp {
+    right: vwsp(10);
+    bottom: vwsp(10);
+    padding: vwsp(8) vwsp(10);
+    border-radius: vwsp(6);
+    font-size: vwsp(10);
+  }
+
+  &:hover {
+    background: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageLoading__logo {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .pageLoading.is-covering .pageLoading__curtain,
+  .pageLoading.is-revealing .pageLoading__curtain {
+    animation-duration: 0.01ms;
+  }
+}
+

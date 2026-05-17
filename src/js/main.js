@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import './scrollReveal.js';
 
 // ========================================
 // 共通: ハンバーガーメニュー
@@ -66,16 +67,133 @@ $('#backToTop').on('click', function (e) {
 // ========================================
 // 共通: SNS リンクをコピー
 // ========================================
-$(document).on('click', '.js-sns-copy', function (e) {
-  e.preventDefault();
-  const url = window.location.href;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url);
+(function initSnsCopyLink() {
+  const TOOLTIP_VISIBLE_MS = 2500;
+  const TOOLTIP_ANIM_MS = 300;
+  let tooltipTimer = 0;
+  let tooltipHideTimer = 0;
+
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise((resolve, reject) => {
+      const $textarea = $('<textarea readonly></textarea>');
+      $textarea.val(text).css({
+        position: 'fixed',
+        top: 0,
+        left: '-9999px'
+      });
+      $('body').append($textarea);
+      $textarea[0].select();
+      try {
+        const ok = document.execCommand('copy');
+        $textarea.remove();
+        if (ok) resolve();
+        else reject(new Error('copy failed'));
+      } catch (err) {
+        $textarea.remove();
+        reject(err);
+      }
+    });
   }
-});
+
+  function ensureCopyTooltip($btn) {
+    const $item = $btn.closest('.sns__item');
+    $item.addClass('sns__item--copy');
+    let $tooltip = $item.find('.js-sns-copy-tooltip');
+    if (!$tooltip.length) {
+      $tooltip = $(
+        '<span class="sns__tooltip js-sns-copy-tooltip" role="status" aria-live="polite" hidden>リンクをコピーしました</span>'
+      );
+      $item.append($tooltip);
+    }
+    return $tooltip;
+  }
+
+  function hideCopyTooltip($tooltip) {
+    if (!$tooltip.length || !$tooltip.hasClass('is-visible')) return;
+
+    $tooltip.removeClass('is-visible');
+    window.clearTimeout(tooltipHideTimer);
+    tooltipHideTimer = window.setTimeout(() => {
+      $tooltip.attr('hidden', 'hidden').attr('aria-hidden', 'true');
+    }, TOOLTIP_ANIM_MS);
+  }
+
+  function showCopyTooltip($tooltip) {
+    if (!$tooltip.length) return;
+
+    window.clearTimeout(tooltipTimer);
+    window.clearTimeout(tooltipHideTimer);
+
+    $tooltip.removeAttr('hidden').attr('aria-hidden', 'false');
+
+    // 連続クリック時も入場アニメーションを再生
+    if ($tooltip.hasClass('is-visible')) {
+      $tooltip.removeClass('is-visible');
+      void $tooltip[0].offsetWidth;
+    }
+
+    $tooltip.addClass('is-visible');
+    tooltipTimer = window.setTimeout(() => hideCopyTooltip($tooltip), TOOLTIP_VISIBLE_MS);
+  }
+
+  $(document).on('click', '.js-sns-copy', function (e) {
+    e.preventDefault();
+    const $btn = $(this);
+    const $tooltip = ensureCopyTooltip($btn);
+    const url = window.location.href;
+
+    copyTextToClipboard(url)
+      .then(() => showCopyTooltip($tooltip))
+      .catch(() => {
+        window.prompt('以下のURLをコピーしてください', url);
+      });
+  });
+})();
 
 // ========================================
-// Top: KAITA TOWN 70 STORIES カルーセル（ドラッグ・自動スクロール・モーダルスタブ）
+// Story: 深いリンク用 (?story=01 / #story-01)
+// ========================================
+function normalizeStoryNo(value) {
+  if (value == null || value === '') return '';
+  const n = parseInt(String(value).replace(/\D/g, ''), 10);
+  if (!n || n < 1) return '';
+  return String(n).padStart(2, '0');
+}
+
+function getStoryNoFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const fromQuery = params.get('story');
+  if (fromQuery) return normalizeStoryNo(fromQuery);
+
+  const hash = window.location.hash.replace(/^#/, '');
+  const hashMatch = hash.match(/^story-?(\d{1,2})$/i);
+  if (hashMatch) return normalizeStoryNo(hashMatch[1]);
+
+  return '';
+}
+
+function buildStoryPageUrl(storyNo) {
+  const no = normalizeStoryNo(storyNo);
+  if (!no) return './story.html';
+  return `./story.html?story=${encodeURIComponent(no)}`;
+}
+
+function getStoryNoFromSlide($slide) {
+  const attrNo = $slide.attr('data-story-no');
+  if (attrNo) return normalizeStoryNo(attrNo);
+
+  const legacyId = $slide.attr('data-story-id') || $slide.data('storyId');
+  if (legacyId) return normalizeStoryNo(legacyId);
+
+  return '';
+}
+
+// ========================================
+// Top: KAITA TOWN 70 STORIES カルーセル（ドラッグ・自動スクロール）
 // ========================================
 (function initStoryCarousel() {
   const $carousel = $('.js-story-carousel');
@@ -90,10 +208,15 @@ $(document).on('click', '.js-sns-copy', function (e) {
   const AUTO_SPEED_PX_MS = 0.035;
   let halfCycle = 0;
   let dragging = false;
-  let dragExceeded = false;
+  let pointerActive = false;
+  let didDrag = false;
   let slideHoverDepth = 0;
   let dragStartX = 0;
   let dragStartScroll = 0;
+  let activePointerId = null;
+  let $pointerDownSlide = null;
+  let suppressSlideClick = false;
+  const DRAG_THRESHOLD_PX = 10;
   let rafId = 0;
   let lastTs = performance.now();
 
@@ -177,55 +300,90 @@ $(document).on('click', '.js-sns-copy', function (e) {
     slideHoverDepth = Math.max(0, slideHoverDepth - 1);
   });
 
+  function navigateFromSlide($slide) {
+    const storyNo = getStoryNoFromSlide($slide);
+    if (storyNo) {
+      window.location.assign(buildStoryPageUrl(storyNo));
+      return true;
+    }
+
+    if (!$modal.length) return false;
+    const title = $slide.data('storyTitle') || '';
+    $modalCaption.text(title);
+    openStoryModal();
+    return true;
+  }
+
   $viewport.on('pointerdown', function (e) {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    dragging = true;
-    dragExceeded = false;
+
+    pointerActive = true;
+    dragging = false;
+    didDrag = false;
+    activePointerId = e.pointerId;
     dragStartX = e.clientX;
     dragStartScroll = vp.scrollLeft;
-    $viewport.addClass('is-dragging');
-    try {
-      vp.setPointerCapture(e.pointerId);
-    } catch (_) {}
+    $pointerDownSlide = $(e.target).closest('.js-story-slide');
   });
 
   $viewport.on('pointermove', function (e) {
-    if (!dragging) return;
+    if (!pointerActive || e.pointerId !== activePointerId) return;
+
     const dx = e.clientX - dragStartX;
-    if (Math.abs(dx) > 8) dragExceeded = true;
+    if (!dragging && Math.abs(dx) >= DRAG_THRESHOLD_PX) {
+      dragging = true;
+      didDrag = true;
+      $pointerDownSlide = null;
+      $viewport.addClass('is-dragging');
+      try {
+        vp.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    }
+
+    if (!dragging) return;
     vp.scrollLeft = dragStartScroll + (dragStartX - e.clientX);
   });
 
-  function endDrag(e) {
-    if (!dragging) return;
-    dragging = false;
-    $viewport.removeClass('is-dragging');
-    normalizeScroll();
-    setTimeout(() => {
-      dragExceeded = false;
-    }, 80);
-    try {
-      if (e?.pointerId != null) vp.releasePointerCapture(e.pointerId);
-    } catch (_) {}
+  function endPointer(e) {
+    if (!pointerActive || (e && e.pointerId !== activePointerId)) return;
+
+    pointerActive = false;
+    activePointerId = null;
+
+    if (dragging) {
+      dragging = false;
+      $viewport.removeClass('is-dragging');
+      normalizeScroll();
+      try {
+        if (e?.pointerId != null) vp.releasePointerCapture(e.pointerId);
+      } catch (_) {}
+    } else if ($pointerDownSlide && $pointerDownSlide.length && !didDrag) {
+      suppressSlideClick = true;
+      navigateFromSlide($pointerDownSlide);
+      window.setTimeout(() => {
+        suppressSlideClick = false;
+      }, 400);
+    }
+
+    $pointerDownSlide = null;
+    didDrag = false;
   }
 
-  $viewport.on('pointerup pointercancel', endDrag);
+  $viewport.on('pointerup pointercancel', endPointer);
+
+  $carousel.on('click', '.js-story-slide', function (e) {
+    if (suppressSlideClick) {
+      e.preventDefault();
+      return;
+    }
+    navigateFromSlide($(this));
+  });
 
   $carousel.find('.js-story-prev').on('click', function () {
     stepBySlides(-1);
   });
   $carousel.find('.js-story-next').on('click', function () {
     stepBySlides(1);
-  });
-
-  $carousel.on('click', '.js-story-slide', function (e) {
-    if (dragExceeded) {
-      e.preventDefault();
-      return;
-    }
-    const title = $(this).data('storyTitle') || '';
-    $modalCaption.text(title);
-    openStoryModal();
   });
 
   function openStoryModal() {
@@ -380,7 +538,7 @@ $(document).on('click', '.js-sns-copy', function (e) {
 })();
 
 // ========================================
-// story.html: 一覧カード → 詳細モーダル（ギャラリー差し替え）
+// story.html: 一覧カード → 詳細モーダル（ギャラリー・記事内画像）
 // ========================================
 (function initStoryPageModal() {
   const $modal = $('.js-story-page-modal');
@@ -389,34 +547,125 @@ $(document).on('click', '.js-sns-copy', function (e) {
   const $html = $('html');
   const $panel = $modal.find('.storyPageModal__panel');
   const $modalBody = $modal.find('.storyPageModal__body');
+  const $modalAside = $modal.find('.storyPageModal__aside');
 
-  const $mainImg = $modal.find('.js-story-page-modal-main');
+  const $track = $modal.find('.js-story-page-modal-track');
   const $thumbs = $modal.find('.js-story-page-modal-thumbs');
   const $no = $modal.find('.js-story-page-modal-no');
   const $title = $modal.find('.js-story-page-modal-title');
   const $sub = $modal.find('.js-story-page-modal-sub');
   const $body = $modal.find('.js-story-page-modal-body');
 
-  function openStoryPageModal(payload) {
-    const urls = payload.gallery.filter(Boolean);
-    const primary = urls[0] || '';
-    $mainImg.attr('src', primary).attr('alt', '');
-    $no.text(payload.no);
-    $title.text(payload.title);
+  let activeSlide = 0;
 
-    const sub = payload.sub.trim();
-    if (sub) {
-      $sub.text(sub).removeClass('is-empty').removeAttr('hidden');
-    } else {
-      $sub.text('').addClass('is-empty').attr('hidden', 'hidden');
+  function escapeHtml(text) {
+    return $('<div>').text(text).html();
+  }
+
+  function resolveGalleryUrls(rawUrls, fallbackSrc) {
+    const urls = rawUrls.filter(Boolean);
+    if (urls.length >= 2) return urls.slice(0, 3);
+
+    const primary = urls[0] || fallbackSrc || '';
+    if (!primary) return [];
+
+    if (urls.length === 1) {
+      const variants = [primary];
+      const match = primary.match(/^(.*)(\.[a-z0-9]+)$/i);
+      if (match) {
+        const [, stem, ext] = match;
+        ['_2', '_3', '_02', '_03'].forEach((suffix) => {
+          const candidate = `${stem}${suffix}${ext}`;
+          if (!variants.includes(candidate)) variants.push(candidate);
+        });
+      }
+      if (variants.length >= 2) return variants.slice(0, 3);
     }
 
-    $body.html(payload.detail);
+    return [primary, primary, primary];
+  }
 
+  function parseFigures(raw) {
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function detailToParagraphs(detailHtml) {
+    if (!detailHtml) return '';
+    return detailHtml
+      .split(/<br\s*\/?>\s*<br\s*\/?>/i)
+      .map((chunk) => chunk.trim())
+      .filter(Boolean)
+      .map((chunk) => `<p>${chunk}</p>`)
+      .join('');
+  }
+
+  function buildFigureHtml(figure) {
+    if (!figure || !figure.src) return '';
+    const src = escapeHtml(figure.src);
+    const img = `<img src="${src}" alt="" loading="lazy" decoding="async">`;
+    const media = figure.href
+      ? `<a href="${escapeHtml(figure.href)}" class="storyPageModal__figureLink">${img}</a>`
+      : img;
+    const caption = figure.caption
+      ? `<figcaption>${escapeHtml(figure.caption)}</figcaption>`
+      : '';
+    return `<figure class="storyPageModal__figure">${media}${caption}</figure>`;
+  }
+
+  function buildArticleHtml(detailHtml, figures) {
+    const paragraphs = detailToParagraphs(detailHtml);
+    if (!figures.length) return paragraphs;
+
+    const figureBlocks = figures.map(buildFigureHtml).join('');
+    const $wrap = $('<div>').html(paragraphs);
+    const $ps = $wrap.find('p');
+    if ($ps.length >= 2) {
+      $ps.eq(1).after(figureBlocks);
+    } else {
+      $wrap.append(figureBlocks);
+    }
+    return $wrap.html();
+  }
+
+  function setActiveSlide(index) {
+    const count = $track.children().length;
+    if (!count) return;
+    activeSlide = Math.max(0, Math.min(index, count - 1));
+    $track.css('transform', `translate3d(-${activeSlide * 100}%, 0, 0)`);
+    $thumbs.find('.storyPageModal__thumbBtn').each(function (i) {
+      const $btn = $(this);
+      const isActive = i === activeSlide;
+      $btn.toggleClass('is-active', isActive).attr('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  function buildGallery(urls) {
+    $track.empty();
     $thumbs.empty();
+
     urls.forEach((src, i) => {
-      const $btn = $('<button type="button" class="storyPageModal__thumbBtn"></button>');
-      $btn.attr('aria-label', `写真 ${i + 1}`);
+      const $slide = $('<div class="storyPageModal__slide"></div>');
+      $slide.append(
+        $('<img>', {
+          class: 'storyPageModal__slideImg',
+          src,
+          alt: '',
+          decoding: 'async'
+        })
+      );
+      $track.append($slide);
+
+      const $btn = $('<button type="button" class="storyPageModal__thumbBtn" role="tab"></button>');
+      $btn.attr({
+        'aria-label': `写真 ${i + 1}`,
+        'aria-selected': i === 0 ? 'true' : 'false'
+      });
       $btn.append(
         $('<img>', {
           src,
@@ -427,38 +676,91 @@ $(document).on('click', '.js-sns-copy', function (e) {
         })
       );
       if (i === 0) $btn.addClass('is-active');
-      $btn.on('click', function () {
-        $mainImg.attr('src', src);
-        $thumbs.find('.storyPageModal__thumbBtn').removeClass('is-active');
-        $btn.addClass('is-active');
-      });
+      $btn.on('click', () => setActiveSlide(i));
       $thumbs.append($btn);
     });
 
+    setActiveSlide(0);
+  }
+
+  function setStoryUrlParam(storyNo) {
+    const url = new URL(window.location.href);
+    const no = normalizeStoryNo(storyNo);
+    if (no) {
+      url.searchParams.set('story', no);
+    } else {
+      url.searchParams.delete('story');
+    }
+    history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  function getPayloadFromCard($el) {
+    const galleryRaw = $el.attr('data-story-gallery') || '';
+    const thumbSrc = $el.find('.storyPageCard__thumb img').attr('src') || '';
+    return {
+      no: $el.attr('data-story-no') || '',
+      title: $el.attr('data-story-title') || '',
+      sub: ($el.attr('data-story-sub') || '').trim(),
+      detail: $el.attr('data-story-detail') || '',
+      gallery: galleryRaw.split('|').filter(Boolean),
+      figures: parseFigures($el.attr('data-story-figures') || ''),
+      thumb: thumbSrc
+    };
+  }
+
+  function openStoryPageModal(payload) {
+    const galleryUrls = resolveGalleryUrls(payload.gallery, payload.thumb);
+    buildGallery(galleryUrls);
+
+    $no.text(payload.no);
+    $title.text(payload.title);
+
+    const sub = payload.sub.trim();
+    if (sub) {
+      $sub.text(sub).removeClass('is-empty').removeAttr('hidden');
+    } else {
+      $sub.text('').addClass('is-empty').attr('hidden', 'hidden');
+    }
+
+    $body.html(buildArticleHtml(payload.detail, payload.figures));
+
     if ($panel.length) $panel[0].scrollTop = 0;
     if ($modalBody.length) $modalBody[0].scrollTop = 0;
+    if ($modalAside.length) $modalAside[0].scrollTop = 0;
 
     $html.addClass('is-story-page-modal-open');
     $modal.addClass('is-open').attr('aria-hidden', 'false');
+  }
+
+  function openStoryFromCard($el) {
+    if (!$el.length) return;
+    openStoryPageModal(getPayloadFromCard($el));
+    setStoryUrlParam($el.attr('data-story-no'));
   }
 
   function closeStoryPageModal() {
     if (!$modal.hasClass('is-open')) return;
     $modal.removeClass('is-open').attr('aria-hidden', 'true');
     $html.removeClass('is-story-page-modal-open');
+    setStoryUrlParam('');
+  }
+
+  function openStoryFromUrl() {
+    const storyNo = getStoryNoFromUrl();
+    if (!storyNo) return;
+
+    const $card = $(`.js-story-page-card[data-story-no="${storyNo}"]`);
+    if (!$card.length) return;
+
+    openStoryFromCard($card.first());
+    $card[0].scrollIntoView({ block: 'nearest', behavior: 'instant' });
   }
 
   $('.js-story-page-card').on('click', function () {
-    const $el = $(this);
-    const galleryRaw = $el.attr('data-story-gallery') || '';
-    openStoryPageModal({
-      no: $el.attr('data-story-no') || '',
-      title: $el.attr('data-story-title') || '',
-      sub: ($el.attr('data-story-sub') || '').trim(),
-      detail: $el.attr('data-story-detail') || '',
-      gallery: galleryRaw.split('|').filter(Boolean)
-    });
+    openStoryFromCard($(this));
   });
+
+  openStoryFromUrl();
 
   $modal.on('click', '.js-story-page-modal-close', function (e) {
     e.preventDefault();
