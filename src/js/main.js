@@ -18,20 +18,77 @@ $('#menuBtn').on('click', function () {
 });
 
 // メニューを閉じる
-function closeNav() {
+function closeNav(options = {}) {
+  const { restoreScroll = true, onClosed } = options;
+  const savedScrollTop = Math.abs(
+    parseInt($('body').css('--scroll-top') || '0', 10)
+  );
+
   // まずパネルのスライドアウトを開始
   $gnav.removeClass('is-open');
 
   // パネルのトランジション完了を待ってからコンテンツを再表示
   $panel.one('transitionend', function () {
     $('body').removeClass('gnav-open');
-    const scrollTop = Math.abs(
-      parseInt($('body').css('--scroll-top') || '0', 10)
-    );
     $('body').removeClass('no-scroll').css('--scroll-top', '');
-    $(window).scrollTop(scrollTop);
+
+    if (restoreScroll) {
+      $(window).scrollTop(savedScrollTop);
+    }
+
+    if (typeof onClosed === 'function') {
+      onClosed();
+    }
   });
 }
+
+function normalizeSitePath(pathname) {
+  if (!pathname || pathname === '/') return '/';
+  let path = pathname.replace(/\/index\.html$/i, '').replace(/\.html$/i, '');
+  if (!path.endsWith('/')) path += '/';
+  return path === '//' ? '/' : path;
+}
+
+function isSameSitePath(linkPathname) {
+  return (
+    normalizeSitePath(linkPathname) ===
+    normalizeSitePath(window.location.pathname)
+  );
+}
+
+function getHeaderOffset() {
+  const $inner = $('.header__inner');
+  return $inner.length ? $inner.outerHeight() : 0;
+}
+
+// 同一ページのアンカー: no-scroll 中はスクロールできないためメニュー閉鎖後に移動
+$gnav.on('click', '.gnav__list a[href*="#"]', function (e) {
+  const rawHref = this.getAttribute('href');
+  if (!rawHref?.includes('#')) return;
+
+  let url;
+  try {
+    url = new URL(rawHref, window.location.href);
+  } catch {
+    return;
+  }
+
+  if (!url.hash || url.hash === '#') return;
+
+  const $target = $(url.hash);
+  if (!$target.length || !isSameSitePath(url.pathname)) return;
+
+  e.preventDefault();
+
+  closeNav({
+    restoreScroll: false,
+    onClosed() {
+      const top = Math.max(0, $target.offset().top - getHeaderOffset());
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.pushState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+  });
+});
 
 $('#gnavClose').on('click', closeNav);
 $('#gnavOverlay').on('click', closeNav);

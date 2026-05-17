@@ -1029,6 +1029,12 @@
 
 /* ART PROJECT — Figma node 151:23005 */
 .Top .artProjectSection {
+  scroll-margin-top: vwpc(100);
+
+  @include sp {
+    scroll-margin-top: vwsp(67);
+  }
+
   background: #fff;
   color: #000;
   padding-block: vwpc(0) vwpc(100);
@@ -1212,7 +1218,7 @@
 /* section_countdown — Figma PC 5:1744 / SP 6:4551 */
 .Top .countdownSection {
   position: relative;
-  min-height: vwpc(1120); /* PC: 560 × 2 */
+  min-height: vwpc(840); /* PC: 1120 × 0.75 */
   overflow: hidden;
   background: #000;
   color: #fff;
