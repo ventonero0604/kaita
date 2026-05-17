@@ -1,7 +1,7 @@
 <li class="eventCard">
-  <a href="{{#if href}}{{href}}{{else}}./event_detail.html{{/if}}" class="eventCard__link">
+  <a href="{{#if href}}{{href}}{{else}}{{url.eventDetail}}{{/if}}" class="eventCard__link">
     <div class="eventCard__thumb">
-      <img src="{{#if thumb}}{{thumb}}{{else}}./img/event_thumb.jpg{{/if}}" alt="" width="{{#if thumbW}}{{thumbW}}{{else}}476{{/if}}" height="{{#if thumbH}}{{thumbH}}{{else}}477{{/if}}" loading="lazy" decoding="async">
+      <img src="{{#if thumb}}{{thumb}}{{else}}{{assetBase}}img/event_thumb.jpg{{/if}}" alt="" width="{{#if thumbW}}{{thumbW}}{{else}}476{{/if}}" height="{{#if thumbH}}{{thumbH}}{{else}}477{{/if}}" loading="lazy" decoding="async">
     </div>
     <div class="eventCard__body">
       <div class="eventCard__dateRow" aria-label="開催日時">

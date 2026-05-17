@@ -16,9 +16,9 @@
 
     <ul class="eventSection__cards eventSection__cards--pc">
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -33,9 +33,9 @@
         </a>
       </li>
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -50,9 +50,9 @@
         </a>
       </li>
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -67,9 +67,9 @@
         </a>
       </li>
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="330" height="331" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -87,9 +87,9 @@
 
     <ul class="eventSection__cards eventSection__cards--sp">
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -104,9 +104,9 @@
         </a>
       </li>
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -121,9 +121,9 @@
         </a>
       </li>
       <li class="eventCard">
-        <a href="./event_detail.html" class="eventCard__link">
+        <a href="{{url.eventDetail}}" class="eventCard__link">
           <div class="eventCard__thumb">
-            <img src="./img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
+            <img src="{{assetBase}}img/event_thumb.jpg" alt="" width="300" height="301" loading="lazy" decoding="async">
           </div>
           <div class="eventCard__body">
             <div class="eventCard__dateRow" aria-label="開催日時">
@@ -140,14 +140,14 @@
     </ul>
 
     <div class="wrapper">
-      <a href="{{#if eventCtaHref}}{{eventCtaHref}}{{else}}./event.html{{/if}}" class="Button Button--dark eventSection__cta">
+      <a href="{{#if eventCtaHref}}{{eventCtaHref}}{{else}}{{url.event}}{{/if}}" class="Button Button--dark eventSection__cta">
         <span class="Button__label">イベント一覧</span>
         <span class="Button__meta" aria-hidden="true">
           <span class="Button__divider">
-            <img src="./img/concept_btn_divider.svg" alt="" width="1" height="23">
+            <img src="{{assetBase}}img/concept_btn_divider.svg" alt="" width="1" height="23">
           </span>
           <span class="Button__icon">
-            <img src="./img/concept_btn_arrow.svg" alt="" width="16" height="16">
+            <img src="{{assetBase}}img/concept_btn_arrow.svg" alt="" width="16" height="16">
           </span>
         </span>
       </a>

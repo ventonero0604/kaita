@@ -2,10 +2,10 @@ import { defineConfig } from 'vite';
 
 import { resolve } from 'path';
 
-//handlebarsプラグインimport
 import handlebars from 'vite-plugin-handlebars';
+import { cleanUrlsPlugin } from './scripts/vite-plugin-clean-urls.js';
+import { buildUrlContext, htmlEntries, htmlFileToSlug } from './scripts/routes.js';
 
-//HTML上で出し分けたい各ページごとの情報
 const pageData = {
   'index.html': {
     isHome: true,
@@ -89,58 +89,30 @@ const pageData = {
   }
 };
 
-const htmlEntries = [
-  'index.html',
-  'about.html',
-  'story.html',
-  'event.html',
-  'event_detail.html',
-  'event_detail_01.html',
-  'event_detail_02.html',
-  'event_detail_03.html',
-  'event_detail_04.html',
-  'event_detail_05.html',
-  'event_detail_06.html',
-  'event_detail_07.html',
-  'event_detail_08.html',
-  'event_detail_09.html',
-  'interview.html',
-  'interview_detail.html',
-  'interview_detail_01.html',
-  'information.html',
-  'information_detail.html',
-  'entry.html',
-  'entry_food.html',
-  'entry_job.html',
-  'entry_sponsor.html'
-];
-
 const root = 'src';
 
 const rollupInput = Object.fromEntries(
   htmlEntries.map((file) => [
-    file.replace(/\.html$/, '').replace(/_/g, '-'),
+    htmlFileToSlug(file) || 'index',
     resolve(__dirname, root, file)
   ])
 );
 
 export default defineConfig({
-  base: './',
+  base: '/',
   server: {
-    host: true //IPアドレスを有効化
+    host: true
   },
-  root: root, //開発ディレクトリ設定
+  root,
   build: {
-    outDir: '../dist', //出力場所の指定
+    outDir: '../dist',
     rollupOptions: {
-      //ファイル出力設定
       output: {
-        assetFileNames: assetInfo => {
+        assetFileNames: (assetInfo) => {
           let extType = assetInfo.name.split('.')[1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             extType = 'images';
           }
-          //ビルド時のCSS名を明記してコントロールする
           if (extType === 'css') {
             return `assets/css/style.css`;
           }
@@ -148,24 +120,22 @@ export default defineConfig({
         },
         chunkFileNames: 'assets/js/[name].js',
         entryFileNames: 'assets/js/[name].js',
-        // 単一のバンドルを生成
         manualChunks: undefined
       },
       input: rollupInput
     }
   },
-  /*
-    プラグインの設定を追加
-  */
   plugins: [
     handlebars({
-      //コンポーネントの格納ディレクトリを指定
       partialDirectory: resolve(__dirname, root, 'components'),
-      //各ページ情報の読み込み
       context(pagePath) {
         const pageName = pagePath.split('/').pop();
-        return pageData[pageName] || { title: 'Kaitaful Fes' };
+        return {
+          ...(pageData[pageName] || { title: 'Kaitaful Fes' }),
+          ...buildUrlContext(pageName)
+        };
       }
-    })
+    }),
+    cleanUrlsPlugin({ root, outDir: resolve(__dirname, 'dist') })
   ]
 });

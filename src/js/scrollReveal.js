@@ -46,8 +46,15 @@ const SECTION_RULES = [
     ]
   },
   {
-    match: '.kaitafulFesBand',
-    children: ['.kaitafulFesBand__inner']
+    match: '.artProjectSection',
+    children: [
+      '.artProjectSection__head',
+      '.artProjectSection__hero',
+      '.artProjectSection__lead',
+      '.artProjectSection__promoBanner',
+      '.artProjectSection__promoAreas',
+      '.artProjectSection__promoCards'
+    ]
   },
   {
     match: '.countdownSection',

@@ -176,10 +176,30 @@ function getStoryNoFromUrl() {
   return '';
 }
 
+function assetBase() {
+  return window.__ASSET_BASE__ || '/';
+}
+
+function resolveAssetUrl(path) {
+  if (!path || typeof path !== 'string') return '';
+  const trimmed = path.trim();
+  if (!trimmed) return '';
+  if (/^(https?:)?\/\//i.test(trimmed) || trimmed.startsWith('data:')) return trimmed;
+
+  const base = assetBase();
+  const join = (rel) => `${base}${rel.replace(/^\//, '')}`;
+
+  if (trimmed.startsWith('/')) return join(trimmed);
+  if (trimmed.startsWith('./')) return join(trimmed.slice(2));
+  if (trimmed.startsWith('../')) return join(trimmed.replace(/^(\.\.\/)+/, ''));
+  return join(trimmed);
+}
+
 function buildStoryPageUrl(storyNo) {
   const no = normalizeStoryNo(storyNo);
-  if (!no) return './story.html';
-  return `./story.html?story=${encodeURIComponent(no)}`;
+  const base = `${assetBase()}story/`;
+  if (!no) return base;
+  return `${base}?story=${encodeURIComponent(no)}`;
 }
 
 function getStoryNoFromSlide($slide) {
@@ -563,10 +583,11 @@ function getStoryNoFromSlide($slide) {
   }
 
   function resolveGalleryUrls(rawUrls, fallbackSrc) {
-    const urls = rawUrls.filter(Boolean);
+    const urls = rawUrls.map(resolveAssetUrl).filter(Boolean);
+    const thumb = resolveAssetUrl(fallbackSrc);
     if (urls.length >= 2) return urls.slice(0, 3);
 
-    const primary = urls[0] || fallbackSrc || '';
+    const primary = urls[0] || thumb || '';
     if (!primary) return [];
 
     if (urls.length === 1) {
@@ -697,13 +718,21 @@ function getStoryNoFromSlide($slide) {
   function getPayloadFromCard($el) {
     const galleryRaw = $el.attr('data-story-gallery') || '';
     const thumbSrc = $el.find('.storyPageCard__thumb img').attr('src') || '';
+    const figures = parseFigures($el.attr('data-story-figures') || '').map((figure) => ({
+      ...figure,
+      src: resolveAssetUrl(figure.src),
+      href: figure.href ? resolveAssetUrl(figure.href) : figure.href
+    }));
     return {
       no: $el.attr('data-story-no') || '',
       title: $el.attr('data-story-title') || '',
       sub: ($el.attr('data-story-sub') || '').trim(),
       detail: $el.attr('data-story-detail') || '',
-      gallery: galleryRaw.split('|').filter(Boolean),
-      figures: parseFigures($el.attr('data-story-figures') || ''),
+      gallery: galleryRaw
+        .split('|')
+        .map((url) => url.trim())
+        .filter(Boolean),
+      figures,
       thumb: thumbSrc
     };
   }

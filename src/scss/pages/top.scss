@@ -1027,42 +1027,184 @@
   }
 }
 
-/* KAITAFUL FES 帯 — 単一 SVG（Figma PC 8:15943 / SP 6:4550 を1ファイルにまとめて配置） */
-.Top .kaitafulFesBand {
+/* ART PROJECT — Figma node 151:23005 */
+.Top .artProjectSection {
   background: #fff;
-  padding-bottom: 5rem;
+  color: #000;
+  padding-block: vwpc(0) vwpc(100);
 
-  .kaitafulFesBand__inner {
+  @include sp {
+    padding-block: vwsp(0) vwsp(64);
+  }
+
+  .artProjectSection__inner {
     box-sizing: border-box;
-    max-width: calc(1680 * 100vw / 1680);
+    width: 100%;
+    max-width: vwpc(1175);
     margin-inline: auto;
-    padding-inline: vwpc(91);
+    padding-inline: vwpc(24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vwpc(43);
 
     @include sp {
-      padding-inline: vwsp(28);
+      max-width: none;
+      padding-inline: vwsp(24);
+      gap: vwsp(32);
     }
   }
 
-  .kaitafulFesBand__img {
-    display: block;
-    height: auto;
-    margin-inline: auto;
-  }
-
-  .kaitafulFesBand__img--pc {
-    width: min(100%, #{vwpc(1285.755)});
+  .artProjectSection__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vwpc(17);
+    text-align: center;
 
     @include sp {
-      display: none;
+      gap: vwsp(10);
     }
   }
 
-  .kaitafulFesBand__img--sp {
-    display: none;
-    width: min(100%, #{vwsp(334.267)});
+  .artProjectSection__label {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: vwpc(13);
+    line-height: vwpc(16.1);
+    color: #45b9b8;
 
     @include sp {
+      font-size: vwsp(13);
+      line-height: vwsp(16.1);
+    }
+  }
+
+  .artProjectSection__title {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vwpc(46.5);
+    line-height: vwpc(57.5);
+    letter-spacing: 0.02em;
+
+    @include sp {
+      font-size: vwsp(36);
+      line-height: 1.2;
+    }
+  }
+
+  .artProjectSection__hero {
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 1175 / 638;
+    overflow: hidden;
+    border-radius: vwpc(4);
+
+    @include sp {
+      aspect-ratio: 335 / 220;
+      border-radius: vwsp(4);
+    }
+
+    img {
       display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+    }
+  }
+
+  .artProjectSection__lead {
+    width: 100%;
+    max-width: vwpc(946);
+    margin: vwpc(4) 0 0;
+
+    @include sp {
+      max-width: 100%;
+      margin-top: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-inline: auto;
+    }
+  }
+
+  .artProjectSection__promo {
+    width: 100%;
+    max-width: vwpc(1521);
+    margin-top: vwpc(4);
+    display: flex;
+    flex-direction: column;
+
+    @include sp {
+      max-width: none;
+      margin-top: vwsp(8);
+    }
+  }
+
+  .artProjectSection__promoBanner,
+  .artProjectSection__promoArea,
+  .artProjectSection__promoCard {
+    margin: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .artProjectSection__promoBanner {
+    aspect-ratio: 1521 / 662;
+    margin-bottom: vwpc(54);
+
+    @include sp {
+      margin-bottom: vwsp(20);
+    }
+  }
+
+  .artProjectSection__promoAreas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: vwpc(34);
+    padding-inline: vwpc(60);
+    margin-bottom: vwpc(56);
+
+    @include sp {
+      grid-template-columns: 1fr;
+      row-gap: vwsp(16);
+      padding-inline: 0;
+      margin-bottom: vwsp(20);
+    }
+  }
+
+  .artProjectSection__promoArea {
+    aspect-ratio: 690 / 444;
+  }
+
+  .artProjectSection__promoCards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: vwpc(15);
+    padding-inline: vwpc(60);
+
+    @include sp {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: vwsp(12);
+      padding-inline: 0;
+    }
+  }
+
+  .artProjectSection__promoCard {
+    aspect-ratio: 340 / 247;
+
+    &--last {
+      aspect-ratio: 338 / 247;
     }
   }
 }
@@ -1070,7 +1212,7 @@
 /* section_countdown — Figma PC 5:1744 / SP 6:4551 */
 .Top .countdownSection {
   position: relative;
-  min-height: vwpc(560);
+  min-height: vwpc(1120); /* PC: 560 × 2 */
   overflow: hidden;
   background: #000;
   color: #fff;
@@ -1283,16 +1425,19 @@
   }
 
   .movie__scrollDown {
-    display: none;
+    display: block;
+    position: absolute;
+    right: vwpc(40);
+    bottom: vwpc(32);
+    width: vwpc(130);
+    height: vwpc(130);
+    z-index: 2;
 
     @include sp {
-      display: block;
-      position: absolute;
       right: vwsp(20);
       bottom: vwsp(16);
       width: vwsp(70);
       height: vwsp(70);
-      z-index: 2;
     }
   }
 
@@ -1300,10 +1445,7 @@
     display: block;
     width: 100%;
     height: 100%;
-
-    @include sp {
-      animation: movie-scroll-rotate 12s linear infinite;
-    }
+    animation: movie-scroll-rotate 12s linear infinite;
   }
 
   .movie__scrollDownCenter {
@@ -1311,13 +1453,14 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: vwsp(45.2);
-    height: vwsp(45.2);
+    width: vwpc(84);
+    height: vwpc(84);
     transform: translate(-50%, -50%);
     z-index: 3;
 
     @include sp {
-      display: block;
+      width: vwsp(45.2);
+      height: vwsp(45.2);
     }
   }
 }
